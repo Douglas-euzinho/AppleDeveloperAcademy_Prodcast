@@ -75,6 +75,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230128392763CFE0003173F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2301283B2763D004003173F4 /* Screens */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2301283B2763D004003173F4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2301283C2763D00D003173F4 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2301283C2763D00D003173F4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CDA0430B27629B090020AF33 /* ContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2301283D2763D01E003173F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2301283F2763D039003173F4 /* CoreDataModel */,
+				CDA0431227629B0B0020AF33 /* Persistence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2301283E2763D02D003173F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDA0430D27629B0B0020AF33 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2301283F2763D039003173F4 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDA0431427629B0B0020AF33 /* PodcastApp.xcdatamodeld */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		CDA042FD27629B090020AF33 = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +147,10 @@
 		CDA0430827629B090020AF33 /* PodcastApp */ = {
 			isa = PBXGroup;
 			children = (
+				2301283E2763D02D003173F4 /* Resources */,
+				2301283D2763D01E003173F4 /* Model */,
+				230128392763CFE0003173F4 /* View */,
 				CDA0430927629B090020AF33 /* PodcastAppApp.swift */,
-				CDA0430B27629B090020AF33 /* ContentView.swift */,
-				CDA0430D27629B0B0020AF33 /* Assets.xcassets */,
-				CDA0431227629B0B0020AF33 /* Persistence.swift */,
-				CDA0431427629B0B0020AF33 /* PodcastApp.xcdatamodeld */,
 				CDA0430F27629B0B0020AF33 /* Preview Content */,
 			);
 			path = PodcastApp;
@@ -427,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = 272983AP33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -456,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = 272983AP33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
