@@ -14,25 +14,29 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            Text("Hello, World!").padding()
-                .navigationTitle("Home")
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            print(" ")
-                        } label: {
-                            Image(systemName: "plus")
-                            Text("Add")
+            ZStack{
+                CardsEps()
+                    .position(x: 103, y: 244)
+                CardsEps()
+                    .position(x: 290, y: 244)
+                
+                    .navigationTitle("Home")
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button {
+                                print(" ")
+                            } label: {
+                                Image(systemName: "plus")
+                                Text("Add")
+                            }
+                        }
+                    
+                        ToolbarItem(placement: .bottomBar) {
+                            Spacer()
                         }
                     }
-                    
-                    ToolbarItem(placement: .bottomBar) {
-                        Spacer()
-                    }
-                    
-                    
                 }
-        }
+            }
 
         }
     }
