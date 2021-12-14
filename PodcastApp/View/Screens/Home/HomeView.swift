@@ -5,6 +5,12 @@
 //  Created by Victor Brito on 09/12/21.
 //
 
+//--TODO: Adjust background layers on other iphones
+//--TODO: adjust scrollview spacing
+//--TODO: check layout on ipads
+
+
+
 import SwiftUI
 import CoreData
 
@@ -15,12 +21,20 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack{
-                CardsEps()
-                    .position(x: 103, y: 244)
-                CardsEps()
-                    .position(x: 290, y: 244)
+                Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white)
+                    .ignoresSafeArea()
+                BgLayers()
+              
+                ScrollView {
+                    HStack(spacing: 30) {
+                        ForEach(0..<2) {_ in
+                            CardsEps()
+                        }
+                    }
+                }
+                .frame(height: 400)
+                .position(x: 195, y: 400)
                 
-                    .navigationTitle("Home")
                     .toolbar {
                         ToolbarItem(placement: .bottomBar) {
                             Button {
@@ -37,7 +51,7 @@ struct HomeView: View {
                     }
                 }
             }
-
+        
         }
     }
 
