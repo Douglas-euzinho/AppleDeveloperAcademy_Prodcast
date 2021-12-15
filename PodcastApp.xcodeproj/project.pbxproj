@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */; };
+		2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */; };
+		2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */; };
+		2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */; };
+		2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */; };
+		2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */; };
+		2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */; };
+		2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */; };
+		2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEps.swift */; };
 		CD2864A52769137200D17C47 /* BgLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A42769137200D17C47 /* BgLayers.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
@@ -40,6 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputSpecificInfoView.swift; sourceTree = "<group>"; };
+		2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptFormatView.swift; sourceTree = "<group>"; };
+		2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputInfosView.swift; sourceTree = "<group>"; };
+		2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEps.swift; sourceTree = "<group>"; };
 		CD2864A42769137200D17C47 /* BgLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgLayers.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -95,6 +113,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2343C009276A5D6A00C3A3EE /* Script */,
 				2301283C2763D00D003173F4 /* Home */,
 			);
 			path = Screens;
@@ -111,6 +130,7 @@
 		2301283D2763D01E003173F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2343C01C276A605900C3A3EE /* Entities */,
 				2301283F2763D039003173F4 /* CoreDataModel */,
 				CDA0431227629B0B0020AF33 /* Persistence.swift */,
 			);
@@ -132,6 +152,53 @@
 				CDA0431427629B0B0020AF33 /* PodcastApp.xcdatamodeld */,
 			);
 			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		2343C009276A5D6A00C3A3EE /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */,
+				2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */,
+				2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */,
+			);
+			path = Script;
+			sourceTree = "<group>";
+		};
+		2343C01C276A605900C3A3EE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2343C01F276A607400C3A3EE /* Script */,
+				2343C01E276A606C00C3A3EE /* Episode */,
+				2343C01D276A606000C3A3EE /* Topic */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2343C01D276A606000C3A3EE /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */,
+				2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		2343C01E276A606C00C3A3EE /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */,
+				2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		2343C01F276A607400C3A3EE /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */,
+				2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */,
+			);
+			path = Script;
 			sourceTree = "<group>";
 		};
 		CD28649F2767E6D500D17C47 /* Shared */ = {
@@ -333,9 +400,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */,
+				2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */,
+				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
+				2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */,
+				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
+				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
+				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
+				2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */,
 				CDA0430C27629B090020AF33 /* HomeView.swift in Sources */,
+				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
+				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
 				CD2864A52769137200D17C47 /* BgLayers.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBar.swift in Sources */,
