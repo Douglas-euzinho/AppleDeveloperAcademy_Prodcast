@@ -33,7 +33,6 @@ struct ScriptFormatView: View {
                 }
             }//End List
             .navigationTitle("Escolha um formato")
-            .toolbar{EditButton()}
         }//End NavigationView
     }//End Body
 }

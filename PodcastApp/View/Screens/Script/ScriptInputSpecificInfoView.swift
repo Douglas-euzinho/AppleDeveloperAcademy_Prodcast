@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct ScriptInputSpecificInfoView: View {
-    var topicoSelecionado: String
-    
-    @State var teste: String = ""
-    
+    @State var content: String
     var body: some View {
+        //TODO: Custom TextEditor view to conform prototype
         VStack(alignment: .leading){
-            Text("\(topicoSelecionado)")
-                .padding()
-            //TextField("", $teste)
+            TextEditor(text: $content).padding([.top,.leading, .trailing])
         }
     }
 }
 
 struct ScriptInputSpecificInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptInputSpecificInfoView(topicoSelecionado: "a", teste: "a")
+        ScriptInputSpecificInfoView(content: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam")
     }
 }
