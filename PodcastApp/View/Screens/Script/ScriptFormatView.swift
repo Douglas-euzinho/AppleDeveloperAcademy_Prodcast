@@ -28,7 +28,7 @@ struct ScriptFormatView: View {
     var body: some View {
         NavigationView{
             List(types){ value in
-                NavigationLink(destination: ScriptInputInfosView(tipoSelecionado: value.name)){
+                NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name)){
                     Text("\(value.name)")
                 }
             }//End List
