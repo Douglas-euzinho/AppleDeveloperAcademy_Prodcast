@@ -5,10 +5,10 @@
 //  Created by Victor Brito on 09/12/21.
 //
 
-//--TODO: Adjust background layers on other iphones
-//--TODO: adjust scrollview spacing
-//--TODO: check layout on ipads
-//,
+//--TODO:
+//--TODO:
+//--TODO:
+
 
 
 
@@ -21,10 +21,36 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
+        VStack{
             ZStack{
+                
+                
+    
                 Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white)
                     .ignoresSafeArea()
-                BgLayers()
+                
+                
+                BgLayer()
+                    .position(x: 195, y: 630)
+                    .ignoresSafeArea()
+                //Foto do perfil
+                Circle()
+                    .ignoresSafeArea()
+                    .frame(width: 62, height: 52)
+                    .position(x: 195, y: 20)
+                
+                //Nome do podcast
+                Text("Vida de Estudante ")
+                    .position(x: 195, y: 10)
+                    .font(.custom("Helvetica Neue", size: 20))
+                   
+                
+                Text("Meus Episódios ")
+                    .position(x: 160, y: 109)
+                    .font(.custom("Helvetica Neue", size: 28))
+                
+                
+                    
               
                 ScrollView {
                     HStack(spacing: 30) {
@@ -33,6 +59,7 @@ struct HomeView: View {
                         }
                     }
                 }
+                .background(Color.white)
                 .frame(height: 400)
                 .position(x: 195, y: 400)
                 
@@ -48,7 +75,9 @@ struct HomeView: View {
                     
                         ToolbarItem(placement: .bottomBar) {
                             Spacer()
+                            }
                         }
+                    
                     }
                 }
             }
