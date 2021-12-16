@@ -27,8 +27,6 @@ struct ScriptInputInfosView: View {
         
         
         //TODO: CREATE DELETE TOPIC FUNTION
-        
-        NavigationView{
             List(initialTopics){ value in
                 Section{
                     Text("\(value.nameType):")
@@ -61,7 +59,6 @@ struct ScriptInputInfosView: View {
                     }
 
                 }
-            }
         }
         //End NavigationView
     }//End Body

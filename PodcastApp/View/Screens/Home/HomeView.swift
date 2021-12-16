@@ -20,7 +20,6 @@ struct HomeView: View {
 
 
     var body: some View {
-        NavigationView {
             ZStack{
                 Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white)
                     .ignoresSafeArea()
@@ -52,8 +51,6 @@ struct HomeView: View {
                     }
                 }
             }
-        
-        }
     }
 
 
