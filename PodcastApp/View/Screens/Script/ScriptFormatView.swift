@@ -26,11 +26,16 @@ var types = [
 
 struct ScriptFormatView: View {
     var body: some View {
+        NavigationView{
             List(types){ value in
                 NavigationLink(destination: ScriptInputInfosView(tipoSelecionado: value.name)){
                     Text("\(value.name)")
                 }
             }//End List
+            .navigationTitle("Escolha um formato")
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        //End NavigationView
     }//End Body
 }
 

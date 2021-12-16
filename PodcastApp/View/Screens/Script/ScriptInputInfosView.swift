@@ -24,8 +24,6 @@ var initialTopics = [
 struct ScriptInputInfosView: View {
     var tipoSelecionado: String
     var body: some View {
-        
-        
         //TODO: CREATE DELETE TOPIC FUNTION
             List(initialTopics){ value in
                 Section{
