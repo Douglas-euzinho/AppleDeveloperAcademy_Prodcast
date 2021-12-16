@@ -18,8 +18,13 @@ import SwiftUI
             VStack {
                 ProgressView(value: 50, total: 100)
                 .accentColor(Color.green)
-                .scaleEffect(x: 1.0, y: 3, anchor: .center)
+                .scaleEffect(x: 0.8, y: 3, anchor: .center)
             }
         }
     }
     
+struct ProgressBar_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressBar()
+    }
+}

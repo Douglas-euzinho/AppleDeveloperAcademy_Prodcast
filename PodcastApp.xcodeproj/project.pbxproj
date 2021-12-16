@@ -16,9 +16,9 @@
 		2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */; };
 		2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */; };
 		2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */; };
+		CD25E002276BC2B5003012C6 /* BgLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E001276BC2B5003012C6 /* BgLayer.swift */; };
 		2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C021276BC2E400C3A3EE /* CustomAlertView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEps.swift */; };
-		CD2864A52769137200D17C47 /* BgLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A42769137200D17C47 /* BgLayers.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
 		CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430927629B090020AF33 /* PodcastAppApp.swift */; };
 		CDA0430C27629B090020AF33 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430B27629B090020AF33 /* HomeView.swift */; };
@@ -59,10 +59,10 @@
 		2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD25E001276BC2B5003012C6 /* BgLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgLayer.swift; sourceTree = "<group>"; };
 		2343C020276B8D1800C3A3EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2343C021276BC2E400C3A3EE /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEps.swift; sourceTree = "<group>"; };
-		CD2864A42769137200D17C47 /* BgLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgLayers.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0430927629B090020AF33 /* PodcastAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppApp.swift; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				CD2864A02767E7AF00D17C47 /* CardsEps.swift */,
-				CD2864A42769137200D17C47 /* BgLayers.swift */,
 				CDB469F52769257900752468 /* ProgressBar.swift */,
+				CD25E001276BC2B5003012C6 /* BgLayer.swift */,
 				2343C021276BC2E400C3A3EE /* CustomAlertView.swift */,
 			);
 			path = Shared;
@@ -238,7 +238,6 @@
 		CDA0430827629B090020AF33 /* PodcastApp */ = {
 			isa = PBXGroup;
 			children = (
-				2343C020276B8D1800C3A3EE /* Info.plist */,
 				2301283E2763D02D003173F4 /* Resources */,
 				2301283D2763D01E003173F4 /* Model */,
 				230128392763CFE0003173F4 /* View */,
@@ -418,8 +417,8 @@
 				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
 				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
-				CD2864A52769137200D17C47 /* BgLayers.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */,
+				CD25E002276BC2B5003012C6 /* BgLayer.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +586,7 @@
 				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -617,7 +616,7 @@
 				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
