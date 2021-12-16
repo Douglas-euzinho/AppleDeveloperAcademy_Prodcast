@@ -11,7 +11,7 @@ struct ScriptInputSpecificInfoView: View {
     @State var content: String
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
-        VStack(alignment: .leading){
+        VStack(alignment: .center){
             TextEditor(text: $content).padding([.top,.leading, .trailing])
         }
     }
