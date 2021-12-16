@@ -17,6 +17,7 @@
 		2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */; };
 		2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */; };
 		CD25E002276BC2B5003012C6 /* BgLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E001276BC2B5003012C6 /* BgLayer.swift */; };
+		2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C021276BC2E400C3A3EE /* CustomAlertView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEps.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
 		CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430927629B090020AF33 /* PodcastAppApp.swift */; };
@@ -59,6 +60,8 @@
 		2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD25E001276BC2B5003012C6 /* BgLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgLayer.swift; sourceTree = "<group>"; };
+		2343C020276B8D1800C3A3EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2343C021276BC2E400C3A3EE /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEps.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +210,7 @@
 				CD2864A02767E7AF00D17C47 /* CardsEps.swift */,
 				CDB469F52769257900752468 /* ProgressBar.swift */,
 				CD25E001276BC2B5003012C6 /* BgLayer.swift */,
+				2343C021276BC2E400C3A3EE /* CustomAlertView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -399,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
 				CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */,
 				2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
