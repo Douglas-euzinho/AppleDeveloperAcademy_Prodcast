@@ -9,6 +9,11 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
+    
+    @State var showSheetView = false
+    @State var episodeName = ""
+    @StateObject var homeViewModel = HomeViewModel()
+    
     @Environment(\.managedObjectContext) private var viewContext
     let screen = UIScreen.main.bounds
     
@@ -26,9 +31,9 @@ struct HomeView: View {
                                 .font(.custom("", size: 30))
                         ScrollView{
                             //FIXME: Create logic to present cards
-                            HStack(spacing: 20){
-                                ForEach(0..<2) { _ in
-                                    CardsEpsView()
+                            VStack(spacing: 20){
+                                ForEach(homeViewModel.episodes) { episode in
+                                    CardsEpsView(episode: episode)
                                 }
                             }
                             
@@ -42,9 +47,8 @@ struct HomeView: View {
             .background(.gray)
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        //TODO: CREATE ACTION TO ADD NEW EPISODE
-                        print("")
+                    Button{
+                        showSheetView.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .foregroundColor(.black)
@@ -60,6 +64,9 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $showSheetView) {
+            NewEpisodeView(showSheetView: $showSheetView, episodeName: $episodeName)
+        }
     }
 }
 
@@ -67,7 +74,7 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HomeView()
     }
 }
 //

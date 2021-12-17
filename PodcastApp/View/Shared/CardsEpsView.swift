@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct CardsEpsView: View {
+    @ObservedObject var episode: Episode
     let screen = UIScreen.main.bounds
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white))
                  .frame(width: 152, height: 213)
-            StatesOfPodcast()
+            StatesOfPodcast(episode: episode)
         }
         
     }
 }
 
 struct StatesOfPodcast: View {
+    @ObservedObject var episode: Episode
     var body: some View {
         HStack{
-            ProgressBarView()
+            ProgressBarView(progress: Int(Float(episode.status)))
                 .position(x: 20, y: 120)
         }
         .frame(width: 152, height: 213)
         VStack{
-            Text("Nome do podcast")
+            Text(episode.title ?? "Sem título")
                 .font(.custom("Helvetica Neue", size: 13))
             HStack{
                 VStack(alignment: .leading){
@@ -58,7 +60,7 @@ struct StatesOfPodcast: View {
 
 struct CardsEps_Previews: PreviewProvider {
     static var previews: some View {
-        CardsEpsView()
+        CardsEpsView(episode: PersistenceController.shared.fetchAllEpisodes().first!)
     }
 }
 
