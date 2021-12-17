@@ -1,0 +1,26 @@
+//
+//  UserProfileView.swift
+//  PodcastApp
+//
+//  Created by Igor Samoel da Silva on 17/12/21.
+//
+
+import SwiftUI
+
+struct UserProfileView: View {
+    let screen = UIScreen.main.bounds
+    var body: some View {
+        VStack(spacing: 10){
+            Image(systemName: "person.circle.fill")
+                .resizable()
+                .frame(width: 80, height: 80)
+            Text("Vida de Estudante").font(.custom("Helvetica Neue", size: 25))
+        }
+    }
+}
+
+struct UserProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserProfileView()
+    }
+}
