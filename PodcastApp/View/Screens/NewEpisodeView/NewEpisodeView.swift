@@ -40,7 +40,7 @@ struct NewEpisodeView: View {
                     .clipped()
                     .labelsHidden()
                     .accentColor(Color.blue)
-                    .frame(width: .infinity, alignment: .leading)
+                    .frame(alignment: .leading)
                 //FIXME: add date format
                 
                 Spacer()
