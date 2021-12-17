@@ -20,5 +20,6 @@ struct ScriptInputSpecificInfoView: View {
 struct ScriptInputSpecificInfoView_Previews: PreviewProvider {
     static var previews: some View {
         ScriptInputSpecificInfoView(content: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam")
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
