@@ -12,11 +12,10 @@ class HomeViewModel: ObservableObject {
      
     init() {
         do {
-            try PersistenceController.shared.createEpisode(title: "Episode \(Int.random(in: 1...100))", status: randomProgress(), date: Date())
+            _ = try PersistenceController.shared.createEpisode(title: "Episode \(Int.random(in: 1...100))", status: randomProgress(), date: Date())
         } catch {
             print("Erro ao criar episodio")
         }
-
     }
     
     @Published var episodes: [Episode] = {

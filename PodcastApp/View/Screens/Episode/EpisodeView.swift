@@ -10,7 +10,7 @@ import SwiftUI
 struct EpisodeView: View {
     // MARK: - PROPERTIES
     @State private var actualDate = Date()
-    
+    @ObservedObject var episode: Episode
     // MARK: - BODY
     var body: some View {
         NavigationView() {
@@ -20,7 +20,7 @@ struct EpisodeView: View {
                     .fontWeight(.semibold)
                     .padding(.vertical, 15)
                 
-                CardsEpsView()
+                CardsEpsView(episode: episode)
                     .foregroundColor(.clear)
                 
                 Text("Roteiro")
@@ -55,6 +55,6 @@ struct EpisodeView: View {
 
 struct HomeProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        EpisodeView()
+        EpisodeView(episode: PersistenceController.shared.fetchAllEpisodes().first!)
     }
 }

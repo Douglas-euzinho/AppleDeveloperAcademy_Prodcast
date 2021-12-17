@@ -7,16 +7,18 @@
 
 import SwiftUI
 struct ProgressBarView: View {
+    @State var progress: Int
     var body: some View {
-        BarSetings()
+        BarSetings(progress: progress)
             .rotationEffect(.degrees(90))
     }
 }
 
 struct BarSetings: View {
+    @State var progress: Int
     var body: some View {
         VStack {
-            ProgressView(value: 50, total: 100)
+            ProgressView(value: Float(progress), total: 100)
                 .accentColor(Color.green)
                 .scaleEffect(x: 0.8, y: 3, anchor: .center)
         }
@@ -25,6 +27,6 @@ struct BarSetings: View {
 
 struct ProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBarView()
+        ProgressBarView(progress: 25)
     }
 }

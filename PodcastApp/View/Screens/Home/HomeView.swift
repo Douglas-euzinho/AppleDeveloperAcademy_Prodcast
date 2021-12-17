@@ -12,6 +12,7 @@ struct HomeView: View {
     
     @State var showSheetView = false
     @State var episodeName = ""
+    @StateObject var homeViewModel = HomeViewModel()
     
     @Environment(\.managedObjectContext) private var viewContext
     let screen = UIScreen.main.bounds
@@ -30,9 +31,9 @@ struct HomeView: View {
                                 .font(.custom("", size: 30))
                         ScrollView{
                             //FIXME: Create logic to present cards
-                            HStack(spacing: 20){
-                                ForEach(0..<2) { _ in
-                                    CardsEpsView()
+                            VStack(spacing: 20){
+                                ForEach(homeViewModel.episodes) { episode in
+                                    CardsEpsView(episode: episode)
                                 }
                             }
                             
