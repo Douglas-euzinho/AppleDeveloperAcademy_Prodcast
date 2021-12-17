@@ -9,6 +9,10 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
+    
+    @State var showSheetView = false
+    @State var episodeName = ""
+    
     @Environment(\.managedObjectContext) private var viewContext
     let screen = UIScreen.main.bounds
     
@@ -42,9 +46,8 @@ struct HomeView: View {
             .background(.gray)
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        //TODO: CREATE ACTION TO ADD NEW EPISODE
-                        print("")
+                    Button{
+                        showSheetView.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .foregroundColor(.black)
@@ -60,6 +63,9 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $showSheetView) {
+            NewEpisodeView(showSheetView: $showSheetView, episodeName: $episodeName)
+        }
     }
 }
 
