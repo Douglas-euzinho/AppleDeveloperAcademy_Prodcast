@@ -7,8 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */; };
+		2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */; };
+		2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */; };
+		2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */; };
+		2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */; };
+		2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */; };
+		2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */; };
+		2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */; };
+		2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */; };
+		2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C021276BC2E400C3A3EE /* CustomAlertView.swift */; };
+		2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */; };
+		2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C026276CC06E00C3A3EE /* UserProfileView.swift */; };
+		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
+		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
 		CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430927629B090020AF33 /* PodcastAppApp.swift */; };
-		CDA0430C27629B090020AF33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430B27629B090020AF33 /* ContentView.swift */; };
+		CDA0430C27629B090020AF33 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430B27629B090020AF33 /* HomeView.swift */; };
 		CDA0430E27629B0B0020AF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA0430D27629B0B0020AF33 /* Assets.xcassets */; };
 		CDA0431127629B0B0020AF33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA0431027629B0B0020AF33 /* Preview Assets.xcassets */; };
 		CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0431227629B0B0020AF33 /* Persistence.swift */; };
@@ -16,6 +30,7 @@
 		CDA0432027629B0B0020AF33 /* PodcastAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0431F27629B0B0020AF33 /* PodcastAppTests.swift */; };
 		CDA0432A27629B0B0020AF33 /* PodcastAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */; };
 		CDA0432C27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */; };
+		CDB469F62769257900752468 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB469F52769257900752468 /* ProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +51,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputSpecificInfoView.swift; sourceTree = "<group>"; };
+		2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptFormatView.swift; sourceTree = "<group>"; };
+		2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputInfosView.swift; sourceTree = "<group>"; };
+		2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2343C021276BC2E400C3A3EE /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		2343C026276CC06E00C3A3EE /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
+		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0430927629B090020AF33 /* PodcastAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppApp.swift; sourceTree = "<group>"; };
-		CDA0430B27629B090020AF33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDA0430B27629B090020AF33 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CDA0430D27629B0B0020AF33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA0431027629B0B0020AF33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDA0431227629B0B0020AF33 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -48,6 +77,7 @@
 		CDA0432527629B0B0020AF33 /* PodcastAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITests.swift; sourceTree = "<group>"; };
 		CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CDB469F52769257900752468 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +108,7 @@
 		230128392763CFE0003173F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CD28649F2767E6D500D17C47 /* Shared */,
 				2301283B2763D004003173F4 /* Screens */,
 			);
 			path = View;
@@ -86,6 +117,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2343C009276A5D6A00C3A3EE /* Script */,
 				2301283C2763D00D003173F4 /* Home */,
 			);
 			path = Screens;
@@ -94,7 +126,7 @@
 		2301283C2763D00D003173F4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CDA0430B27629B090020AF33 /* ContentView.swift */,
+				CDA0430B27629B090020AF33 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -102,6 +134,7 @@
 		2301283D2763D01E003173F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2343C01C276A605900C3A3EE /* Entities */,
 				2301283F2763D039003173F4 /* CoreDataModel */,
 				CDA0431227629B0B0020AF33 /* Persistence.swift */,
 			);
@@ -111,7 +144,9 @@
 		2301283E2763D02D003173F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2343C023276CBD2800C3A3EE /* Extensions */,
 				CDA0430D27629B0B0020AF33 /* Assets.xcassets */,
+				CD2864A62769161C00D17C47 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -122,6 +157,72 @@
 				CDA0431427629B0B0020AF33 /* PodcastApp.xcdatamodeld */,
 			);
 			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		2343C009276A5D6A00C3A3EE /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */,
+				2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */,
+				2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */,
+			);
+			path = Script;
+			sourceTree = "<group>";
+		};
+		2343C01C276A605900C3A3EE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2343C01F276A607400C3A3EE /* Script */,
+				2343C01E276A606C00C3A3EE /* Episode */,
+				2343C01D276A606000C3A3EE /* Topic */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2343C01D276A606000C3A3EE /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				2343C010276A604C00C3A3EE /* Topic+CoreDataClass.swift */,
+				2343C011276A604C00C3A3EE /* Topic+CoreDataProperties.swift */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		2343C01E276A606C00C3A3EE /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				2343C012276A604C00C3A3EE /* Episode+CoreDataClass.swift */,
+				2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		2343C01F276A607400C3A3EE /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */,
+				2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */,
+			);
+			path = Script;
+			sourceTree = "<group>";
+		};
+		2343C023276CBD2800C3A3EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD28649F2767E6D500D17C47 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */,
+				CDB469F52769257900752468 /* ProgressBarView.swift */,
+				2343C021276BC2E400C3A3EE /* CustomAlertView.swift */,
+				2343C026276CC06E00C3A3EE /* UserProfileView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CDA042FD27629B090020AF33 = {
@@ -285,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */,
 				CDA0431127629B0B0020AF33 /* Preview Assets.xcassets in Resources */,
 				CDA0430E27629B0B0020AF33 /* Assets.xcassets in Resources */,
 			);
@@ -311,10 +413,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
+				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
+				2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */,
+				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
-				CDA0430C27629B090020AF33 /* ContentView.swift in Sources */,
+				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
+				2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */,
+				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
+				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
+				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
+				2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */,
+				CDA0430C27629B090020AF33 /* HomeView.swift in Sources */,
+				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
+				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */,
+				2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */,
+				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,12 +591,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 272983AP33;
+				DEVELOPMENT_TEAM = 9HBFB9D4T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,12 +621,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 272983AP33;
+				DEVELOPMENT_TEAM = 9HBFB9D4T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
