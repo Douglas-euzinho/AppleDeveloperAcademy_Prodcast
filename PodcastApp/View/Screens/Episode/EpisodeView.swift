@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeProjectView: View {
+struct EpisodeView: View {
     // MARK: - PROPERTIES
     @State private var actualDate = Date()
     
@@ -55,6 +55,6 @@ struct HomeProjectView: View {
 
 struct HomeProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeProjectView()
+        EpisodeView()
     }
 }
