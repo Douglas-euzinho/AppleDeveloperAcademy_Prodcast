@@ -16,9 +16,10 @@
 		2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */; };
 		2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */; };
 		2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */; };
-		CD25E002276BC2B5003012C6 /* BgLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E001276BC2B5003012C6 /* BgLayer.swift */; };
 		2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C021276BC2E400C3A3EE /* CustomAlertView.swift */; };
-		CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEps.swift */; };
+		2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */; };
+		2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C026276CC06E00C3A3EE /* UserProfileView.swift */; };
+		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
 		CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430927629B090020AF33 /* PodcastAppApp.swift */; };
 		CDA0430C27629B090020AF33 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430B27629B090020AF33 /* HomeView.swift */; };
@@ -29,7 +30,7 @@
 		CDA0432027629B0B0020AF33 /* PodcastAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0431F27629B0B0020AF33 /* PodcastAppTests.swift */; };
 		CDA0432A27629B0B0020AF33 /* PodcastAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */; };
 		CDA0432C27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */; };
-		CDB469F62769257900752468 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB469F52769257900752468 /* ProgressBar.swift */; };
+		CDB469F62769257900752468 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB469F52769257900752468 /* ProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +60,10 @@
 		2343C013276A604C00C3A3EE /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2343C014276A604C00C3A3EE /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2343C015276A604C00C3A3EE /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CD25E001276BC2B5003012C6 /* BgLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgLayer.swift; sourceTree = "<group>"; };
-		2343C020276B8D1800C3A3EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2343C021276BC2E400C3A3EE /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
-		CD2864A02767E7AF00D17C47 /* CardsEps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEps.swift; sourceTree = "<group>"; };
+		2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		2343C026276CC06E00C3A3EE /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0430927629B090020AF33 /* PodcastAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppApp.swift; sourceTree = "<group>"; };
@@ -76,7 +77,7 @@
 		CDA0432527629B0B0020AF33 /* PodcastAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITests.swift; sourceTree = "<group>"; };
 		CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CDB469F52769257900752468 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		CDB469F52769257900752468 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 		2301283E2763D02D003173F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2343C023276CBD2800C3A3EE /* Extensions */,
 				CDA0430D27629B0B0020AF33 /* Assets.xcassets */,
 				CD2864A62769161C00D17C47 /* Colors.xcassets */,
 			);
@@ -204,13 +206,21 @@
 			path = Script;
 			sourceTree = "<group>";
 		};
+		2343C023276CBD2800C3A3EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CD28649F2767E6D500D17C47 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CD2864A02767E7AF00D17C47 /* CardsEps.swift */,
-				CDB469F52769257900752468 /* ProgressBar.swift */,
-				CD25E001276BC2B5003012C6 /* BgLayer.swift */,
+				CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */,
+				CDB469F52769257900752468 /* ProgressBarView.swift */,
 				2343C021276BC2E400C3A3EE /* CustomAlertView.swift */,
+				2343C026276CC06E00C3A3EE /* UserProfileView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -404,10 +414,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
-				CD2864A12767E7AF00D17C47 /* CardsEps.swift in Sources */,
+				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
 				2343C016276A604C00C3A3EE /* Topic+CoreDataClass.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
+				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
 				2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */,
 				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
 				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
@@ -418,8 +429,8 @@
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
 				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */,
-				CD25E002276BC2B5003012C6 /* BgLayer.swift in Sources */,
-				CDB469F62769257900752468 /* ProgressBar.swift in Sources */,
+				2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */,
+				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
