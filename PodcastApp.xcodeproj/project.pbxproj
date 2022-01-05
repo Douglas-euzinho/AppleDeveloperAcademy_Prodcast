@@ -21,6 +21,8 @@
 		2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */; };
 		2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C026276CC06E00C3A3EE /* UserProfileView.swift */; };
 		23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397510F276D171E0055AE41 /* HomeViewModel.swift */; };
+		360957EC27862E4000D89613 /* ScriptEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360957EB27862E4000D89613 /* ScriptEntities.swift */; };
+		360957EE2786362300D89613 /* configEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360957ED2786362300D89613 /* configEntities.swift */; };
 		CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E009276D04F2003012C6 /* NewEpisodeView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
@@ -68,6 +70,8 @@
 		2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
 		2343C026276CC06E00C3A3EE /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2397510F276D171E0055AE41 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		360957EB27862E4000D89613 /* ScriptEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEntities.swift; sourceTree = "<group>"; };
+		360957ED2786362300D89613 /* configEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = configEntities.swift; sourceTree = "<group>"; };
 		CD25E009276D04F2003012C6 /* NewEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -179,9 +183,11 @@
 		2343C009276A5D6A00C3A3EE /* Script */ = {
 			isa = PBXGroup;
 			children = (
+				360957EB27862E4000D89613 /* ScriptEntities.swift */,
 				2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */,
 				2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */,
 				2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */,
+				360957ED2786362300D89613 /* configEntities.swift */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -448,11 +454,13 @@
 				2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */,
 				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
 				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
+				360957EE2786362300D89613 /* configEntities.swift in Sources */,
 				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
 				2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */,
 				CDA0430C27629B090020AF33 /* HomeView.swift in Sources */,
 				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
+				360957EC27862E4000D89613 /* ScriptEntities.swift in Sources */,
 				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
 				15013D07276D07730020A48F /* EpisodeView.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */,
@@ -619,21 +627,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.victorbrito.podcastapp.PodcastApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.douglas.podcastapp.PodcastApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -649,21 +657,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.victorbrito.podcastapp.PodcastApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.douglas.podcastapp.PodcastApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -678,7 +686,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -703,7 +711,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -727,7 +735,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -750,7 +758,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9HBFB9D4T4;
+				DEVELOPMENT_TEAM = MGFPJ5C76T;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

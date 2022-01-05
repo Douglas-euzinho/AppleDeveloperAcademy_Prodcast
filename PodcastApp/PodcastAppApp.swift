@@ -15,6 +15,8 @@ struct PodcastAppApp: App {
         WindowGroup {
             HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //ScriptFormatView()
+                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
