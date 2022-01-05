@@ -25,6 +25,7 @@ var types = [
 ]
 
 struct ScriptFormatView: View {
+    
     var body: some View {
         NavigationView{
             List(types){ value in
@@ -39,8 +40,10 @@ struct ScriptFormatView: View {
     }//End Body
 }
 
+/*
 struct ScriptFormatView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptFormatView()
+        ScriptFormatView(scriptsEntites: )
     }
 }
+*/
