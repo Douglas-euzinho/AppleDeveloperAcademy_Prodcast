@@ -29,6 +29,11 @@ struct HomeView: View {
                         //FIXME: TEXT LEADING 
                             Text("Meus Episódios")
                                 .font(.custom("", size: 30))
+                        
+                        Searchbar()
+                            .padding(20)
+                        
+                        
                         ScrollView{
                             //FIXME: Create logic to present cards
                             VStack(spacing: 20){
