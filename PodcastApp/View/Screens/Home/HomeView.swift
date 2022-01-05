@@ -38,6 +38,19 @@ struct HomeView: View {
                             .padding()
                         
                         ScrollView {
+
+                        .foregroundColor(.white)
+                    VStack{
+                        //FIXME: TEXT LEADING 
+                            Text("Meus Episódios")
+                                .font(.custom("", size: 30))
+                        
+                        Searchbar()
+                            .padding(20)
+                        
+                        
+                        ScrollView{
+                          
                             //FIXME: Create logic to present cards
                             VStack(spacing: 20) {
                                 ForEach(homeViewModel.episodes) { episode in
