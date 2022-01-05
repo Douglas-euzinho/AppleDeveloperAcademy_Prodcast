@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserProfileView: View {
     let screen = UIScreen.main.bounds
+    
     var body: some View {
         VStack(spacing: 10){
             Image(systemName: "person.circle.fill")

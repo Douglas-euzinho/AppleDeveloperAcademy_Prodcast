@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct NewEpisodeView: View {
+    // MARK: - PROPERTIES
     @Binding var showSheetView: Bool
     @Binding var episodeName: String
     @State var selectedDate = Date()
     
+    // MARK: - BODY
     var body: some View {
         NavigationView {
             VStack {
@@ -43,9 +45,10 @@ struct NewEpisodeView: View {
                     .accentColor(Color.blue)
                     .frame(alignment: .leading)
                         
-                    }
-                }
-                //FIXME: add date format
+                    } //: VSTACK
+                } //: HSTACK
+                
+                //TODO: add date format
                 
                 Spacer()
                 
@@ -69,7 +72,7 @@ struct NewEpisodeView: View {
     }
 }
 
-
+// MARK: - PREVIEW
 struct NewProjectScreen_Previews: PreviewProvider {
     
     static var previews: some View {

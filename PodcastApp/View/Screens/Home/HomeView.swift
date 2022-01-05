@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    
     // MARK: - PROPERTIES
     @State var showSheetView = false
     @State var episodeName = ""
