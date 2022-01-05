@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    
+    // MARK: - PROPERTIES
     @State var showSheetView = false
     @State var episodeName = ""
     @StateObject var homeViewModel = HomeViewModel()
@@ -17,13 +17,28 @@ struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     let screen = UIScreen.main.bounds
     
+    // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
+                // MARK: - PROFILE VIEW
                 UserProfileView().padding(.top, 50)
-                ZStack{
+                
+                ZStack {
+                    // MARK: - RADIAL BACKGROUND
                     Rectangle()
                         .cornerRadius(radius: 60, corners: [.topLeft])
+                        .foregroundColor(Color("background-color"))
+                    
+                    VStack {
+                        // MARK: - EPISODES
+                        Text("Meus Episódios")
+                            .font(.custom("", size: 28))
+                            .frame(width: 300, alignment: .leading)
+                            .padding()
+                        
+                        ScrollView {
+
                         .foregroundColor(.white)
                     VStack{
                         //FIXME: TEXT LEADING 
@@ -35,32 +50,31 @@ struct HomeView: View {
                         
                         
                         ScrollView{
+                          
                             //FIXME: Create logic to present cards
-                            VStack(spacing: 20){
+                            VStack(spacing: 20) {
                                 ForEach(homeViewModel.episodes) { episode in
                                     CardsEpsView(episode: episode)
-                                }
-                            }
-                            
-                        }
-                    }
+                                } //: EPISODES
+                            } // VSTACK
+                        } //: SCROLL VEW
+                    } //: VSTACK
                     .padding(.top)
-                }
+                } //: ZSTACK
                 .padding(.top)
-            }
+            } //: VSTACK
             .ignoresSafeArea()
-            .background(.gray)
-            .toolbar{
+            .background(Color("secundary-color"))
+            .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button{
                         showSheetView.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("action-color"))
                         Text("Novo Projeto")
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("action-color"))
                     }
-                    
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
@@ -75,11 +89,9 @@ struct HomeView: View {
     }
 }
 
-
-
+// MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
 }
-//

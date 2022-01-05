@@ -9,12 +9,14 @@ import SwiftUI
 
 struct UserProfileView: View {
     let screen = UIScreen.main.bounds
+    
     var body: some View {
         VStack(spacing: 10){
             Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: 80, height: 80)
             Text("Vida de Estudante").font(.custom("Helvetica Neue", size: 25))
+                .fontWeight(.medium)
         }
     }
 }
