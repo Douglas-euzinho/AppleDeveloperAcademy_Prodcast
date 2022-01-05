@@ -8,18 +8,39 @@
 import SwiftUI
 
 struct ScriptInputSpecificInfoView: View {
-    @State var content: String
+    @State var nameType: String = ""
+    @State var description: String = ""
+    @ObservedObject var scriptsEntites: configureInitialTopics
+    
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
         VStack(alignment: .center){
-            TextEditor(text: $content).padding([.top,.leading, .trailing])
+            Form{
+                Section{
+                    TextField("Cabeçalho", text: $nameType)
+                }
+                Section{
+                    TextField("Descrição", text: $description)
+                }
+            }
+        }//fim VStack
+        .navigationTitle("Alterar/Criar")
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button{
+                    
+                    scriptsEntites.topics.append(Topics(nameType: self.nameType, description: self.description))
+                }label: {
+                    Label("Salvar",systemImage: "square.and.arrow.down")
+                }
+            }
         }
     }
 }
-
+/*
 struct ScriptInputSpecificInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptInputSpecificInfoView(content: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam")
-.previewInterfaceOrientation(.portraitUpsideDown)
+        ScriptInputSpecificInfoView()
     }
 }
+*/

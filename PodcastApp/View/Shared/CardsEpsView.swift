@@ -13,7 +13,7 @@ struct CardsEpsView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white))
+                .fill(Color.init(uiColor: UIColor.init(named: "secundary-color") ?? UIColor.white))
                  .frame(width: 152, height: 213)
             StatesOfPodcast(episode: episode)
         }
