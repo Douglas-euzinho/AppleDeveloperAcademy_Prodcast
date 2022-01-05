@@ -8,6 +8,7 @@
 import CoreData
 
 struct PersistenceController {
+    
     static var shared = PersistenceController()
     
     lazy var context: NSManagedObjectContext = {
@@ -42,7 +43,13 @@ struct PersistenceController {
     }
     
     
-    
+    //MARK: - EPISODE METHODS
+    ///
+    /// - Parameters:
+    ///   - title: Title of the new episode
+    ///   - status: use: 0, 25, 50, 75 or 100 to indicate progress
+    ///   - date: date of de episode publication
+    /// - Returns: return a object episode
     mutating func createEpisode(title: String, status: Int, date: Date) throws -> Episode {
         let episode = Episode(context: context)
         episode.title = title
@@ -52,28 +59,20 @@ struct PersistenceController {
         return episode
     }
     
-    
-    
+
     mutating func fetchAllEpisodes() -> [Episode] {
         var episodes: [Episode] = []
         do {
             episodes = try context.fetch(Episode.fetchRequest())
         } catch {
-            //TODO: THROW ERRROR
+            //CoreDataError.fetchError(error.localizedDescription)
         }
         return episodes
     }
     
     
-    mutating func createTopic(title: String, script: Script) throws {
-        let topic = Topic(context: context)
-        topic.title = title
-        script.addToTopics(topic)
-        try saveContext()
-        
-    }
     
-    
+    //MARK: - SCRIPT METHODS
     mutating func createScript(typeOfScript type: Int,episode: Episode) throws -> Script {
         let script = Script(context: context)
         script.type = Int64(type)
@@ -81,9 +80,24 @@ struct PersistenceController {
         try saveContext()
         return script
     }
+     
+    
+    //MARK: - TOPIC METHODS
+    mutating func createTopic(title: String, script: Script) throws {
+        let topic = Topic(context: context)
+        topic.title = title
+        script.addToTopics(topic)
+        try saveContext()
+    }
+    
+    
+
+    
+    //MARK: - USER METHODS
     
     
     
+    //MARK: - CORE DATA METHODS
     mutating func saveContext() throws {
         if context.hasChanges {
             do {
@@ -91,6 +105,19 @@ struct PersistenceController {
             } catch {
                 //TODO: Create Error ENUM
             }
+        }
+    }
+    
+    /// Method that deletes a stored object
+    /// - Parameter object: object description
+    /// - Returns: returns true if the object is deleted and false if an error occurs in the process
+    mutating func deleteObjectInContext(object: NSManagedObject) -> Bool {
+        context.delete(object)
+        do {
+            try saveContext()
+            return true
+        } catch {
+            return false
         }
     }
     
