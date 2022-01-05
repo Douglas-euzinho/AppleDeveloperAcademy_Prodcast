@@ -15,6 +15,7 @@ struct UserProfileView: View {
                 .resizable()
                 .frame(width: 80, height: 80)
             Text("Vida de Estudante").font(.custom("Helvetica Neue", size: 25))
+                .fontWeight(.medium)
         }
     }
 }

@@ -14,26 +14,27 @@ struct NewEpisodeView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
-                
-                HStack{
-                    VStack{
+            VStack {
+                HStack {
+                    VStack(alignment: .leading) {
                         Text("Tema do Epsódio:").bold()
+                            .font(.system(size: 22))
+                        
                         TextField("Nome do Episódio", text: $episodeName)
                             .padding(10)
                             .font(Font.system(size: 15, weight: .medium, design: .serif))
-                            .background(RoundedRectangle(cornerRadius: 10))
+                            .background(RoundedRectangle(cornerRadius: 5))
                             .foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white))
-                    }
-                }
+                    } //: VSTACK
+                } //: HSTACK
+                .padding(.top, 25)
+                .padding(.horizontal, 20)
                 
-                .padding(25)
-                
-                HStack{
-                    VStack{
-                        Text("Data Prevista Para Lançamento:").bold()
-                    }
-                }
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Data Prevista Para Lançamento:")
+                            .bold()
+                            .font(.system(size: 22))
                 
                 DatePicker("", selection: $selectedDate, displayedComponents: .date)
                     .datePickerStyle(CompactDatePickerStyle())
@@ -41,6 +42,9 @@ struct NewEpisodeView: View {
                     .labelsHidden()
                     .accentColor(Color.blue)
                     .frame(alignment: .leading)
+                        
+                    }
+                }
                 //FIXME: add date format
                 
                 Spacer()
@@ -56,7 +60,7 @@ struct NewEpisodeView: View {
                     .navigationBarItems(leading: Button(action: {
                         showSheetView = false
                     }) {
-                        Text("Cancelar").bold()
+                        Text("Cancelar")
                             .foregroundColor(Color.black)
                     })
             }
