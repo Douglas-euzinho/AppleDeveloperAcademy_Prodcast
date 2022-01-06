@@ -8,8 +8,13 @@
 import Foundation
 
 
-struct Topics: Identifiable{
+class Topics: Identifiable, ObservableObject{
     var id = UUID()
     var nameType: String
     var description: String
+    
+    init(nameType: String, description: String){
+        self.nameType = nameType
+        self.description = description
+    }
 }
