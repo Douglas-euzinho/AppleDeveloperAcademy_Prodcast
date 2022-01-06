@@ -25,6 +25,7 @@ var types = [
 ]
 
 struct ScriptFormatView: View {
+    @ObservedObject var config: configureInitialTopics
     
     var body: some View {
         NavigationView{
@@ -36,6 +37,7 @@ struct ScriptFormatView: View {
             .navigationTitle("Escolha um formato")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .environmentObject(config)
         //End NavigationView
     }//End Body
 }

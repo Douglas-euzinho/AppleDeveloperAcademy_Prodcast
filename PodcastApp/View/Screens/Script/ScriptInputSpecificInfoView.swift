@@ -8,28 +8,24 @@
 import SwiftUI
 
 struct ScriptInputSpecificInfoView: View {
-    @State var nameType: String = ""
-    @State var description: String = ""
-    @ObservedObject var scriptsEntites: configureInitialTopics
+    @ObservedObject var topic: Topics
+    @State var desc: String = ""
     
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
         VStack(alignment: .center){
             Form{
                 Section{
-                    TextField("Cabeçalho", text: $nameType)
-                }
-                Section{
-                    TextField("Descrição", text: $description)
+                    TextField("Descrição", text: $desc)
                 }
             }
         }//fim VStack
         .navigationTitle("Alterar/Criar")
         .toolbar{
-            ToolbarItemGroup(placement: .navigationBarLeading) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
-                    
-                    scriptsEntites.topics.append(Topics(nameType: self.nameType, description: self.description))
+                    topic.description = self.desc
+                    print("\(topic.description)")
                 }label: {
                     Label("Salvar",systemImage: "square.and.arrow.down")
                 }

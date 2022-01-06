@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-//var initialTopics = [
-//    Topics(nameType: "Tema", description: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam"),
-//    Topics(nameType: "Vinheta", description: ""),
-//    Topics(nameType: "Introdução", description: ""),
-//    Topics(nameType: "Conteúdo", description: ""),
-//    Topics(nameType: "Comentário", description: ""),
-//    Topics(nameType: "Finalização", description: "")
-//]
 struct ScriptInputInfosView: View {
     
     
@@ -22,18 +14,20 @@ struct ScriptInputInfosView: View {
     @State private var showingAlert = false
     @State private var topicName = ""
     
-    @StateObject private var config = configureInitialTopics()
+    @EnvironmentObject var config: configureInitialTopics
     
     var body: some View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
         NavigationView{
             ZStack{
-                List{
-                    ForEach(config.topics){ value in
-                        Section{
-                            Text("a: \(value.nameType)")
-                            Text("b: \(value.description)")
+                List(config.topics){ value in
+                    Section{
+                        Text("\(value.nameType)")
+                        NavigationLink {
+                            ScriptInputSpecificInfoView(topic: value)
+                        } label: {
+                            Text("\(value.description)")
                         }
                     }
                 }//End List
@@ -55,7 +49,6 @@ struct ScriptInputInfosView: View {
                         } label: {
                             Text("Visualizar").foregroundColor(.black).padding(.top)
                         }
-                        
                     }
                 }
                 //Show Custom View to input topic name
