@@ -28,6 +28,7 @@
 		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
 		CD4C613E27861DCC00FF04AC /* Searchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4C613D27861DCC00FF04AC /* Searchbar.swift */; };
+		CD4C61412787676500FF04AC /* RoadMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4C61402787676500FF04AC /* RoadMapView.swift */; };
 		CDA0430A27629B090020AF33 /* PodcastAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430927629B090020AF33 /* PodcastAppApp.swift */; };
 		CDA0430C27629B090020AF33 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0430B27629B090020AF33 /* HomeView.swift */; };
 		CDA0430E27629B0B0020AF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA0430D27629B0B0020AF33 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CD4C613D27861DCC00FF04AC /* Searchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchbar.swift; sourceTree = "<group>"; };
+		CD4C61402787676500FF04AC /* RoadMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadMapView.swift; sourceTree = "<group>"; };
 		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0430927629B090020AF33 /* PodcastAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppApp.swift; sourceTree = "<group>"; };
 		CDA0430B27629B090020AF33 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CD4C613F2787671800FF04AC /* RoadMapView */,
 				15013D05276D07150020A48F /* Episode */,
 				CD25E007276D04B5003012C6 /* NewEpisodeView */,
 				2343C009276A5D6A00C3A3EE /* Script */,
@@ -267,6 +270,14 @@
 				CD4C613D27861DCC00FF04AC /* Searchbar.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		CD4C613F2787671800FF04AC /* RoadMapView */ = {
+			isa = PBXGroup;
+			children = (
+				CD4C61402787676500FF04AC /* RoadMapView.swift */,
+			);
+			path = RoadMapView;
 			sourceTree = "<group>";
 		};
 		CDA042FD27629B090020AF33 = {
@@ -467,6 +478,7 @@
 				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
 				2343C017276A604C00C3A3EE /* Topic+CoreDataProperties.swift in Sources */,
 				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
+				CD4C61412787676500FF04AC /* RoadMapView.swift in Sources */,
 				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
 				360957EE2786362300D89613 /* configEntities.swift in Sources */,

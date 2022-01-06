@@ -51,7 +51,7 @@ struct ScriptInputInfosView: View {
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            //TODO: CREATE VIEW TO SHOW TEXT
+                            RoadMapView()
                         } label: {
                             Text("Visualizar").foregroundColor(.black).padding(.top)
                         }
