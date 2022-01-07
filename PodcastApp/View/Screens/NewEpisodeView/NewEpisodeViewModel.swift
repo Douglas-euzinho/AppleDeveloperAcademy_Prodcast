@@ -14,7 +14,7 @@ class NewEpisodeModel: ObservableObject {
     
     func createEpisode(name: String, date: Date) -> Bool{
         do {
-            self.episode = try PersistenceController.shared.createEpisode(title: name, status: 35, date: date)
+            self.episode = try PersistenceController.shared.createEpisode(title: name, status: 25, date: date)
             return true
         } catch {
             //TODO: - CREATE ERROR

@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct RoadMapView: View {
-    // MARK: - PROPERTIES
-
-    
     // MARK: - BODY
     var body: some View {
         NavigationView {
@@ -25,16 +22,15 @@ struct RoadMapView: View {
                             
                             
                             VStack{
-                            Text("Introduçao")
-                                .font(Font.headline.weight(.bold))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 52)
-                                .padding(.vertical, 20)
+                                Text("Introduçao")
+                                    .font(Font.headline.weight(.bold))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 52)
+                                    .padding(.vertical, 20)
                                 
-                            
-                            Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante.  Nesse episódio iremos falar sobre o livro Mulheres que correm com os lobos, de Clarissa Pinkola.")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 50)
+                                Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante.  Nesse episódio iremos falar sobre o livro Mulheres que correm com os lobos, de Clarissa Pinkola.")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 50)
                                 //label named by coreData
                                 
                                 Text("Conteúdo")
@@ -47,33 +43,33 @@ struct RoadMapView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 50)
                                 //label named by coreData
-
+                                
                                 
                                 Text("Introduçao")
                                     .font(Font.headline.weight(.bold))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 52)
                                     .padding(.vertical, 20)
-                                    
+                                
                                 
                                 Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante.  Nesse episódio iremos falar sobre o livro Mulheres que correm com os lobos, de Clarissa Pinkola.")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 50)
                                 //label named by coreData
-
+                                
                                 
                                 Text("Comentário")
                                     .font(Font.headline.weight(.bold))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 52)
                                     .padding(.vertical, 20)
-                                    
+                                
                                 
                                 Text("A história faz analogia à criatividade e de como ela ocorre. E apesar de ser uma história com um final trágico, ela nos mostra o que podemos mudar e fazer diferente.  Vale lembrar que a criatividade não está ligada necessariamente a uma profissão específica, mas sim, a criatividade é algo natural que sempre acompanhou e acompanha as mulheres. A criatividade se trata do amor por algo, é aquilo que nos faz querer fazer mais, e nos faz realizar esse algo com todo nosso coração.")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 50)
                                 //label named by coreData
-
+                                
                                 
                                 
                                 Text("Finalização")
@@ -81,13 +77,13 @@ struct RoadMapView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 52)
                                     .padding(.vertical, 20)
-                                    
+                                
                                 
                                 Text("Bom gente, o episódio vai ficando por aqui, espero que tenham gostado e refletido bastante sobre essa coisa que é a vida criativa, na maioria das vezes cheia de altos e baixos, mas que ao mesmo tempo é maravilhoso poder exercer a criatividade, não importa como.")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 50)
                                 //label named by coreData
-
+                                
                             }
                             
                         }

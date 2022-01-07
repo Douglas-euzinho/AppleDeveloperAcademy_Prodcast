@@ -13,13 +13,12 @@ struct ScriptInputInfosView: View {
     var selectedTopic: String
     @State private var showingAlert = false
     @State private var topicName = ""
-    
-    @EnvironmentObject var config: configureInitialTopics
+    @State private var showingVisualizer = false
+    @ObservedObject var config: configureInitialTopics
     
     var body: some View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
-        NavigationView{
             ZStack{
                 List(config.topics){ value in
                     Section{
@@ -45,9 +44,12 @@ struct ScriptInputInfosView: View {
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                           // RoadMapView()
+                            showingVisualizer = true
+                            
                         } label: {
-                            Text("Visualizar").foregroundColor(.black).padding(.top)
+                            NavigationLink(destination: RoadMapView(), isActive: $showingVisualizer) {
+                                Text("Visualizar").foregroundColor(.black).padding(.top)
+                            }
                         }
                     }
                 }
@@ -56,8 +58,6 @@ struct ScriptInputInfosView: View {
                     //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
                 }
             }
-            
-        }
         .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body

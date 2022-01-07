@@ -40,7 +40,12 @@ struct HomeView: View {
                             //FIXME: Create logic to present cards
                             VStack(spacing: 20) {
                                 ForEach(homeViewModel.episodes) { episode in
-                                    CardsEpsView(episode: episode)
+                                    NavigationLink {
+                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                    } label: {
+                                        CardsEpsView(episode: episode)
+                                    }
+
                                 } //: EPISODES
                             } // VSTACK
                         } //: SCROLL VEW
