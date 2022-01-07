@@ -45,7 +45,7 @@ struct ScriptInputInfosView: View {
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            RoadMapView()
+                           // RoadMapView()
                         } label: {
                             Text("Visualizar").foregroundColor(.black).padding(.top)
                         }
@@ -58,7 +58,7 @@ struct ScriptInputInfosView: View {
             }
             
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body
 }

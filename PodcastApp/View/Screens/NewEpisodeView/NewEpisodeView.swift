@@ -10,8 +10,10 @@ import SwiftUI
 struct NewEpisodeView: View {
     // MARK: - PROPERTIES
     @Binding var showSheetView: Bool
-    @Binding var episodeName: String
+    @State var episodeName: String = ""
     @State var selectedDate = Date()
+    @ObservedObject var homeModel: HomeViewModel
+    @StateObject var model = NewEpisodeModel()
     
     // MARK: - BODY
     var body: some View {
@@ -23,10 +25,11 @@ struct NewEpisodeView: View {
                             .font(.system(size: 22))
                         
                         TextField("Nome do Episódio", text: $episodeName)
+                            .foregroundColor(.black)
                             .padding(10)
                             .font(Font.system(size: 15, weight: .medium, design: .serif))
-                            .background(RoundedRectangle(cornerRadius: 5))
-                            .foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white))
+                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white)))
+                          
                     } //: VSTACK
                 } //: HSTACK
                 .padding(.top, 25)
@@ -54,6 +57,8 @@ struct NewEpisodeView: View {
                 
                     .navigationBarTitle(Text("Novo Projeto"), displayMode: .inline)
                     .navigationBarItems(trailing: Button(action: {
+                        let _ = model.createEpisode(name: episodeName, date: selectedDate)
+                        homeModel.update()
                         showSheetView = false
                     }) {
                         //TODO: show episode screen
@@ -69,6 +74,7 @@ struct NewEpisodeView: View {
             }
             Spacer()
         }
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -76,7 +82,7 @@ struct NewEpisodeView: View {
 struct NewProjectScreen_Previews: PreviewProvider {
     
     static var previews: some View {
-        NewEpisodeView(showSheetView: .constant(true), episodeName: .constant("Episódio 01"))
+        NewEpisodeView(showSheetView: .constant(true), episodeName: "Episódio 01", homeModel: HomeViewModel())
     }
 }
 

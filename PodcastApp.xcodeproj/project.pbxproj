@@ -22,6 +22,7 @@
 		2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C026276CC06E00C3A3EE /* UserProfileView.swift */; };
 		23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397510F276D171E0055AE41 /* HomeViewModel.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
+		23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */; };
 		360957EC27862E4000D89613 /* ScriptEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360957EB27862E4000D89613 /* ScriptEntities.swift */; };
 		360957EE2786362300D89613 /* configEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360957ED2786362300D89613 /* configEntities.swift */; };
 		CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E009276D04F2003012C6 /* NewEpisodeView.swift */; };
@@ -74,6 +75,7 @@
 		2343C026276CC06E00C3A3EE /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2397510F276D171E0055AE41 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewModel.swift; sourceTree = "<group>"; };
 		360957EB27862E4000D89613 /* ScriptEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEntities.swift; sourceTree = "<group>"; };
 		360957ED2786362300D89613 /* configEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = configEntities.swift; sourceTree = "<group>"; };
 		CD25E009276D04F2003012C6 /* NewEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				CD25E009276D04F2003012C6 /* NewEpisodeView.swift */,
+				23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */,
 			);
 			path = NewEpisodeView;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
 				360957EE2786362300D89613 /* configEntities.swift in Sources */,
 				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
+				23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */,
 				2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */,
 				CDA0430C27629B090020AF33 /* HomeView.swift in Sources */,
 				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
@@ -655,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = MGFPJ5C76T;
+				DEVELOPMENT_TEAM = 272983AP33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
@@ -663,7 +667,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,7 +690,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = MGFPJ5C76T;
+				DEVELOPMENT_TEAM = 272983AP33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
@@ -693,7 +698,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

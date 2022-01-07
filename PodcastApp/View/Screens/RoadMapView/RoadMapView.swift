@@ -93,9 +93,6 @@ struct RoadMapView: View {
                         }
                     }
                 } //: HSTACK
-                
-                
-                
                 Spacer()
                     .navigationBarItems(trailing: Button(action: {
                         //TODO: turn on edit screen
@@ -113,6 +110,7 @@ struct RoadMapView: View {
             }
             Spacer()
         }
+        .navigationViewStyle(.stack)
     }
 }
 

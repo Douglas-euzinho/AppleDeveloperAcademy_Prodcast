@@ -11,10 +11,7 @@ import CoreData
 struct HomeView: View {
     // MARK: - PROPERTIES
     @State var showSheetView = false
-    @State var episodeName = ""
     @StateObject var homeViewModel = HomeViewModel()
-    
-    @Environment(\.managedObjectContext) private var viewContext
     let screen = UIScreen.main.bounds
     
     // MARK: - BODY
@@ -71,9 +68,9 @@ struct HomeView: View {
                 }
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
-            NewEpisodeView(showSheetView: $showSheetView, episodeName: $episodeName)
+            NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
         }
     }
 }

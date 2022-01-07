@@ -36,7 +36,7 @@ struct ScriptFormatView: View {
             }//End List
             .navigationTitle("Escolha um formato")
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         .environmentObject(config)
         //End NavigationView
     }//End Body
