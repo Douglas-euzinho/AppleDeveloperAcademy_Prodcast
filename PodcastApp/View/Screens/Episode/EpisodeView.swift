@@ -9,11 +9,10 @@ import SwiftUI
 
 struct EpisodeView: View {
     // MARK: - PROPERTIES
-    @State private var actualDate = Date()
+    @State var actualDate: Date
     @ObservedObject var episode: Episode
     // MARK: - BODY
     var body: some View {
-        NavigationView() {
             VStack(alignment: .leading) {
                 Text("Progresso")
                     .font(.title)
@@ -28,11 +27,11 @@ struct EpisodeView: View {
                     .fontWeight(.semibold)
                     .padding(.vertical, 15)
                 
-                NavigationLink(destination: HomeView()) {
-                    GroupBox(label: Label("Resenha", systemImage: "person.fill")
+                NavigationLink(destination: ScriptFormatView(config: configureInitialTopics())) {
+                    GroupBox(label: Label("Resenha", systemImage: "text.justify")
                     ) {
                         ScrollView(.vertical, showsIndicators: false) {
-                            Text("Testando a caixa de mensagem do GroupBox")
+                            Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante. Nesse episódio iremos falar sobre os tipos existente de Alfabetos, para utilizar em seus mapas mentais e materiais de estudos.")
                         }
                     }
                     .frame(maxWidth: 322, maxHeight: 228)
@@ -48,13 +47,12 @@ struct EpisodeView: View {
                     .tint(.red)
                     .frame(width: 20, alignment: .leading)
             }
-        }
-        .navigationBarTitle(Text("Tipos de Comida"))
+        .navigationBarTitle(Text(episode.title ?? "Sem título"))
     }
 }
 
-struct HomeProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        EpisodeView(episode: PersistenceController.shared.fetchAllEpisodes().first!)
-    }
-}
+//struct HomeProjectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EpisodeView(actualDate: Date())
+//    }
+//}

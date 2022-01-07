@@ -24,10 +24,10 @@ struct ScriptInputSpecificInfoView: View {
         .toolbar{
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
-                    topic.description = self.desc
-                    print("\(topic.description)")
+                    topic.description = desc
                 }label: {
-                    Label("Salvar",systemImage: "square.and.arrow.down")
+                    Text("Salvar")
+                        .foregroundColor(.black)
                 }
             }
         }

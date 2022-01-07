@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CardsEpsView: View {
     @ObservedObject var episode: Episode
     let screen = UIScreen.main.bounds
@@ -32,6 +33,7 @@ struct StatesOfPodcast: View {
         VStack{
             Text(episode.title ?? "Sem título")
                 .font(.custom("Helvetica Neue", size: 13))
+                .foregroundColor(.black)
             HStack{
                 VStack(alignment: .leading){
                     Text("Roterizado ")
@@ -58,10 +60,11 @@ struct StatesOfPodcast: View {
     }
 }
 
-struct CardsEps_Previews: PreviewProvider {
-    static var previews: some View {
-        CardsEpsView(episode: PersistenceController.shared.fetchAllEpisodes().first!)
-    }
-}
+//struct CardsEps_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        CardsEpsView(episode: )
+//    }
+//}
 
 
