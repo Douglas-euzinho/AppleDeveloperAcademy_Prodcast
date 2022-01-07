@@ -8,18 +8,35 @@
 import SwiftUI
 
 struct ScriptInputSpecificInfoView: View {
-    @State var content: String
+    @ObservedObject var topic: Topics
+    @State var desc: String = ""
+    
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
         VStack(alignment: .center){
-            TextEditor(text: $content).padding([.top,.leading, .trailing])
+            Form{
+                Section{
+                    TextField("Descrição", text: $desc)
+                }
+            }
+        }//fim VStack
+        .navigationTitle("Alterar/Criar")
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button{
+                    topic.description = desc
+                }label: {
+                    Text("Salvar")
+                        .foregroundColor(.black)
+                }
+            }
         }
     }
 }
-
+/*
 struct ScriptInputSpecificInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptInputSpecificInfoView(content: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam")
-.previewInterfaceOrientation(.portraitUpsideDown)
+        ScriptInputSpecificInfoView()
     }
 }
+*/

@@ -7,39 +7,26 @@
 
 import SwiftUI
 
-struct Topics: Identifiable{
-    var id = UUID()
-    var nameType: String
-    var description: String = ""
-}
-
-var initialTopics = [
-    Topics(nameType: "Tema", description: "Um texto de um amigo meu que pediu para digitar isso aqui e agora estamos vendo no que vai dar #vaicurintiam"),
-    Topics(nameType: "Vinheta", description: ""),
-    Topics(nameType: "Introdução", description: ""),
-    Topics(nameType: "Conteúdo", description: ""),
-    Topics(nameType: "Comentário", description: ""),
-    Topics(nameType: "Finalização", description: "")
-]
 struct ScriptInputInfosView: View {
     
     
     var selectedTopic: String
     @State private var showingAlert = false
     @State private var topicName = ""
-    
+    @State private var showingVisualizer = false
+    @ObservedObject var config: configureInitialTopics
     
     var body: some View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
-        NavigationView{
             ZStack{
-                List(initialTopics){ value in
+                List(config.topics){ value in
                     Section{
-                        Text("\(value.nameType):")
-                        NavigationLink(destination: ScriptInputSpecificInfoView(content: value.description)){
+                        Text("\(value.nameType)")
+                        NavigationLink {
+                            ScriptInputSpecificInfoView(topic: value)
+                        } label: {
                             Text("\(value.description)")
-                                .frame(height: value.description.isEmpty ? 10 : 100, alignment: .leading)
                         }
                     }
                 }//End List
@@ -57,11 +44,13 @@ struct ScriptInputInfosView: View {
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            //TODO: CREATE VIEW TO SHOW TEXT
+                            showingVisualizer = true
+                            
                         } label: {
-                            Text("Visualizar").foregroundColor(.black).padding(.top)
+                            NavigationLink(destination: RoadMapView(), isActive: $showingVisualizer) {
+                                Text("Visualizar").foregroundColor(.black).padding(.top)
+                            }
                         }
-                        
                     }
                 }
                 //Show Custom View to input topic name
@@ -69,18 +58,15 @@ struct ScriptInputInfosView: View {
                     //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
                 }
             }
-            
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body
-    
-    
-    
-    
 }
+
+/*
 struct ScriptInputInfosView_Previews: PreviewProvider {
     static var previews: some View {
         ScriptInputInfosView(selectedTopic: "Resenha")
     }
-}
+}*/
+

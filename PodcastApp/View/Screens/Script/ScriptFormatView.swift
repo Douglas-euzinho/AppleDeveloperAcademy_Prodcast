@@ -25,22 +25,24 @@ var types = [
 ]
 
 struct ScriptFormatView: View {
+    @ObservedObject var config: configureInitialTopics
+    
     var body: some View {
-        NavigationView{
             List(types){ value in
-                NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name)){
+                NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name, config: config)){
                     Text("\(value.name)")
                 }
             }//End List
             .navigationTitle("Escolha um formato")
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body
 }
 
+/*
 struct ScriptFormatView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptFormatView()
+        ScriptFormatView(scriptsEntites: )
     }
 }
+*/
