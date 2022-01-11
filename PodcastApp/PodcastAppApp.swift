@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct PodcastAppApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController = PersistenceController()
     var config = configureInitialTopics()
 
     var body: some Scene {
