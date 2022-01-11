@@ -35,20 +35,41 @@ struct HomeView: View {
                             .padding()
                         Searchbar()
                             .padding(20)
-                        ScrollView{
+                    
                             
                             //FIXME: Create logic to present cards
-                            VStack(spacing: 20) {
-                                ForEach(homeViewModel.episodes) { episode in
-                                    NavigationLink {
-                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
-                                    } label: {
-                                        CardsEpsView(episode: episode)
-                                    }
+                            
+                                let data = (1...100).map { "Item \($0)" }
 
-                                } //: EPISODES
-                            } // VSTACK
-                        } //: SCROLL VEW
+                                let columns = [
+                                    GridItem(.fixed(100)),
+                                    GridItem(.flexible()),
+                                ]
+
+                               
+                                    ScrollView {
+                                        LazyVGrid(columns: columns, spacing: 20) {
+                                            ForEach(data, id: \.self) { item in
+                                                Text(item)
+                                            }
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                    .offset(x: 30)
+                                    .frame(maxHeight: 300)
+                                
+                            
+//                            VStack(spacing: 20) {
+//                                ForEach(homeViewModel.episodes) { episode in
+//                                    NavigationLink {
+//                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+//                                    } label: {
+//                                        CardsEpsView(episode: episode)
+//                                    }
+//
+//                                } //: EPISODES
+//                            } // VSTACK
+                        
                     } //: VSTACK
                     .padding(.top)
                 } //: ZSTACK
