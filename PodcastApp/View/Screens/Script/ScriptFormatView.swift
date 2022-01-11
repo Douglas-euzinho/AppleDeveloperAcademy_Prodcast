@@ -28,15 +28,28 @@ struct ScriptFormatView: View {
     @ObservedObject var config: configureInitialTopics
     
     var body: some View {
-            List(types){ value in
+        List{
+            ForEach(types){ value in
                 NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name, config: config)){
                     Text("\(value.name)")
                 }
-            }//End List
+            }//End ForEach
+            .onDelete(perform: deleteCell)
+            .onMove{ (IndexSet, index) in
+                types.move(fromOffsets: IndexSet, toOffset: index)
+            }
             .navigationTitle("Escolha um formato")
+        }//End List
+        //Toolbar to do the delete and pick/drag cells
+        .toolbar{
+            EditButton()
+        }
         .navigationViewStyle(.stack)
-        //End NavigationView
     }//End Body
+    //Func that delete the tapped cell
+    func deleteCell(at offsets: IndexSet){
+        types.remove(atOffsets: offsets)
+    }
 }
 
 /*
