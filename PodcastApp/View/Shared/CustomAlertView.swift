@@ -37,7 +37,8 @@ struct CustomAlertView: View {
         }
         .padding()
         .frame(width: screenSize.width * 0.7, height: screenSize.height * 0.23)
-        .background(Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.white))
+        .background(Color.init(uiColor: UIColor.init(named: "Background") ?? UIColor.gray))
+        .opacity(1.3)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
         .offset(y: isShown ? 0 : screenSize.height)
 

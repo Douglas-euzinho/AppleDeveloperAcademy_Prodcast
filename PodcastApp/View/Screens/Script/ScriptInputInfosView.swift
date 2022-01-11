@@ -20,16 +20,22 @@ struct ScriptInputInfosView: View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
-                List(config.topics){ value in
-                    Section{
-                        Text("\(value.nameType)")
-                        NavigationLink {
-                            ScriptInputSpecificInfoView(topic: value)
-                        } label: {
-                            Text("\(value.description)")
-                        }
+                List{
+                    ForEach(config.topics){ value in
+                        Section{
+                            Text("\(value.nameType)")
+                            NavigationLink {
+                                ScriptInputSpecificInfoView(topic: value)
+                            } label: {
+                                Text("\(value.description)")
+                            }
+                        }//End Section
+                    }//End ForEach
+                    .onDelete { IndexSet in
+                        config.topics.remove(atOffsets: IndexSet)
                     }
                 }//End List
+                .toolbar{ EditButton()}
                 .navigationTitle("Roteiro: \(selectedTopic)")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
@@ -56,6 +62,7 @@ struct ScriptInputInfosView: View {
                 //Show Custom View to input topic name
                 CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
                     //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
+                    if name.count != 0 { config.topics.append(Topics.init(nameType: name, description: "")) }
                 }
             }
         .navigationViewStyle(.stack)
