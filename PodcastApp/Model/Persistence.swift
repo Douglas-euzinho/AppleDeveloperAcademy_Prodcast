@@ -12,8 +12,7 @@ struct PersistenceController {
     static var shared = PersistenceController()
     
     lazy var context: NSManagedObjectContext = {
-        let result = PersistenceController()
-        let viewContext = result.container.viewContext
+        let viewContext = container.viewContext
         return viewContext
     }()
     
@@ -59,7 +58,9 @@ struct PersistenceController {
         return episode
     }
     
-
+    
+    /// Method that fetch all stored episodes
+    /// - Returns: Return an array of episodes
     mutating func fetchAllEpisodes() -> [Episode] {
         var episodes: [Episode] = []
         do {
