@@ -125,7 +125,7 @@ class PodcastAppTests: XCTestCase {
         var persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
-        let topic = try! persistenceController.createTopic(title: "Topico 1", script: script)
+        let _ = try! persistenceController.createTopic(title: "Topico 1", script: script)
         
         XCTAssertNotNil(persistenceController.fetchAllEpisodes().first?.script?.topics)
         XCTAssertEqual(script.topics, persistenceController.fetchAllEpisodes().first?.script?.topics, "Script Topic error.")
@@ -145,12 +145,12 @@ class PodcastAppTests: XCTestCase {
         var persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Buscar Tópicos", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
-        let topicOne = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 1", script: script)
-        let topicTwo = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 2", script: script)
-        let topicThree = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 3", script: script)
+        let _ = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 1", script: script)
+        let _ = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 2", script: script)
+        let _ = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 3", script: script)
         
         XCTAssertNotNil(persistenceController.fetchAllEpisodes().first?.script?.topics, "The Script has no topics.")
-        //XCTAssertEqual(script.topics?.allObjects, persistenceController.fetchAllEpisodes().first?.script?.topics?.allObjects, "See all topics error.")
+        XCTAssertEqual(3, persistenceController.fetchAllEpisodes().first?.script?.topics?.count, "See all topics error.")
     }
     
     //: CUSTOM TESTS
