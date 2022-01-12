@@ -14,6 +14,13 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
+    let data = (1...100).map { "Item \($0)" }
+    
+    let columns = [
+        GridItem(.fixed(100)),
+        GridItem(.flexible()),
+    ]
+    
     // MARK: - BODY
     var body: some View {
         NavigationView {
@@ -35,20 +42,23 @@ struct HomeView: View {
                             .padding()
                         Searchbar()
                             .padding(20)
-                        ScrollView{
-                            
-                            //FIXME: Create logic to present cards
-                            VStack(spacing: 20) {
+                        
+                        ScrollView {
+                            LazyVGrid(columns: columns, spacing: 20) {
                                 ForEach(homeViewModel.episodes) { episode in
                                     NavigationLink {
                                         EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
                                     } label: {
                                         CardsEpsView(episode: episode)
                                     }
-
-                                } //: EPISODES
-                            } // VSTACK
-                        } //: SCROLL VEW
+                                    
+                                }
+                            }
+                            .padding(.horizontal)
+                            .offset(x: 30)
+                        }
+                        
+                        .frame(maxHeight: 500)
                     } //: VSTACK
                     .padding(.top)
                 } //: ZSTACK
