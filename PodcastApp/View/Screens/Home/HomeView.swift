@@ -14,6 +14,13 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
+    let data = (1...100).map { "Item \($0)" }
+    
+    let columns = [
+        GridItem(.fixed(100)),
+        GridItem(.flexible()),
+    ]
+    
     // MARK: - BODY
     var body: some View {
         NavigationView {
@@ -35,41 +42,23 @@ struct HomeView: View {
                             .padding()
                         Searchbar()
                             .padding(20)
-                    
-                            
-                            //FIXME: Create logic to present cards
-                            
-                                let data = (1...100).map { "Item \($0)" }
-
-                                let columns = [
-                                    GridItem(.fixed(100)),
-                                    GridItem(.flexible()),
-                                ]
-
-                               
-                                    ScrollView {
-                                        LazyVGrid(columns: columns, spacing: 20) {
-                                            ForEach(data, id: \.self) { item in
-                                                Text(item)
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                    }
-                                    .offset(x: 30)
-                                    .frame(maxHeight: 300)
-                                
-                            
-//                            VStack(spacing: 20) {
-//                                ForEach(homeViewModel.episodes) { episode in
-//                                    NavigationLink {
-//                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
-//                                    } label: {
-//                                        CardsEpsView(episode: episode)
-//                                    }
-//
-//                                } //: EPISODES
-//                            } // VSTACK
                         
+                        ScrollView {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(homeViewModel.episodes) { episode in
+                                    NavigationLink {
+                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                    } label: {
+                                        CardsEpsView(episode: episode)
+                                    }
+                                    
+                                }
+                            }
+                            .padding(.horizontal)
+                            .offset(x: 30)
+                        }
+                        
+                        .frame(maxHeight: 500)
                     } //: VSTACK
                     .padding(.top)
                 } //: ZSTACK
