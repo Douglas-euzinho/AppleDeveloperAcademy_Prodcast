@@ -8,7 +8,7 @@
 import XCTest
 @testable import PodcastApp
 
-class PodcastAppTests: XCTestCase {
+class PodcastAppCreateTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -37,7 +37,7 @@ class PodcastAppTests: XCTestCase {
     /// - Parameters:
     ///   - controller: Uses PersistenceController(isMemory: true) Used to change the Data Base to "/dev/null".
     ///   - context:
-    ///   - episode: Has an Episode class in ir, which is used to use ".status, .date and .title".
+    ///   - episode: Has an Episode class in it, which is used to use ".status, .date and .title".
     // --------------------
     func testCreateEpisode() throws {
         
@@ -53,7 +53,7 @@ class PodcastAppTests: XCTestCase {
         episode.title = "Episodio 01"
         
         try! context.save()
-            
+        
         waitForExpectations(timeout: 1.5) { error in
             XCTAssertNil(error,"Save error")
         }
@@ -71,24 +71,6 @@ class PodcastAppTests: XCTestCase {
         var persistenceController = PersistenceController(inMemory: true)
         let _ = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         XCTAssertEqual(persistenceController.fetchAllEpisodes().count,1, "Equal counts")
-    }
-    
-    // --------------------
-    // MARK: - UPDATE EPISODE NAME
-    /// Uses PersistenceController to create and update the episode name, and verify if the name was updated correctly.
-    /// - Parameters:
-    ///    - persistenceController: Uses PersistenceController(isMemory: true) Used to change the Data Base to "/dev/null".
-    ///    - episode: Used to create an episode with (title: , status: , date: ) into "/dev/null".
-    ///    - title: Used to set a title to the episode.
-    ///    - saveContext(): Used to update the Data Base.
-    /// - XCTAssertEqual: Is used to verify if the content passed into the parameters is equivalent.
-    // --------------------
-    func testUpdateEpisodeName() throws {
-        var persistenceController = PersistenceController(inMemory: true)
-        let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
-        episode.title = "Episodio Novo"
-        try! persistenceController.saveContext()
-        XCTAssertEqual(persistenceController.fetchAllEpisodes().first?.title, "Episodio Novo", "Error episodio update title")
     }
     
     // --------------------
@@ -152,6 +134,5 @@ class PodcastAppTests: XCTestCase {
         XCTAssertNotNil(persistenceController.fetchAllEpisodes().first?.script?.topics, "The Script has no topics.")
         XCTAssertEqual(3, persistenceController.fetchAllEpisodes().first?.script?.topics?.count, "See all topics error.")
     }
-    
     //: CUSTOM TESTS
 }
