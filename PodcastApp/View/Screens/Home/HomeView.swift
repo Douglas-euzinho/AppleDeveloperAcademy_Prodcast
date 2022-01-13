@@ -47,7 +47,7 @@ struct HomeView: View {
                             LazyVGrid(columns: columns, spacing: 20) {
                                 ForEach(homeViewModel.episodes) { episode in
                                     NavigationLink {
-                                        EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                        EpisodeView(episode: episode)
                                     } label: {
                                         CardsEpsView(episode: episode)
                                     }

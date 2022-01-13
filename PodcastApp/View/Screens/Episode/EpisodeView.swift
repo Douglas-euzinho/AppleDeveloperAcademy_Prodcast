@@ -9,25 +9,29 @@ import SwiftUI
 
 struct EpisodeView: View {
     // MARK: - PROPERTIES
-    @State var actualDate: Date
-    @ObservedObject var episode: Episode
+    @State var actualDate = Date()
+    @ObservedObject var episodeViewModel: EpisodeViewModel
+    
+    init (episode: Episode) {
+        self.episodeViewModel = EpisodeViewModel(episode: episode)
+    }
     // MARK: - BODY
     var body: some View {
-            VStack(alignment: .leading) {
-                Text("Progresso")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.vertical, 15)
-                
-                CardsEpsView(episode: episode)
-                    .foregroundColor(.clear)
-                
-                Text("Roteiro")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.vertical, 15)
-                
-                NavigationLink(destination: ScriptFormatView(config: configureInitialTopics())) {
+        VStack(alignment: .leading) {
+            Text("Progresso")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.vertical, 15)
+            
+            CardsEpsView(episode: episodeViewModel.episode ?? Episode())
+                .foregroundColor(.clear)
+            
+            Text("Roteiro")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.vertical, 15)
+            if episodeViewModel.episode?.script != nil {
+                NavigationLink(destination: ScriptFormatView().environmentObject(episodeViewModel)) {
                     GroupBox(label: Label("Resenha", systemImage: "text.justify")
                     ) {
                         ScrollView(.vertical, showsIndicators: false) {
@@ -37,22 +41,31 @@ struct EpisodeView: View {
                     .frame(maxWidth: 322, maxHeight: 228)
                     .buttonStyle(PlainButtonStyle())
                 }
-                
-                Text("Lançamento")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.vertical, 15)
-                
-                    DatePicker("", selection: $actualDate, in: ...Date(), displayedComponents: .date)
-                    .tint(.red)
-                    .frame(width: 20, alignment: .leading)
+           
+            } else {
+                Button {
+                    episodeViewModel.createScript(type: 1)
+                } label: {
+                    Text("Criar Roteiro")
+                }
+
             }
-        .navigationBarTitle(Text(episode.title ?? "Sem título"))
+            
+            Text("Lançamento")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.vertical, 15)
+            
+            DatePicker("", selection: $actualDate, in: ...Date(), displayedComponents: .date)
+                .tint(.red)
+                .frame(width: 20, alignment: .leading)
+        }
+        .navigationBarTitle(Text(episodeViewModel.episode?.title ?? "Sem título"))
     }
 }
 
 //struct HomeProjectView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        EpisodeView(actualDate: Date())
+//        EpisodeView(actualDate: Date(), episode: PersistenceController().fetchAllEpisodes().first)
 //    }
 //}

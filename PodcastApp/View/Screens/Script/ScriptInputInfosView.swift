@@ -14,26 +14,30 @@ struct ScriptInputInfosView: View {
     @State private var showingAlert = false
     @State private var topicName = ""
     @State private var showingVisualizer = false
-    @ObservedObject var config: configureInitialTopics
+    @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    
+    
+    
     
     var body: some View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
                 List{
-                    ForEach(config.topics){ value in
+                    ForEach((episodeViewModel.episode?.script?.topics?.allObjects as! [Topic])){ topic in
                         Section{
-                            Text("\(value.nameType)")
+                            Text("\(topic.title ?? "Sem título")")
                             NavigationLink {
-                                ScriptInputSpecificInfoView(topic: value)
+                                ScriptInputSpecificInfoView(topic: topic).environmentObject(episodeViewModel)
                             } label: {
-                                Text("\(value.description)")
+                                Text("\(topic.content ?? "Sem texto")")
                             }
                         }//End Section
                     }//End ForEach
-                    .onDelete { IndexSet in
-                        config.topics.remove(atOffsets: IndexSet)
-                    }
+                    //FIXME: ADD REMOVE TOPICS ACTION
+//                    .onDelete { IndexSet in
+//                        config.topics.remove(atOffsets: IndexSet)
+//                    }
                 }//End List
                 .toolbar{ EditButton()}
                 .navigationTitle("Roteiro: \(selectedTopic)")
@@ -62,7 +66,7 @@ struct ScriptInputInfosView: View {
                 //Show Custom View to input topic name
                 CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
                     //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
-                    if name.count != 0 { config.topics.append(Topics.init(nameType: name, description: "")) }
+                    if name.count != 0 { episodeViewModel.createTopic(title: name)}
                 }
             }
         .navigationViewStyle(.stack)
