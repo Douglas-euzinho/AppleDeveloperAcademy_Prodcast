@@ -42,13 +42,6 @@ struct HomeView: View {
                             .cornerRadius(radius: 60, corners: [.topLeft])
                             .foregroundColor(Color("background-color"))
                         
-                        ScrollView {
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                ForEach(homeViewModel.episodes) { episode in
-                                    NavigationLink {
-                                        EpisodeView(episode: episode)
-                                    } label: {
-                                        CardsEpsView(episode: episode)
                         VStack {
                             // MARK: - EPISODES
                             
@@ -73,7 +66,7 @@ struct HomeView: View {
                                         LazyVGrid(columns: columns, spacing: 20) {
                                             ForEach(homeViewModel.episodes) { episode in
                                                 NavigationLink {
-                                                    EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                                    EpisodeView(episode: episode)
                                                 } label: {
                                                     CardsEpsView(episode: episode)
                                                 }
@@ -99,7 +92,7 @@ struct HomeView: View {
                                         LazyVGrid(columns: columns, spacing: 20) {
                                             ForEach(homeViewModel.episodes) { episode in
                                                 NavigationLink {
-                                                    EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                                    EpisodeView(episode: episode)
                                                 } label: {
                                                     CardsEpsView(episode: episode)
                                                 }
@@ -125,7 +118,7 @@ struct HomeView: View {
                                         LazyVGrid(columns: columns, spacing: 20) {
                                             ForEach(homeViewModel.episodes) { episode in
                                                 NavigationLink {
-                                                    EpisodeView(actualDate: episode.date ?? Date(), episode: episode)
+                                                    EpisodeView(episode: episode)
                                                 } label: {
                                                     CardsEpsView(episode: episode)
                                                 }
@@ -144,25 +137,26 @@ struct HomeView: View {
                         .padding(.top)
                     } //: ZSTACK
                     .padding(.top)
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button{
+                                showSheetView.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(Color("action-color"))
+                                Text("Novo Projeto")
+                                    .foregroundColor(Color("action-color"))
+                            }
+                        }
+                        
+                        ToolbarItem(placement: .bottomBar) {
+                            Spacer()
+                        }
+                    }
+
                 } //: VSTACK
                 .ignoresSafeArea()
                 .background(Color("secundary-color"))
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button{
-                            showSheetView.toggle()
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(Color("action-color"))
-                            Text("Novo Projeto")
-                                .foregroundColor(Color("action-color"))
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .bottomBar) {
-                        Spacer()
-                    }
-                }
             }
             .navigationViewStyle(.stack)
             .sheet(isPresented: $showSheetView) {
@@ -180,4 +174,3 @@ struct ContentView_Previews: PreviewProvider {
 
     }
 }
-
