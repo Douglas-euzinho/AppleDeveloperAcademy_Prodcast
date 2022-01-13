@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct PodcastAppApp: App {
+struct PodcastApp: App {
     let persistenceController = PersistenceController()
     var config = configureInitialTopics()
 
