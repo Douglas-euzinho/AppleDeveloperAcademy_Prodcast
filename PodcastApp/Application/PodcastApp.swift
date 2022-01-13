@@ -14,7 +14,7 @@ struct PodcastApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(orientation: .portrait)
             //ScriptFormatView(config: config)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
