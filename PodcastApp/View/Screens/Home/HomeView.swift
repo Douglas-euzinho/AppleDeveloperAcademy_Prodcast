@@ -42,6 +42,13 @@ struct HomeView: View {
                             .cornerRadius(radius: 60, corners: [.topLeft])
                             .foregroundColor(Color("background-color"))
                         
+                        ScrollView {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(homeViewModel.episodes) { episode in
+                                    NavigationLink {
+                                        EpisodeView(episode: episode)
+                                    } label: {
+                                        CardsEpsView(episode: episode)
                         VStack {
                             // MARK: - EPISODES
                             

@@ -25,14 +25,16 @@ var types = [
 ]
 
 struct ScriptFormatView: View {
-    @ObservedObject var config: configureInitialTopics
+    
+    @EnvironmentObject var episodeViewModel: EpisodeViewModel
     
     var body: some View {
         List{
-            ForEach(types){ value in
-                NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name, config: config)){
-                    Text("\(value.name)")
+            ForEach(types){ type in
+                NavigationLink(destination: ScriptInputInfosView(selectedTopic: type.name).environmentObject(episodeViewModel)){
+                    Text("\(type.name)")
                 }
+         
             }//End ForEach
             .onDelete(perform: deleteCell)
             .onMove{ (IndexSet, index) in

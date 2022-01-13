@@ -8,7 +8,7 @@
 import Foundation
 
 
-class NewEpisodeModel: ObservableObject {
+class NewEpisodeModel: Modelable {
     
     @Published var episode: Episode?
     
@@ -22,5 +22,20 @@ class NewEpisodeModel: ObservableObject {
         }
 
     }
+    
+    
+    func save() {
+        do {
+            try PersistenceController.shared.saveContext()
+        } catch {
+            //TODO: Create catch
+        }
+        
+    }
+    
+    func update() {
+        objectWillChange.send()
+    }
+
     
 }
