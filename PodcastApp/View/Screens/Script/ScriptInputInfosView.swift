@@ -57,7 +57,7 @@ struct ScriptInputInfosView: View {
                             showingVisualizer = true
                             
                         } label: {
-                            NavigationLink(destination: RoadMapView(), isActive: $showingVisualizer) {
+                            NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
                                 Text("Visualizar").foregroundColor(.black).padding(.top)
                             }
                         }
