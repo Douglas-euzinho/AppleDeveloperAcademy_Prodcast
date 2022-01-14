@@ -32,127 +32,130 @@ struct HomeView: View {
         GeometryReader { bounds in
             NavigationView {
                 
-                VStack {
-                    // MARK: - PROFILE VIEW
-                    UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
-                    
-                    ZStack {
-                        // MARK: - RADIAL BACKGROUND
-                        Rectangle()
-                            .cornerRadius(radius: 60, corners: [.topLeft])
-                            .foregroundColor(Color("background-color"))
+                ZStack {
+                    Color("secundary-color").edgesIgnoringSafeArea(.top)
+                    VStack {
+                        // MARK: - PROFILE VIEW
+                        UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
                         
-                        VStack {
-                            // MARK: - EPISODES
+                        ZStack {
+                            // MARK: - RADIAL BACKGROUND
+                            Rectangle()
+                                .cornerRadius(radius: 60, corners: [.topLeft])
+                                .foregroundColor(Color("background-color"))
                             
-                            /*
-                            //Regular = Portrait(em pé). Compact = Landscape(deitado) -> iPhone
-                            if heigthSizeClass == .regular{
-                            }else if heigthSizeClass == .compact{
-                            }*/
-                            
-                            if UIDevice.current.localizedModel == "iPad"{
+                            VStack {
+                                // MARK: - EPISODES
                                 
-                                if orientation.isPortrait{
+                                /*
+                                //Regular = Portrait(em pé). Compact = Landscape(deitado) -> iPhone
+                                if heigthSizeClass == .regular{
+                                }else if heigthSizeClass == .compact{
+                                }*/
+                                
+                                if UIDevice.current.localizedModel == "iPad"{
+                                    
+                                    if orientation.isPortrait{
+                                        Text("Meus Episódios")
+                                            .font(.custom("", size: 28))
+                                            .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
+                                            .padding(10)
+                                        Searchbar()
+                                            .frame(alignment: .leading)
+                                            .padding(12)
+                                        
+                                        ScrollView {
+                                            LazyVGrid(columns: columns, spacing: 20) {
+                                                ForEach(homeViewModel.episodes) { episode in
+                                                    NavigationLink {
+                                                        EpisodeView(episode: episode)
+                                                    } label: {
+                                                        CardsEpsView(episode: episode)
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            .padding(.horizontal)
+                                            .offset(x: 100)
+                                        }
+                                        .frame(maxHeight: 680)
+                                        
+                                    }else if orientation.isLandscape{
+                                        
+                                        Text("Meus Episódios")
+                                            .font(.custom("", size: 28))
+                                            .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
+                                            .padding(10)
+                                        Searchbar()
+                                            .frame(alignment: .leading)
+                                            .padding(12)
+                                        
+                                        ScrollView {
+                                            LazyVGrid(columns: columns, spacing: 20) {
+                                                ForEach(homeViewModel.episodes) { episode in
+                                                    NavigationLink {
+                                                        EpisodeView(episode: episode)
+                                                    } label: {
+                                                        CardsEpsView(episode: episode)
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            .padding(.horizontal)
+                                            .offset(x: 230)
+                                        }
+                                        .frame(maxHeight: 480)
+                                    }
+                                }else if UIDevice.current.localizedModel == "iPhone"{
+                                    
                                     Text("Meus Episódios")
                                         .font(.custom("", size: 28))
-                                        .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
+                                        .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                         .padding(10)
                                     Searchbar()
                                         .frame(alignment: .leading)
                                         .padding(12)
                                     
-                                    ScrollView {
-                                        LazyVGrid(columns: columns, spacing: 20) {
-                                            ForEach(homeViewModel.episodes) { episode in
-                                                NavigationLink {
-                                                    EpisodeView(episode: episode)
-                                                } label: {
-                                                    CardsEpsView(episode: episode)
+                                        ScrollView {
+                                            LazyVGrid(columns: columns, spacing: 20) {
+                                                ForEach(homeViewModel.episodes) { episode in
+                                                    NavigationLink {
+                                                        EpisodeView(episode: episode)
+                                                    } label: {
+                                                        CardsEpsView(episode: episode)
+                                                    }
+                                                    
                                                 }
-                                                
                                             }
+                                            .padding(.horizontal)
+                                            .offset(x: 30)
                                         }
-                                        .padding(.horizontal)
-                                        .offset(x: 100)
-                                    }
-                                    .frame(maxHeight: 680)
-                                    
-                                }else if orientation.isLandscape{
-                                    
-                                    Text("Meus Episódios")
-                                        .font(.custom("", size: 28))
-                                        .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
-                                        .padding(10)
-                                    Searchbar()
-                                        .frame(alignment: .leading)
-                                        .padding(12)
-                                    
-                                    ScrollView {
-                                        LazyVGrid(columns: columns, spacing: 20) {
-                                            ForEach(homeViewModel.episodes) { episode in
-                                                NavigationLink {
-                                                    EpisodeView(episode: episode)
-                                                } label: {
-                                                    CardsEpsView(episode: episode)
-                                                }
-                                                
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                        .offset(x: 230)
-                                    }
-                                    .frame(maxHeight: 480)
+                                        .frame(maxHeight: 500)
+                                    }//fim else if
                                 }
-                            }else if UIDevice.current.localizedModel == "iPhone"{
                                 
-                                Text("Meus Episódios")
-                                    .font(.custom("", size: 28))
-                                    .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                    .padding(10)
-                                Searchbar()
-                                    .frame(alignment: .leading)
-                                    .padding(12)
                                 
-                                    ScrollView {
-                                        LazyVGrid(columns: columns, spacing: 20) {
-                                            ForEach(homeViewModel.episodes) { episode in
-                                                NavigationLink {
-                                                    EpisodeView(episode: episode)
-                                                } label: {
-                                                    CardsEpsView(episode: episode)
-                                                }
-                                                
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                        .offset(x: 30)
-                                    }
-                                    .frame(maxHeight: 500)
-                                }//fim else if
-                            }
-                            
-                            
-                        } //: VSTACK
+                            } //: VSTACK
+                            .padding(.top)
+                        } //: ZSTACK
                         .padding(.top)
-                    } //: ZSTACK
-                    .padding(.top)
-                    .toolbar {
-                        ToolbarItem(placement: .bottomBar) {
-                            Button{
-                                showSheetView.toggle()
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(Color("action-color"))
-                                Text("Novo Projeto")
-                                    .foregroundColor(Color("action-color"))
+                        .toolbar {
+                            ToolbarItem(placement: .bottomBar) {
+                                Button{
+                                    showSheetView.toggle()
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(Color("action-color"))
+                                    Text("Novo Projeto")
+                                        .foregroundColor(Color("action-color"))
+                                }
                             }
-                        }
-                        
-                        ToolbarItem(placement: .bottomBar) {
-                            Spacer()
-                        }
+                            
+                            ToolbarItem(placement: .bottomBar) {
+                                Spacer()
+                            }
                     }
+                }
 
                 } //: VSTACK
                 .ignoresSafeArea()

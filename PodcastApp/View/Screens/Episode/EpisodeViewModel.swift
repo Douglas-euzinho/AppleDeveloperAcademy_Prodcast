@@ -44,6 +44,12 @@ class EpisodeViewModel: Modelable {
     }
     
     
+    func getAllTopics() -> [Topic] {
+        guard let episode = episode else { return [] }
+        return episode.script?.topics?.allObjects as? [Topic] ?? []
+    }
+    
+    
     func save() {
         do {
             try persistence.saveContext()
