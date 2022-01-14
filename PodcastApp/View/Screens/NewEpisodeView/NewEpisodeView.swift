@@ -55,7 +55,7 @@ struct NewEpisodeView: View {
                 
                 Spacer()
                 
-                    .navigationBarTitle(Text("Novo Projeto"), displayMode: .inline)
+                    .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
                     .navigationBarItems(trailing: Button(action: {
                         let _ = model.createEpisode(name: episodeName, date: selectedDate)
                         homeModel.update()

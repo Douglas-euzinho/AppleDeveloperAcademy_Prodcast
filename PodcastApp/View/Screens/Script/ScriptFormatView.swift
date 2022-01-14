@@ -25,18 +25,33 @@ var types = [
 ]
 
 struct ScriptFormatView: View {
-    @ObservedObject var config: configureInitialTopics
+    
+    @EnvironmentObject var episodeViewModel: EpisodeViewModel
     
     var body: some View {
-            List(types){ value in
-                NavigationLink(destination: ScriptInputInfosView(selectedTopic: value.name, config: config)){
-                    Text("\(value.name)")
+        List{
+            ForEach(types){ type in
+                NavigationLink(destination: ScriptInputInfosView(selectedTopic: type.name).environmentObject(episodeViewModel)){
+                    Text("\(type.name)")
                 }
-            }//End List
+         
+            }//End ForEach
+            .onDelete(perform: deleteCell)
+            .onMove{ (IndexSet, index) in
+                types.move(fromOffsets: IndexSet, toOffset: index)
+            }
             .navigationTitle("Escolha um formato")
+        }//End List
+        //Toolbar to do the delete and pick/drag cells
+        .toolbar{
+            EditButton()
+        }
         .navigationViewStyle(.stack)
-        //End NavigationView
     }//End Body
+    //Func that delete the tapped cell
+    func deleteCell(at offsets: IndexSet){
+        types.remove(atOffsets: offsets)
+    }
 }
 
 /*

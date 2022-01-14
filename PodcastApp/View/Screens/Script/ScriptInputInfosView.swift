@@ -14,22 +14,32 @@ struct ScriptInputInfosView: View {
     @State private var showingAlert = false
     @State private var topicName = ""
     @State private var showingVisualizer = false
-    @ObservedObject var config: configureInitialTopics
+    @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    
+    
+    
     
     var body: some View {
         
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
-                List(config.topics){ value in
-                    Section{
-                        Text("\(value.nameType)")
-                        NavigationLink {
-                            ScriptInputSpecificInfoView(topic: value)
-                        } label: {
-                            Text("\(value.description)")
-                        }
-                    }
+                List{
+                    ForEach((episodeViewModel.episode?.script?.topics?.allObjects as! [Topic])){ topic in
+                        Section{
+                            Text("\(topic.title ?? "Sem título")")
+                            NavigationLink {
+                                ScriptInputSpecificInfoView(topic: topic).environmentObject(episodeViewModel)
+                            } label: {
+                                Text("\(topic.content ?? "Sem texto")")
+                            }
+                        }//End Section
+                    }//End ForEach
+                    //FIXME: ADD REMOVE TOPICS ACTION
+//                    .onDelete { IndexSet in
+//                        config.topics.remove(atOffsets: IndexSet)
+//                    }
                 }//End List
+                .toolbar{ EditButton()}
                 .navigationTitle("Roteiro: \(selectedTopic)")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
@@ -47,7 +57,7 @@ struct ScriptInputInfosView: View {
                             showingVisualizer = true
                             
                         } label: {
-                            NavigationLink(destination: RoadMapView(), isActive: $showingVisualizer) {
+                            NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
                                 Text("Visualizar").foregroundColor(.black).padding(.top)
                             }
                         }
@@ -56,6 +66,7 @@ struct ScriptInputInfosView: View {
                 //Show Custom View to input topic name
                 CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
                     //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
+                    if name.count != 0 { episodeViewModel.createTopic(title: name)}
                 }
             }
         .navigationViewStyle(.stack)
