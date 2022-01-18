@@ -28,6 +28,8 @@
 		23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
 		23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */; };
+		367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6327974BDA0003E271 /* ConfigView.swift */; };
+		367C7C6627974F2F0003E271 /* ConfigViewNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */; };
 		CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E009276D04F2003012C6 /* NewEpisodeView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
@@ -84,6 +86,8 @@
 		23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableProtocol.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewModel.swift; sourceTree = "<group>"; };
+		367C7C6327974BDA0003E271 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewNotification.swift; sourceTree = "<group>"; };
 		CD25E009276D04F2003012C6 /* NewEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				15013D05276D07150020A48F /* Episode */,
 				CD25E007276D04B5003012C6 /* NewEpisodeView */,
 				2343C009276A5D6A00C3A3EE /* Script */,
+				367C7C6227974BBC0003E271 /* Configs */,
 				2301283C2763D00D003173F4 /* Home */,
 			);
 			path = Screens;
@@ -266,6 +271,15 @@
 				23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		367C7C6227974BBC0003E271 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				367C7C6327974BDA0003E271 /* ConfigView.swift */,
+				367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 		CD25E007276D04B5003012C6 /* NewEpisodeView */ = {
@@ -500,6 +514,7 @@
 				CD4C61412787676500FF04AC /* RoadMapView.swift in Sources */,
 				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
 				235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */,
+				367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */,
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
 				234661932791F8E00032B728 /* TopicView.swift in Sources */,
 				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
@@ -509,6 +524,7 @@
 				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
 				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
+				367C7C6627974F2F0003E271 /* ConfigViewNotification.swift in Sources */,
 				15013D07276D07730020A48F /* EpisodeView.swift in Sources */,
 				235413DF2790A65000235B7F /* EpisodeViewModel.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastApp.swift in Sources */,
