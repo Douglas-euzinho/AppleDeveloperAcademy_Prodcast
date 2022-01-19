@@ -17,7 +17,7 @@ struct CardsEpsView: View {
                 .fill(Color.init(uiColor: UIColor.init(named: "secundary-color") ?? UIColor.white))
                  .frame(width: 152, height: 213)
             
-          StatesOfPodcast(episode: episode)
+       //   StatesOfPodcast(episode: episode)
         }
         
     }

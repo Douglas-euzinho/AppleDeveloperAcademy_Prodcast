@@ -47,7 +47,6 @@
 		CDA0432A27629B0B0020AF33 /* PodcastAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */; };
 		CDA0432C27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */; };
 		CDB469F62769257900752468 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB469F52769257900752468 /* ProgressBarView.swift */; };
-		CDCDB40A27988DB5008E33AF /* StatesOfPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDB40927988DB5008E33AF /* StatesOfPodcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +110,6 @@
 		CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITests.swift; sourceTree = "<group>"; };
 		CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CDB469F52769257900752468 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
-		CDCDB40927988DB5008E33AF /* StatesOfPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesOfPodcast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */,
-				CDCDB40927988DB5008E33AF /* StatesOfPodcast.swift */,
 				CDB469F52769257900752468 /* ProgressBarView.swift */,
 				2343C021276BC2E400C3A3EE /* CustomAlertView.swift */,
 				2343C026276CC06E00C3A3EE /* UserProfileView.swift */,
@@ -520,7 +517,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDCDB40A27988DB5008E33AF /* StatesOfPodcast.swift in Sources */,
 				235413DB27909B8100235B7F /* Topic+CoreDataProperties.swift in Sources */,
 				23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */,
 				23208E122797497600C30615 /* Notification+CoreDataProperties.swift in Sources */,
