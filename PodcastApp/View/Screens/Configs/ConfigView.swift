@@ -13,21 +13,36 @@ struct ConfigView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading){
-            Form{
-                Text("Nome do Podcast")
-                    .font(.title2)
-                TextField("Podcast name...", text: $nome)
+        NavigationView{
+            VStack(alignment: .leading){
                 
-                Text("Notificações")
-                    .font(.title2)
-                //Section{
-
-                NavigationLink(destination: ConfigViewNotification()){
-                    Text("opa")
-                }
-            }
-        }//End VStack
+                
+                Form{
+                    Section{
+                        //ak fica a foto do perfil
+                        
+                    }//End Section 1
+                    
+                    Section{
+                        Text("Nome do Podcast")
+                            .font(.title2)
+                        TextField("Podcast name...", text: $nome)
+                    }//End Section 2
+                    
+                    Section{
+                        Text("Recursos")
+                            .font(.title2)
+                        
+                        NavigationLink(destination: ConfigViewAllNotifications()){
+                            Text("Notificações")
+                                .font(.subheadline)
+                        }
+                    }//End Section 3
+                    
+                    
+                }//End Form
+            }//End VStack
+        }//End NavigationView
     }//End body
 }//End struct
 

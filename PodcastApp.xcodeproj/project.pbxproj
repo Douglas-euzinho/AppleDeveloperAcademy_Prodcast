@@ -30,6 +30,7 @@
 		23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */; };
 		367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6327974BDA0003E271 /* ConfigView.swift */; };
 		367C7C6627974F2F0003E271 /* ConfigViewNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */; };
+		36FCCF2927989B1400AE59FA /* ConfigViewAllNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */; };
 		CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E009276D04F2003012C6 /* NewEpisodeView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
@@ -88,6 +89,7 @@
 		23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewModel.swift; sourceTree = "<group>"; };
 		367C7C6327974BDA0003E271 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewNotification.swift; sourceTree = "<group>"; };
+		36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewAllNotifications.swift; sourceTree = "<group>"; };
 		CD25E009276D04F2003012C6 /* NewEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				367C7C6327974BDA0003E271 /* ConfigView.swift */,
 				367C7C6527974F2F0003E271 /* ConfigViewNotification.swift */,
+				36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				CD4C613E27861DCC00FF04AC /* Searchbar.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 				CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */,
+				36FCCF2927989B1400AE59FA /* ConfigViewAllNotifications.swift in Sources */,
 				23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
