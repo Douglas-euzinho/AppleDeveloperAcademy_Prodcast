@@ -23,8 +23,10 @@ struct EpisodeView: View {
                 .fontWeight(.semibold)
                 .padding(.vertical, 15)
             
-            CardsEpsView(episode: episodeViewModel.episode ?? Episode())
-                .foregroundColor(.clear)
+//            CardsEpsView(episode: episodeViewModel.episode ?? Episode())
+//                .foregroundColor(.clear)
+            
+           StatesOfPodcast(episode: episodeViewModel.episode ?? Episode())
             
             Text("Roteiro")
                 .font(.title)
