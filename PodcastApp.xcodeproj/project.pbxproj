@@ -10,6 +10,10 @@
 		15013D07276D07730020A48F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15013D06276D07730020A48F /* EpisodeView.swift */; };
 		15049B74278F5ADA0007934A /* PodcastAppDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */; };
 		15049B76278F5BB40007934A /* PodcastAppUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */; };
+		23208E112797497600C30615 /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E0D2797497600C30615 /* Notification+CoreDataClass.swift */; };
+		23208E122797497600C30615 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E0E2797497600C30615 /* Notification+CoreDataProperties.swift */; };
+		23208E132797497600C30615 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E0F2797497600C30615 /* Profile+CoreDataClass.swift */; };
+		23208E142797497600C30615 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E102797497600C30615 /* Profile+CoreDataProperties.swift */; };
 		2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */; };
 		2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */; };
 		2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */; };
@@ -69,6 +73,10 @@
 		15013D06276D07730020A48F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppDeleteTests.swift; sourceTree = "<group>"; };
 		15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUpdateTests.swift; sourceTree = "<group>"; };
+		23208E0D2797497600C30615 /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
+		23208E0E2797497600C30615 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		23208E0F2797497600C30615 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		23208E102797497600C30615 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputSpecificInfoView.swift; sourceTree = "<group>"; };
 		2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptFormatView.swift; sourceTree = "<group>"; };
 		2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputInfosView.swift; sourceTree = "<group>"; };
@@ -203,6 +211,24 @@
 			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		23208E152797498400C30615 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				23208E0F2797497600C30615 /* Profile+CoreDataClass.swift */,
+				23208E102797497600C30615 /* Profile+CoreDataProperties.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		23208E162797499200C30615 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				23208E0D2797497600C30615 /* Notification+CoreDataClass.swift */,
+				23208E0E2797497600C30615 /* Notification+CoreDataProperties.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		2343C009276A5D6A00C3A3EE /* Script */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +242,8 @@
 		2343C01C276A605900C3A3EE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				23208E162797499200C30615 /* Notification */,
+				23208E152797498400C30615 /* Profile */,
 				2343C01F276A607400C3A3EE /* Script */,
 				2343C01E276A606C00C3A3EE /* Episode */,
 				2343C01D276A606000C3A3EE /* Topic */,
@@ -508,8 +536,10 @@
 			files = (
 				235413DB27909B8100235B7F /* Topic+CoreDataProperties.swift in Sources */,
 				23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */,
+				23208E122797497600C30615 /* Notification+CoreDataProperties.swift in Sources */,
 				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
 				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
+				23208E112797497600C30615 /* Notification+CoreDataClass.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
 				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
@@ -519,6 +549,7 @@
 				235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */,
 				367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */,
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
+				23208E142797497600C30615 /* Profile+CoreDataProperties.swift in Sources */,
 				234661932791F8E00032B728 /* TopicView.swift in Sources */,
 				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
 				23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */,
@@ -527,7 +558,11 @@
 				2343C01B276A604C00C3A3EE /* Script+CoreDataProperties.swift in Sources */,
 				CDA0431627629B0B0020AF33 /* PodcastApp.xcdatamodeld in Sources */,
 				2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */,
+
 				367C7C6627974F2F0003E271 /* ConfigViewNotification.swift in Sources */,
+
+				23208E132797497600C30615 /* Profile+CoreDataClass.swift in Sources */,
+
 				15013D07276D07730020A48F /* EpisodeView.swift in Sources */,
 				235413DF2790A65000235B7F /* EpisodeViewModel.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastApp.swift in Sources */,
