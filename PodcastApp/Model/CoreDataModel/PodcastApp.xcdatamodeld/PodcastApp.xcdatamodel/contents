@@ -11,6 +11,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="message" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="days" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WeekDay" inverseName="notification" inverseEntity="WeekDay"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="notification" inverseEntity="Profile"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
@@ -30,11 +31,22 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="script" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Script" inverseName="topics" inverseEntity="Script"/>
     </entity>
+    <entity name="WeekDay" representedClassName="WeekDay" syncable="YES">
+        <attribute name="friday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="monday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="saturday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sunday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="thursday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tuersday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="notification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notification" inverseName="days" inverseEntity="Notification"/>
+    </entity>
     <elements>
         <element name="Episode" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Notification" positionX="-27" positionY="72" width="128" height="119"/>
+        <element name="Profile" positionX="-36" positionY="54" width="128" height="89"/>
         <element name="Script" positionX="-54" positionY="-9" width="128" height="88"/>
         <element name="Topic" positionX="-36" positionY="9" width="128" height="89"/>
-        <element name="Profile" positionX="-36" positionY="54" width="128" height="89"/>
-        <element name="Notification" positionX="-27" positionY="72" width="128" height="104"/>
+        <element name="WeekDay" positionX="-36" positionY="90" width="128" height="149"/>
     </elements>
 </model>

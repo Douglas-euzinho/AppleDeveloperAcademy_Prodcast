@@ -2,7 +2,7 @@
 //  Notification+CoreDataProperties.swift
 //  PodcastApp
 //
-//  Created by Igor Samoel da Silva on 18/01/22.
+//  Created by Igor Samoel da Silva on 20/01/22.
 //
 //
 
@@ -16,11 +16,12 @@ extension Notification {
         return NSFetchRequest<Notification>(entityName: "Notification")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var hour: Date?
+    @NSManaged public var id: UUID?
     @NSManaged public var message: String?
     @NSManaged public var title: String?
     @NSManaged public var profile: Profile?
+    @NSManaged public var days: WeekDay?
 
 }
 
