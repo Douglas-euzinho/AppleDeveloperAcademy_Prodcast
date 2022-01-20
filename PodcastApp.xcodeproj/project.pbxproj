@@ -27,6 +27,7 @@
 		2350266D2799F7AC00D14BC2 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235026692799F7AC00D14BC2 /* Notification+CoreDataProperties.swift */; };
 		2350266E2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350266A2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift */; };
 		2350266F2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350266B2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift */; };
+		235026752799F8F900D14BC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235026742799F8F900D14BC2 /* NotificationManager.swift */; };
 		235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413D827909B8100235B7F /* Topic+CoreDataClass.swift */; };
 		235413DB27909B8100235B7F /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413D927909B8100235B7F /* Topic+CoreDataProperties.swift */; };
 		235413DF2790A65000235B7F /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413DE2790A65000235B7F /* EpisodeViewModel.swift */; };
@@ -93,6 +94,7 @@
 		235026692799F7AC00D14BC2 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2350266A2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeekDay+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2350266B2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeekDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		235026742799F8F900D14BC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		235413D827909B8100235B7F /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		235413D927909B8100235B7F /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		235413DE2790A65000235B7F /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		2301283D2763D01E003173F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				235026732799F8DE00D14BC2 /* NotificationManager */,
 				2343C01C276A605900C3A3EE /* Entities */,
 				2301283F2763D039003173F4 /* CoreDataModel */,
 				CDA0431227629B0B0020AF33 /* Persistence.swift */,
@@ -300,6 +303,14 @@
 				2350266B2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift */,
 			);
 			path = WeekDay;
+			sourceTree = "<group>";
+		};
+		235026732799F8DE00D14BC2 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				235026742799F8F900D14BC2 /* NotificationManager.swift */,
+			);
+			path = NotificationManager;
 			sourceTree = "<group>";
 		};
 		235413D7278F6D7500235B7F /* Application */ = {
@@ -557,6 +568,7 @@
 				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
+				235026752799F8F900D14BC2 /* NotificationManager.swift in Sources */,
 				2350266E2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift in Sources */,
 				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
 				2350266F2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift in Sources */,
