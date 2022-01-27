@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct RoadMapView: View {
-    
-    
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
     
     // MARK: - BODY
@@ -19,12 +17,10 @@ struct RoadMapView: View {
                 TopicView(title: topic.title ?? "Sem título", content: topic.content ?? "Sem texto")
             }
         }
-
     }
 }
 // MARK: - PREVIEW
 struct RoadMapView_Previews: PreviewProvider {
-    
     static var previews: some View {
         RoadMapView()
     }
