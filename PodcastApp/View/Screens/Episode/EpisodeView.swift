@@ -40,14 +40,13 @@ struct EpisodeView: View {
                     .frame(maxWidth: 322, maxHeight: 228)
                     .buttonStyle(PlainButtonStyle())
                 }
-           
             } else {
                 Button {
                     episodeViewModel.createScript(type: 1)
                 } label: {
                     Text("Criar Roteiro")
                 }
-
+                .frame(maxWidth: 322, maxHeight: 30, alignment: .leading)
             }
             
             Text("Lançamento")
@@ -58,8 +57,11 @@ struct EpisodeView: View {
             DatePicker("", selection: $actualDate, in: ...Date(), displayedComponents: .date)
                 .tint(.red)
                 .frame(width: 20, alignment: .leading)
+            
+            Spacer()
         }
         .navigationBarTitle(Text(episodeViewModel.episode?.title ?? "Sem título"))
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -57,7 +57,7 @@ struct ScriptFormatView: View {
 /*
 struct ScriptFormatView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptFormatView(scriptsEntites: )
+        ScriptFormatView(scriptsEntites:)
     }
 }
 */
