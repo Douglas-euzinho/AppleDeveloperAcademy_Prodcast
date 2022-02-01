@@ -95,7 +95,37 @@ struct PersistenceController {
     
 
     
-    //MARK: - USER METHODS
+    //MARK: - PROFILE METHODS
+    
+    
+    mutating func createProfile() throws {
+        let profile = Profile(context: context)
+        profile.name = "Meu Podcast"
+        profile.isActiveNotification = false
+        try saveContext()
+    }
+    
+    
+    mutating func getProfile() -> Profile? {
+        var profile: Profile?
+        
+        do {
+            profile = try context.fetch(Profile.fetchRequest()).first
+            if let profile = profile {
+                return profile
+            } else {
+                try createProfile()
+                profile = try context.fetch(Profile.fetchRequest()).first
+            }
+        } catch {
+            //TODO: Create Error
+        }
+        return profile
+    }
+    
+    
+    
+    
     
     
     

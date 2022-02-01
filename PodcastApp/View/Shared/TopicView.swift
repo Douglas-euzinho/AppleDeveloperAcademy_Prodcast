@@ -25,6 +25,7 @@ struct TopicView: View {
                 //label named by coreData
                 
             }
+        
     }
 }
 

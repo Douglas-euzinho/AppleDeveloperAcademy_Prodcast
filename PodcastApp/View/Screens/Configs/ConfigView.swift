@@ -9,13 +9,10 @@ import SwiftUI
 
 struct ConfigView: View {
     
-    @State var nome: String = ""
+    @StateObject var configModel = ConfigViewModel()
     
     var body: some View {
-        
-        NavigationView{
             VStack(alignment: .leading){
-                
                 
                 Form{
                     Section{
@@ -26,23 +23,20 @@ struct ConfigView: View {
                     Section{
                         Text("Nome do Podcast")
                             .font(.title2)
-                        TextField("Podcast name...", text: $nome)
+                        TextField("Podcast name...", text: $configModel.profile.wrappedName )
                     }//End Section 2
                     
                     Section{
                         Text("Recursos")
                             .font(.title2)
                         
-                        NavigationLink(destination: ConfigViewAllNotifications()){
+                        NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
                             Text("Notificações")
                                 .font(.subheadline)
                         }
                     }//End Section 3
-                    
-                    
                 }//End Form
             }//End VStack
-        }//End NavigationView
     }//End body
 }//End struct
 

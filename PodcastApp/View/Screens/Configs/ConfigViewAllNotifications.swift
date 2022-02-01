@@ -19,14 +19,13 @@ import SwiftUI
 struct ConfigViewAllNotifications: View {
     
     @State var createNotificationView: Bool = false
-    
-    @State var notificationToggle: Bool = false
+    @EnvironmentObject var configModel: ConfigViewModel
     
     var body: some View {
         VStack{
             Form{
                 Section{
-                    Toggle(isOn: $notificationToggle) {
+                    Toggle(isOn: $configModel.profile.isActiveNotification) {
                         Text("Permitir Notificação")
                             .font(.subheadline)
                     }
