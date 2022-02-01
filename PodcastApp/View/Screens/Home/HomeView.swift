@@ -10,13 +10,11 @@ import CoreData
 
 struct HomeView: View {
     
-    @Environment(\.verticalSizeClass) var heigthSizeClass: UserInterfaceSizeClass?
-    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
-    
-    @State var orientation: UIDeviceOrientation
     
     // MARK: - PROPERTIES
-    @State var showSheetView = false
+    @State var orientation: UIDeviceOrientation
+    @State private var searchText: String = ""
+    @State private var showSheetView = false
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
@@ -53,10 +51,9 @@ struct HomeView: View {
                                 // MARK: - EPISODES
                                 
                                 /*
-                                //Regular = Portrait(em pé). Compact = Landscape(deitado) -> iPhone
-                                if heigthSizeClass == .regular{
-                                }else if heigthSizeClass == .compact{
-                                }*/
+                                Regular = Portrait(em pé).
+                                Compact = Landscape(deitado) -> iPhone
+                                */
                                 
                                 if UIDevice.current.localizedModel == "iPad"{
                                     
@@ -65,13 +62,13 @@ struct HomeView: View {
                                             .font(.custom("", size: 28))
                                             .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
                                             .padding(10)
-                                        Searchbar()
+                                        Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(12)
                                         
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
+                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                     NavigationLink {
                                                         EpisodeView(episode: episode)
                                                     } label: {
@@ -91,13 +88,13 @@ struct HomeView: View {
                                             .font(.custom("", size: 28))
                                             .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
                                             .padding(10)
-                                        Searchbar()
+                                        Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(12)
                                         
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
+                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                     NavigationLink {
                                                         EpisodeView(episode: episode)
                                                     } label: {
@@ -117,13 +114,13 @@ struct HomeView: View {
                                         .font(.custom("", size: 28))
                                         .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                         .padding(10)
-                                    Searchbar()
+                                    Searchbar(searchText: $searchText)
                                         .frame(alignment: .leading)
                                         .padding(12)
                                     
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
+                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                     NavigationLink {
                                                         EpisodeView(episode: episode)
                                                     } label: {
@@ -136,7 +133,7 @@ struct HomeView: View {
                                             .offset(x: 30)
                                         }
                                         .frame(maxHeight: 500)
-                                    }//fim else if
+                                    }//End else if
                                 }
                                 
                                 
