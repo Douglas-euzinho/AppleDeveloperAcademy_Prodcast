@@ -16,11 +16,7 @@ struct ScriptInputInfosView: View {
     @State private var showingVisualizer = false
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
     
-    
-    
-    
     var body: some View {
-        
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
                 List{

@@ -151,7 +151,7 @@ struct HomeView: View {
                                 } label: {
                                     Image(systemName: "plus.circle.fill")
                                         .foregroundColor(Color("action-color"))
-                                    Text("Novo Projeto")
+                                    Text("Novo Episódio")
                                         .foregroundColor(Color("action-color"))
                                 }
                             }
