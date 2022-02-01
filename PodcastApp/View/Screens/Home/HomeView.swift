@@ -36,8 +36,13 @@ struct HomeView: View {
                     Color("secundary-color").edgesIgnoringSafeArea(.top)
                     VStack {
                         // MARK: - PROFILE VIEW
-                        UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
-                        
+                        NavigationLink {
+                            ConfigView()
+                        } label: {
+                            UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
+                        }.foregroundColor(.black)
+
+                       
                         ZStack {
                             // MARK: - RADIAL BACKGROUND
                             Rectangle()

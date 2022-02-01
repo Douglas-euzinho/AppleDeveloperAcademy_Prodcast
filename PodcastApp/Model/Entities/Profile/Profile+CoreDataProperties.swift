@@ -19,7 +19,12 @@ extension Profile {
     @NSManaged public var isActiveNotification: Bool
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
+    public var wrappedName: String {
+        get { name ?? "No name"}
+        set { name = newValue }
+    }
     @NSManaged public var notification: Notification?
+ 
 
 }
 

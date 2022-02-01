@@ -18,12 +18,16 @@ class NoticationManager {
     
     
     func createNotification(notification: Notification ) {
-        let listOfTriggers = createTriggerToSelectedDays(notification: notification)
-        createRequest(triggers: listOfTriggers)
+        let listOfTriggers = createTriggersToSelectedDays(notification: notification)
+        
+        //Add notifications on notification center device
+        listOfTriggers.forEach { trigger in
+            current.add(UNNotificationRequest(identifier: notification.id?.uuidString ?? UUID().uuidString, content: createNotifcationContent(notification: notification), trigger: trigger))
+        }
     }
     
     
-    private func createTriggerToSelectedDays(notification: Notification) -> [UNCalendarNotificationTrigger] {
+    private func createTriggersToSelectedDays(notification: Notification) -> [UNCalendarNotificationTrigger] {
         
         guard let hour = notification.hour, let weekday = notification.days else { return [] }
         
@@ -40,24 +44,24 @@ class NoticationManager {
     }
     
     
-    
-    
-    
     private func createTrigger(weekDay: Int, hour: Date) -> UNCalendarNotificationTrigger {
         
         var dateComponent = DateComponents()
         dateComponent.weekday = weekDay
         dateComponent.hour = Calendar.current.component(.hour, from: hour)
+        dateComponent.minute = Calendar.current.component(.minute, from: hour)
+        
         return UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-        
     }
     
     
-    
-    private func createRequest(triggers: [UNCalendarNotificationTrigger]) {
-        
+    private func createNotifcationContent(notification: Notification) -> UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = notification.title ?? "Sem título"
+        content.body = notification.message ?? "Sem mensagem"
+        content.sound = .default
+        return content
     }
-    
     
     
     
