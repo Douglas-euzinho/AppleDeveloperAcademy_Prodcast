@@ -19,22 +19,21 @@ import SwiftUI
 struct ConfigViewAllNotifications: View {
     
     @State var createNotificationView: Bool = false
-    
-    @State var notificationToggle: Bool = false
+    @EnvironmentObject var configModel: ConfigViewModel
     
     var body: some View {
         VStack{
             Form{
                 Section{
-                    Toggle(isOn: $notificationToggle) {
+                    Toggle(isOn: $configModel.profile.isActiveNotification) {
                         Text("Permitir Notificação")
                             .font(.subheadline)
                     }
                 }//End Section
                 List{
-                    Text("vito")
-                    Text("é")
-                    Text("guei")
+                    ForEach(configModel.profile.notifications?.allObjects as! [Notification]) { notification in
+                        Text("\(notification.title ?? "No title")")
+                    }
                 }
             }//End Form
             
@@ -49,7 +48,7 @@ struct ConfigViewAllNotifications: View {
         .toolbar{
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    //chamar a tela de adicionar
+                    //Call create notification view
                     self.createNotificationView = true
                 } label: {
                     HStack {
@@ -59,7 +58,6 @@ struct ConfigViewAllNotifications: View {
                 }
             }
         }//End toolbar
-        
     }//End body
 }//End struct
 

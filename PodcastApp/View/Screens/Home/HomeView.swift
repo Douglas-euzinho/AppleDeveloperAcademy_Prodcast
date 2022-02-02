@@ -10,13 +10,11 @@ import CoreData
 
 struct HomeView: View {
     
-    @Environment(\.verticalSizeClass) var heigthSizeClass: UserInterfaceSizeClass?
-    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
-    
-    @State var orientation: UIDeviceOrientation
     
     // MARK: - PROPERTIES
-    @State var showSheetView = false
+    @State var orientation: UIDeviceOrientation
+    @State private var searchText: String = ""
+    @State private var showSheetView = false
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
@@ -36,7 +34,12 @@ struct HomeView: View {
                     Color("secundary-color").edgesIgnoringSafeArea(.top)
                     VStack {
                         // MARK: - PROFILE VIEW
-                        UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
+                        NavigationLink {
+                            ConfigView()
+                        } label: {
+                            UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
+                        }.foregroundColor(.black)
+                        
                         
                         ZStack {
                             // MARK: - RADIAL BACKGROUND
@@ -48,10 +51,9 @@ struct HomeView: View {
                                 // MARK: - EPISODES
                                 
                                 /*
-                                //Regular = Portrait(em pé). Compact = Landscape(deitado) -> iPhone
-                                if heigthSizeClass == .regular{
-                                }else if heigthSizeClass == .compact{
-                                }*/
+                                 Regular = Portrait(em pé).
+                                 Compact = Landscape(deitado) -> iPhone
+                                 */
                                 
                                 if UIDevice.current.localizedModel == "iPad"{
                                     
@@ -60,19 +62,18 @@ struct HomeView: View {
                                             .font(.custom("", size: 28))
                                             .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
                                             .padding(10)
-                                        Searchbar()
+                                        Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(12)
                                         
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
+                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                     NavigationLink {
                                                         EpisodeView(episode: episode)
                                                     } label: {
                                                         CardsEpsView(episode: episode)
                                                     }
-                                                    
                                                 }
                                             }
                                             .padding(.horizontal)
@@ -86,13 +87,13 @@ struct HomeView: View {
                                             .font(.custom("", size: 28))
                                             .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
                                             .padding(10)
-                                        Searchbar()
+                                        Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(12)
                                         
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
+                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                     NavigationLink {
                                                         EpisodeView(episode: episode)
                                                     } label: {
@@ -112,61 +113,61 @@ struct HomeView: View {
                                         .font(.custom("", size: 28))
                                         .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                         .padding(10)
-                                    Searchbar()
+                                    Searchbar(searchText: $searchText)
                                         .frame(alignment: .leading)
                                         .padding(12)
                                     
-                                        ScrollView {
-                                            LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes) { episode in
-                                                    NavigationLink {
-                                                        EpisodeView(episode: episode)
-                                                    } label: {
-                                                        CardsEpsView(episode: episode)
-                                                    }
-                                                    
+                                    ScrollView {
+                                        LazyVGrid(columns: columns, spacing: 20) {
+                                            ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                NavigationLink {
+                                                    EpisodeView(episode: episode)
+                                                } label: {
+                                                    CardsEpsView(episode: episode)
                                                 }
+                                                
                                             }
-                                            .padding(.horizontal)
-                                            .offset(x: 30)
                                         }
-                                        .frame(maxHeight: 500)
-                                    }//fim else if
-                                }
-                                
-                                
-                            } //: VSTACK
-                            .padding(.top)
-                        } //: ZSTACK
-                        .padding(.top)
-                        .toolbar {
-                            ToolbarItem(placement: .bottomBar) {
-                                Button{
-                                    showSheetView.toggle()
-                                } label: {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(Color("action-color"))
-                                    Text("Novo Episódio")
-                                        .foregroundColor(Color("action-color"))
-                                }
+                                        .padding(.horizontal)
+                                        .offset(x: 30)
+                                    }
+                                    .frame(maxHeight: 500)
+                                }//End else if
                             }
                             
-                            ToolbarItem(placement: .bottomBar) {
-                                Spacer()
+                            
+                        } //: VSTACK
+                        .padding(.top)
+                    } //: ZSTACK
+                    .padding(.top)
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button{
+                                showSheetView.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(Color("action-color"))
+                                Text("Novo Episódio")
+                                    .foregroundColor(Color("action-color"))
                             }
+                        }
+                        
+                        ToolbarItem(placement: .bottomBar) {
+                            Spacer()
+                        }
                     }
                 }
-
-                } //: VSTACK
-                .ignoresSafeArea()
-                .background(Color("secundary-color"))
-            }
-            .navigationViewStyle(.stack)
-            .sheet(isPresented: $showSheetView) {
-                NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
+                
+            } //: VSTACK
+            .ignoresSafeArea()
+            .background(Color("secundary-color"))
         }
+        .navigationViewStyle(.stack)
+        .sheet(isPresented: $showSheetView) {
+            NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
         }
     }
+}
 
 
 // MARK: - PREVIEW
@@ -174,6 +175,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(orientation: .portrait)
             .previewDevice("iPhone 12")
-
+        
     }
 }

@@ -17,6 +17,10 @@ extension Episode {
     }
 
     @NSManaged public var title: String?
+    public var wrappedTitle: String {
+        get { return title ?? ""}
+        set { title = newValue }
+    }
     @NSManaged public var status: Int64
     @NSManaged public var date: Date?
     @NSManaged public var script: Script?

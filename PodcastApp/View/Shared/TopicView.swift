@@ -18,7 +18,7 @@ struct TopicView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 52)
                 .padding(.bottom, 2)
-                
+               
             Text(content)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 50)
