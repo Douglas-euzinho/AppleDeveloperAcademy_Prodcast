@@ -24,6 +24,9 @@ struct ConfigView: View {
                         Text("Nome do Podcast")
                             .font(.title2)
                         TextField("Podcast name...", text: $configModel.profile.wrappedName )
+                            .onChange(of: $configModel.profile.wrappedValue) { _ in
+                                configModel.save()
+                            }
                     }//End Section 2
                     
                     Section{

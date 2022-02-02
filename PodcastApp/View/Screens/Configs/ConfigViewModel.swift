@@ -29,4 +29,8 @@ class ConfigViewModel: Modelable {
     }
     
     
+    deinit {
+        save()
+    }
+    
 }
