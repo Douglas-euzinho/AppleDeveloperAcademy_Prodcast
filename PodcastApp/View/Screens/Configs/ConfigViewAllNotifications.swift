@@ -31,9 +31,9 @@ struct ConfigViewAllNotifications: View {
                     }
                 }//End Section
                 List{
-                    Text("vito")
-                    Text("é")
-                    Text("guei")
+                    ForEach(configModel.profile.notifications?.allObjects as! [Notification]) { notification in
+                        Text("\(notification.title ?? "No title")")
+                    }
                 }
             }//End Form
             
@@ -48,7 +48,7 @@ struct ConfigViewAllNotifications: View {
         .toolbar{
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    //chamar a tela de adicionar
+                    //Call create notification view
                     self.createNotificationView = true
                 } label: {
                     HStack {
@@ -58,7 +58,6 @@ struct ConfigViewAllNotifications: View {
                 }
             }
         }//End toolbar
-        
     }//End body
 }//End struct
 

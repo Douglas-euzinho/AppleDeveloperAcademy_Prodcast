@@ -2,7 +2,7 @@
 //  Profile+CoreDataClass.swift
 //  PodcastApp
 //
-//  Created by Igor Samoel da Silva on 18/01/22.
+//  Created by Igor Samoel da Silva on 02/02/22.
 //
 //
 
