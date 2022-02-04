@@ -20,29 +20,30 @@ struct EpisodeView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Episódio 1")
+                Text(episodeViewModel.episode?.title ?? "Sem título")
                     .font(.title)
                     .padding(.horizontal, 25)
-                    .padding(.vertical, 15)
+                    .padding(.bottom, 15)
                 
                 Text("Progresso")
                     .font(.title2)
                     .padding(.horizontal, 25)
                 
-                GroupBox {
-                    VStack {
-                        HStack {
-                            Text("Editar Progresso")
-                                .font(.subheadline)
+                NavigationLink(destination: ProgressDetailView()) {
+                    GroupBox {
+                        VStack {
+                            HStack {
+                                Text("Editar Progresso")
+                                    .font(.subheadline)
+                                Spacer()
+                                Image(systemName: "chevron.forward")
+                                    .font(.subheadline)
+                            }
+                            .foregroundColor(.primary)
                             
-                            Spacer()
-                            
-                            Image(systemName: "chevron.forward")
-                                .font(.subheadline)
+                            EpisodeProgressView(episode: episodeViewModel.episode ?? Episode())
+                                .offset(x: -65)
                         }
-                        
-                        EpisodeProgressView(episode: episodeViewModel.episode ?? Episode())
-                            .padding()
                     }
                 }
                 .padding(.horizontal, 25)
@@ -72,12 +73,11 @@ struct EpisodeView: View {
                             HStack {
                                 Text("Iniciar Teleprompter")
                                     .font(.subheadline)
-                                
                                 Spacer()
-                                
                                 Image(systemName: "chevron.forward")
                                     .font(.subheadline)
                             }
+                            .foregroundColor(.primary)
                             
                             Image(systemName: "book.circle.fill")
                                 .resizable()
@@ -93,7 +93,7 @@ struct EpisodeView: View {
                             .padding(.bottom, 8)
                         }
                     }
-                    .padding(.horizontal, 15)
+                    .padding(.horizontal, 25)
                     .padding(.bottom, 25)
                 }
                 
@@ -107,8 +107,6 @@ struct EpisodeView: View {
                     .offset(x: 15)
                 
             }
-            .navigationBarTitle(Text(episodeViewModel.episode?.title ?? "Sem título"))
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

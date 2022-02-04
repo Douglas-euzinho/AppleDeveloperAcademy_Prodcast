@@ -11,13 +11,13 @@ struct EpisodeProgressView: View {
     @ObservedObject var episode: Episode
     
     var body: some View {
-        ZStack{
+        ZStack {
             ProgressView(value: 25, total: 100)
                 .progressViewStyle(CustomRoundedCornerProgressViewStyle())
             
-            HStack{
-                VStack(alignment: .leading, spacing: 50){
-                    Text("Roterizado ")
+            HStack {
+                VStack(alignment: .leading, spacing: 45){
+                    Text("Roterizado")
                         .font(.custom("FONT_NAME", size: 17))
                         .foregroundColor(Color.black)
                         .padding(5)
