@@ -31,16 +31,14 @@ struct ProgressDetailView: View {
                         .offset(y: -60)
                     Spacer()
                     
-                    ScrollView {
-                        LazyVGrid(columns: layout, spacing: 35) {
-                            ProgressDetailCheckboxView(title: "Roteirizado")
-                            ProgressDetailCheckboxView(title: "Gravado")
-                            ProgressDetailCheckboxView(title: "Editado")
-                            ProgressDetailCheckboxView(title: "Lançado")
-                        }
+                    LazyVGrid(columns: layout, spacing: 35) {
+                        ProgressDetailCheckboxView(title: "Roteirizado")
+                        ProgressDetailCheckboxView(title: "Gravado")
+                        ProgressDetailCheckboxView(title: "Editado")
+                        ProgressDetailCheckboxView(title: "Lançado")
                     }
-                    .frame(maxHeight: 500)
-                    .offset(y: -100)
+                    .offset(y: -130)
+                    .frame(minHeight: 500)
                 }
             }
         }

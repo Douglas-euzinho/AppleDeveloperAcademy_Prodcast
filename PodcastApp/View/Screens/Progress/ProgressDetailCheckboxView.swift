@@ -25,16 +25,19 @@ struct ProgressDetailCheckboxView: View {
                 Text(title)
                     .font(.system(size: 17))
                     .fontWeight(.bold)
-                    .padding()
+                    .padding(.top, 6)
+                    .padding(.bottom)
                 
                 Image(systemName: "book.circle.fill")
                     .resizable()
                     .frame(width: 110, height: 90)
             } //: VSTACK
+            .padding()
             .onTapGesture {
                 isMarked.toggle()
             }
         } //: ZSTACK
+        .cornerRadius(18)
         .frame(width: 152, height: 179)
     }
 }
