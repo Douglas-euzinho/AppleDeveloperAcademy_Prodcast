@@ -38,7 +38,7 @@ struct ConfigViewAllNotifications: View {
             }//End Form
             
             NavigationLink(isActive: $createNotificationView) {
-                ConfigViewNotification()
+                ConfigNotificationView()
             } label: {
             }
 
@@ -64,5 +64,6 @@ struct ConfigViewAllNotifications: View {
 struct ConfigViewAllNotifications_Previews: PreviewProvider {
     static var previews: some View {
         ConfigViewAllNotifications()
+            .environmentObject(ConfigViewModel())
     }
 }

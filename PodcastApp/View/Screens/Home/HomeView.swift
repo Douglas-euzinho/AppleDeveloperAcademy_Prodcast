@@ -29,7 +29,6 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { bounds in
             NavigationView {
-                
                 ZStack {
                     Color("secundary-color").edgesIgnoringSafeArea(.top)
                     VStack {
@@ -155,6 +154,9 @@ struct HomeView: View {
                         ToolbarItem(placement: .bottomBar) {
                             Spacer()
                         }
+                    }
+                    .onTapGesture {
+                        self.hideKeyboard()
                     }
                 }
                 

@@ -18,7 +18,7 @@ struct CustomAlertView: View {
     
     
     var body: some View {
-    
+        
         VStack(spacing: 20) {
             Text(title)
                 .font(.headline)
@@ -41,7 +41,6 @@ struct CustomAlertView: View {
         .opacity(1.3)
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
         .offset(y: isShown ? 0 : screenSize.height)
-
     }
 }
 

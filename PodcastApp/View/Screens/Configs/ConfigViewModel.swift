@@ -19,6 +19,15 @@ class ConfigViewModel: Modelable {
         objectWillChange.send()
     }
     
+    
+    func createNotification(days: [Bool], hour: Date, title: String, message: String) {
+       
+        PersistenceController.shared.createNotification(title: title, hour: hour, message: message, days: days, profile: profile)
+    }
+    
+    
+    
+    
     func save() {
         do {
            try PersistenceController.shared.saveContext()
