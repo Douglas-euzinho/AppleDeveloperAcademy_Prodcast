@@ -125,16 +125,16 @@
 		CD4C613D27861DCC00FF04AC /* Searchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchbar.swift; sourceTree = "<group>"; };
 		CD4C61402787676500FF04AC /* RoadMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadMapView.swift; sourceTree = "<group>"; };
 		CD80607F2799E941008B3C19 /* StatesOfPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesOfPodcast.swift; sourceTree = "<group>"; };
-		CDA0430627629B090020AF33 /* PodcastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodcastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA0430627629B090020AF33 /* ProdCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProdCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0430927629B090020AF33 /* PodcastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastApp.swift; sourceTree = "<group>"; };
 		CDA0430B27629B090020AF33 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CDA0430D27629B0B0020AF33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA0431027629B0B0020AF33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDA0431227629B0B0020AF33 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CDA0431527629B0B0020AF33 /* PodcastApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PodcastApp.xcdatamodel; sourceTree = "<group>"; };
-		CDA0431B27629B0B0020AF33 /* PodcastAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA0431B27629B0B0020AF33 /* ProdCastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProdCastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0431F27629B0B0020AF33 /* PodcastAppCreateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppCreateTests.swift; sourceTree = "<group>"; };
-		CDA0432527629B0B0020AF33 /* PodcastAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA0432527629B0B0020AF33 /* ProdCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProdCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA0432927629B0B0020AF33 /* PodcastAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITests.swift; sourceTree = "<group>"; };
 		CDA0432B27629B0B0020AF33 /* PodcastAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CDB469F52769257900752468 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
@@ -412,9 +412,9 @@
 		CDA0430727629B090020AF33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDA0430627629B090020AF33 /* PodcastApp.app */,
-				CDA0431B27629B0B0020AF33 /* PodcastAppTests.xctest */,
-				CDA0432527629B0B0020AF33 /* PodcastAppUITests.xctest */,
+				CDA0430627629B090020AF33 /* ProdCast.app */,
+				CDA0431B27629B0B0020AF33 /* ProdCastTests.xctest */,
+				CDA0432527629B0B0020AF33 /* ProdCastUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -463,9 +463,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDA0430527629B090020AF33 /* PodcastApp */ = {
+		CDA0430527629B090020AF33 /* ProdCast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDA0432F27629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastApp" */;
+			buildConfigurationList = CDA0432F27629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCast" */;
 			buildPhases = (
 				CDA0430227629B090020AF33 /* Sources */,
 				CDA0430327629B090020AF33 /* Frameworks */,
@@ -475,14 +475,14 @@
 			);
 			dependencies = (
 			);
-			name = PodcastApp;
+			name = ProdCast;
 			productName = PodcastApp;
-			productReference = CDA0430627629B090020AF33 /* PodcastApp.app */;
+			productReference = CDA0430627629B090020AF33 /* ProdCast.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDA0431A27629B0B0020AF33 /* PodcastAppTests */ = {
+		CDA0431A27629B0B0020AF33 /* ProdCastTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDA0433227629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastAppTests" */;
+			buildConfigurationList = CDA0433227629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCastTests" */;
 			buildPhases = (
 				CDA0431727629B0B0020AF33 /* Sources */,
 				CDA0431827629B0B0020AF33 /* Frameworks */,
@@ -493,14 +493,14 @@
 			dependencies = (
 				CDA0431D27629B0B0020AF33 /* PBXTargetDependency */,
 			);
-			name = PodcastAppTests;
+			name = ProdCastTests;
 			productName = PodcastAppTests;
-			productReference = CDA0431B27629B0B0020AF33 /* PodcastAppTests.xctest */;
+			productReference = CDA0431B27629B0B0020AF33 /* ProdCastTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CDA0432427629B0B0020AF33 /* PodcastAppUITests */ = {
+		CDA0432427629B0B0020AF33 /* ProdCastUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDA0433527629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastAppUITests" */;
+			buildConfigurationList = CDA0433527629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCastUITests" */;
 			buildPhases = (
 				CDA0432127629B0B0020AF33 /* Sources */,
 				CDA0432227629B0B0020AF33 /* Frameworks */,
@@ -511,9 +511,9 @@
 			dependencies = (
 				CDA0432727629B0B0020AF33 /* PBXTargetDependency */,
 			);
-			name = PodcastAppUITests;
+			name = ProdCastUITests;
 			productName = PodcastAppUITests;
-			productReference = CDA0432527629B0B0020AF33 /* PodcastAppUITests.xctest */;
+			productReference = CDA0432527629B0B0020AF33 /* ProdCastUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -539,7 +539,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CDA0430127629B090020AF33 /* Build configuration list for PBXProject "PodcastApp" */;
+			buildConfigurationList = CDA0430127629B090020AF33 /* Build configuration list for PBXProject "ProdCast" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -552,9 +552,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDA0430527629B090020AF33 /* PodcastApp */,
-				CDA0431A27629B0B0020AF33 /* PodcastAppTests */,
-				CDA0432427629B0B0020AF33 /* PodcastAppUITests */,
+				CDA0430527629B090020AF33 /* ProdCast */,
+				CDA0431A27629B0B0020AF33 /* ProdCastTests */,
+				CDA0432427629B0B0020AF33 /* ProdCastUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -664,12 +664,12 @@
 /* Begin PBXTargetDependency section */
 		CDA0431D27629B0B0020AF33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CDA0430527629B090020AF33 /* PodcastApp */;
+			target = CDA0430527629B090020AF33 /* ProdCast */;
 			targetProxy = CDA0431C27629B0B0020AF33 /* PBXContainerItemProxy */;
 		};
 		CDA0432727629B0B0020AF33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CDA0430527629B090020AF33 /* PodcastApp */;
+			target = CDA0430527629B090020AF33 /* ProdCast */;
 			targetProxy = CDA0432627629B0B0020AF33 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -796,13 +796,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 272983AP33;
+				DEVELOPMENT_TEAM = 9HBFB9D4T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProdCast;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -815,7 +817,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.douglas.podcastapp.PodcastApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorbrito.podcastapp.PodcastApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -828,13 +830,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PodcastApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 272983AP33;
+				DEVELOPMENT_TEAM = 9HBFB9D4T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PodcastApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProdCast;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -847,7 +851,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.douglas.podcastapp.PodcastApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorbrito.podcastapp.PodcastApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -876,7 +880,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodcastApp.app/PodcastApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProdCast.app/ProdCast";
 			};
 			name = Debug;
 		};
@@ -901,7 +905,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PodcastApp.app/PodcastApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProdCast.app/ProdCast";
 			};
 			name = Release;
 		};
@@ -954,7 +958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CDA0430127629B090020AF33 /* Build configuration list for PBXProject "PodcastApp" */ = {
+		CDA0430127629B090020AF33 /* Build configuration list for PBXProject "ProdCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDA0432D27629B0B0020AF33 /* Debug */,
@@ -963,7 +967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDA0432F27629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastApp" */ = {
+		CDA0432F27629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDA0433027629B0B0020AF33 /* Debug */,
@@ -972,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDA0433227629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastAppTests" */ = {
+		CDA0433227629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCastTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDA0433327629B0B0020AF33 /* Debug */,
@@ -981,7 +985,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDA0433527629B0B0020AF33 /* Build configuration list for PBXNativeTarget "PodcastAppUITests" */ = {
+		CDA0433527629B0B0020AF33 /* Build configuration list for PBXNativeTarget "ProdCastUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDA0433627629B0B0020AF33 /* Debug */,
