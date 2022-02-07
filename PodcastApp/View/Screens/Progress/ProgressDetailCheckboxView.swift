@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProgressDetailCheckboxView: View {
+    var title: String
+    @State var isMarked: Bool = false
+    
     var body: some View {
         ZStack {
             Color.white
@@ -15,11 +18,11 @@ struct ProgressDetailCheckboxView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(Color("blue-button"))
+                    Image(systemName: isMarked ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(isMarked ? Color("blue-button") : Color(.black))
                 }
                 
-                Text("Roteirizado")
+                Text(title)
                     .font(.system(size: 17))
                     .fontWeight(.bold)
                     .padding()
@@ -28,6 +31,9 @@ struct ProgressDetailCheckboxView: View {
                     .resizable()
                     .frame(width: 110, height: 90)
             } //: VSTACK
+            .onTapGesture {
+                isMarked.toggle()
+            }
         } //: ZSTACK
         .frame(width: 152, height: 179)
     }
@@ -35,7 +41,7 @@ struct ProgressDetailCheckboxView: View {
 
 struct ProgressDetailCheckboxView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressDetailCheckboxView()
+        ProgressDetailCheckboxView(title: "Roteirizado", isMarked: false)
             .previewLayout(.sizeThatFits)
             .padding()
     }

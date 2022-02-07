@@ -9,39 +9,39 @@ import SwiftUI
 
 struct ProgressDetailView: View {
     // MARK: - PROPERTIES
-    @ObservedObject var episode: Episode
+    //@ObservedObject var episode: Episode
     
     var layout = [
-        GridItem(.fixed(130)),
-        GridItem(.fixed(130))
+        GridItem(.flexible(minimum: 100, maximum: 150)),
+        GridItem(.flexible(minimum: 100, maximum: 150))
     ]
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Oba! Atualize o andamento do seu podcast.")
-                    .font(.system(size: 22))
-                    .fontWeight(.semibold)
-                    .padding(.bottom, 15)
-                Spacer()
+            ZStack {
+                Color("background-color")
+                    .ignoresSafeArea(.all)
                 
-                ScrollView {
-                    LazyVGrid(columns: layout, spacing: 20) {
-                        ForEach(episode) { episode in
-                            NavigationLink {
-                                EpisodeView(episode: episode)
-                            } label: {
-                                CardsEpsView(episode: episode)
-                            }
-                            
+                VStack {
+                    Text("Oba! Atualize o andamento do seu podcast.")
+                        .font(.system(size: 22))
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 15)
+                        .offset(y: -60)
+                    Spacer()
+                    
+                    ScrollView {
+                        LazyVGrid(columns: layout, spacing: 35) {
+                            ProgressDetailCheckboxView(title: "Roteirizado")
+                            ProgressDetailCheckboxView(title: "Gravado")
+                            ProgressDetailCheckboxView(title: "Editado")
+                            ProgressDetailCheckboxView(title: "Lançado")
                         }
                     }
-                    .padding(.horizontal)
-                    .offset(x: 30)
+                    .frame(maxHeight: 500)
+                    .offset(y: -100)
                 }
-                .frame(maxHeight: 500)
-                
             }
         }
         .navigationBarTitle("Progresso", displayMode: .inline)
@@ -51,9 +51,9 @@ struct ProgressDetailView: View {
     }
 }
 
-// MARK: - PREVIEW
-struct ProgressDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProgressDetailView()
-    }
-}
+//// MARK: - PREVIEW
+//struct ProgressDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProgressDetailView()
+//    }
+//}
