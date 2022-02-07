@@ -11,8 +11,8 @@
 		15049B74278F5ADA0007934A /* PodcastAppDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */; };
 		15049B76278F5BB40007934A /* PodcastAppUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */; };
 		1586E20227A9B4960083F78A /* EpisodeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20127A9B4960083F78A /* EpisodeProgressView.swift */; };
-		23208E132797497600C30615 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E0F2797497600C30615 /* Profile+CoreDataClass.swift */; };
-		23208E142797497600C30615 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23208E102797497600C30615 /* Profile+CoreDataProperties.swift */; };
+		1586E20527AAF4B20083F78A /* ProgressDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20427AAF4B20083F78A /* ProgressDetailView.swift */; };
+		1586E20727AB033F0083F78A /* ProgressDetailCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20627AB033F0083F78A /* ProgressDetailCheckboxView.swift */; };
 		2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */; };
 		2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */; };
 		2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */; };
@@ -82,8 +82,8 @@
 		15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppDeleteTests.swift; sourceTree = "<group>"; };
 		15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUpdateTests.swift; sourceTree = "<group>"; };
 		1586E20127A9B4960083F78A /* EpisodeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeProgressView.swift; sourceTree = "<group>"; };
-		23208E0F2797497600C30615 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
-		23208E102797497600C30615 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1586E20427AAF4B20083F78A /* ProgressDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailView.swift; sourceTree = "<group>"; };
+		1586E20627AB033F0083F78A /* ProgressDetailCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailCheckboxView.swift; sourceTree = "<group>"; };
 		2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputSpecificInfoView.swift; sourceTree = "<group>"; };
 		2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptFormatView.swift; sourceTree = "<group>"; };
 		2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputInfosView.swift; sourceTree = "<group>"; };
@@ -169,6 +169,15 @@
 			path = Episode;
 			sourceTree = "<group>";
 		};
+		1586E20327AAF4960083F78A /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				1586E20427AAF4B20083F78A /* ProgressDetailView.swift */,
+				1586E20627AB033F0083F78A /* ProgressDetailCheckboxView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		230128392763CFE0003173F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +190,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1586E20327AAF4960083F78A /* Progress */,
 				CD4C613F2787671800FF04AC /* RoadMapView */,
 				15013D05276D07150020A48F /* Episode */,
 				CD25E007276D04B5003012C6 /* NewEpisodeView */,
@@ -576,6 +586,7 @@
 				2359203C27AA40C600299E4B /* Profile+CoreDataClass.swift in Sources */,
 				23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */,
 				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
+				1586E20727AB033F0083F78A /* ProgressDetailCheckboxView.swift in Sources */,
 				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
 				1586E20227A9B4960083F78A /* EpisodeProgressView.swift in Sources */,
@@ -592,6 +603,7 @@
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
 				2350266D2799F7AC00D14BC2 /* Notification+CoreDataProperties.swift in Sources */,
 				234661932791F8E00032B728 /* TopicView.swift in Sources */,
+				1586E20527AAF4B20083F78A /* ProgressDetailView.swift in Sources */,
 				2343C018276A604C00C3A3EE /* Episode+CoreDataClass.swift in Sources */,
 				23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */,
 				2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */,
