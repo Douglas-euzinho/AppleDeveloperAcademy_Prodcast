@@ -12,19 +12,19 @@ struct TopicView: View {
     @State var content: String
     
     var body: some View {
-            VStack{
-                Text(title)
-                    .font(Font.headline.weight(.bold))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 52)
-                    .padding(.vertical, 20)
-                
-                Text(content)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 50)
-                //label named by coreData
-                
-            }
+        VStack {
+            Text(title)
+                .font(Font.headline.weight(.bold))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 52)
+                .padding(.bottom, 2)
+               
+            Text(content)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 50)
+                .padding(.bottom)
+            //label named by coreData
+        }
     }
 }
 

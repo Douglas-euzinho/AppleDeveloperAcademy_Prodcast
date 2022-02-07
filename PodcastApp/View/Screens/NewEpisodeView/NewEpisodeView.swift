@@ -29,7 +29,7 @@ struct NewEpisodeView: View {
                             .padding(10)
                             .font(Font.system(size: 15, weight: .medium, design: .serif))
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white)))
-                          
+                        
                     } //: VSTACK
                 } //: HSTACK
                 .padding(.top, 25)
@@ -40,13 +40,13 @@ struct NewEpisodeView: View {
                         Text("Data Prevista Para Lançamento:")
                             .bold()
                             .font(.system(size: 22))
-                
-                DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                    .datePickerStyle(CompactDatePickerStyle())
-                    .clipped()
-                    .labelsHidden()
-                    .accentColor(Color.blue)
-                    .frame(alignment: .leading)
+                        
+                        DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .clipped()
+                            .labelsHidden()
+                            .accentColor(Color.blue)
+                            .frame(alignment: .leading)
                         
                     } //: VSTACK
                 } //: HSTACK
@@ -73,6 +73,9 @@ struct NewEpisodeView: View {
                     })
             }
             Spacer()
+        }
+        .onTapGesture {
+            self.hideKeyboard()
         }
         .navigationViewStyle(.stack)
     }

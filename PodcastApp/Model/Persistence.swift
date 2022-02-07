@@ -95,8 +95,55 @@ struct PersistenceController {
     
 
     
-    //MARK: - USER METHODS
+    //MARK: - PROFILE METHODS
+    mutating func createProfile() throws {
+        let profile = Profile(context: context)
+        profile.name = "Meu Podcast"
+        profile.isActiveNotification = false
+        try saveContext()
+    }
     
+    
+    mutating func getProfile() -> Profile? {
+        var profile: Profile?
+        
+        do {
+            profile = try context.fetch(Profile.fetchRequest()).first
+            if let profile = profile {
+                return profile
+            } else {
+                try createProfile()
+                profile = try context.fetch(Profile.fetchRequest()).first
+            }
+        } catch {
+            //TODO: Create Error
+        }
+        return profile
+    }
+    
+    
+    
+    //MARK: NOTIFICATION METHODS
+    mutating func createNotification(title: String, hour: Date, message: String, days: [Bool],profile: Profile) {
+        let notification = Notification(context: context)
+        notification.profile = profile
+        notification.id = UUID()
+        notification.title = title
+        notification.hour = hour
+        notification.message = message
+        profile.addToNotifications(notification)
+        
+        let weekDays = WeekDay(context: context)
+       
+        weekDays.sunday = days[0]; weekDays.monday = days[1];weekDays.tuersday = days[2];weekDays.wednesday = days[3];weekDays.thursday = days[4]; weekDays.friday = days[5];weekDays.saturday = days[6]
+        
+        notification.days = weekDays
+        do {
+           try saveContext()
+        } catch {
+            
+        }
+    }
     
     
     //MARK: - CORE DATA METHODS
