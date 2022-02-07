@@ -12,34 +12,37 @@ struct ConfigView: View {
     @StateObject var configModel = ConfigViewModel()
     
     var body: some View {
-            VStack(alignment: .leading){
+        VStack(alignment: .leading){
+            
+            Form{
+                Section{
+                    //ak fica a foto do perfil
+                    
+                }//End Section 1
                 
-                Form{
-                    Section{
-                        //ak fica a foto do perfil
-                        
-                    }//End Section 1
-                    
-                    Section{
-                        Text("Nome do Podcast")
-                            .font(.title2)
-                        TextField("Podcast name...", text: $configModel.profile.wrappedName )
-                            .onChange(of: $configModel.profile.wrappedValue) { _ in
-                                configModel.save()
-                            }
-                    }//End Section 2
-                    
-                    Section{
-                        Text("Recursos")
-                            .font(.title2)
-                        
-                        NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
-                            Text("Notificações")
-                                .font(.subheadline)
+                Section{
+                    Text("Nome do Podcast")
+                        .font(.title2)
+                    TextField("Podcast name...", text: $configModel.profile.wrappedName )
+                        .onChange(of: $configModel.profile.wrappedValue) { _ in
+                            configModel.save()
                         }
-                    }//End Section 3
-                }//End Form
-            }//End VStack
+                }//End Section 2
+                
+                Section{
+                    Text("Recursos")
+                        .font(.title2)
+                    
+                    NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
+                        Text("Notificações")
+                            .font(.subheadline)
+                    }
+                }//End Section 3
+            }//End Form
+        }//End VStack
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }//End body
 }//End struct
 
