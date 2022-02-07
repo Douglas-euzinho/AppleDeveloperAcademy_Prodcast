@@ -29,7 +29,7 @@ struct EpisodeView: View {
                     .font(.title2)
                     .padding(.horizontal, 25)
                 
-                NavigationLink(destination: ProgressDetailView()) {
+                NavigationLink(destination: EmptyView()) {
                     GroupBox {
                         VStack {
                             HStack {
