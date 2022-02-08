@@ -12,10 +12,9 @@ struct PodcastApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //HomeView(orientation: .portrait)
+            HomeView(orientation: .portrait)
             //ConfigView()
             //ConfigViewNotification()
-            TeleprompterView()
         }
     }
 }
