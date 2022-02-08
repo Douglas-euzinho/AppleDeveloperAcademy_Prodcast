@@ -42,6 +42,9 @@
 		23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
 		23E25CC52788A03B0082038B /* NewEpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */; };
+		364C79DB27B2FAD300E3C353 /* TeleprompterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C79DA27B2FAD300E3C353 /* TeleprompterView.swift */; };
+		364C79DE27B2FB3C00E3C353 /* TeleprompterViewText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C79DD27B2FB3C00E3C353 /* TeleprompterViewText.swift */; };
+		364C79E027B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C79DF27B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift */; };
 		367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6327974BDA0003E271 /* ConfigView.swift */; };
 		367C7C6627974F2F0003E271 /* ConfigNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6527974F2F0003E271 /* ConfigNotificationView.swift */; };
 		36FCCF2927989B1400AE59FA /* ConfigViewAllNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */; };
@@ -116,6 +119,9 @@
 		23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableProtocol.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		23E25CC42788A03B0082038B /* NewEpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeViewModel.swift; sourceTree = "<group>"; };
+		364C79DA27B2FAD300E3C353 /* TeleprompterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterView.swift; sourceTree = "<group>"; };
+		364C79DD27B2FB3C00E3C353 /* TeleprompterViewText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterViewText.swift; sourceTree = "<group>"; };
+		364C79DF27B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterViewIntroduction.swift; sourceTree = "<group>"; };
 		367C7C6327974BDA0003E271 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		367C7C6527974F2F0003E271 /* ConfigNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNotificationView.swift; sourceTree = "<group>"; };
 		36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewAllNotifications.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				364C79D927B2FAA900E3C353 /* Teleprompter */,
 				1586E20327AAF4960083F78A /* Progress */,
 				CD4C613F2787671800FF04AC /* RoadMapView */,
 				15013D05276D07150020A48F /* Episode */,
@@ -353,6 +360,24 @@
 				23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		364C79D927B2FAA900E3C353 /* Teleprompter */ = {
+			isa = PBXGroup;
+			children = (
+				364C79DA27B2FAD300E3C353 /* TeleprompterView.swift */,
+				364C79DC27B2FB1F00E3C353 /* Components */,
+			);
+			path = Teleprompter;
+			sourceTree = "<group>";
+		};
+		364C79DC27B2FB1F00E3C353 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				364C79DD27B2FB3C00E3C353 /* TeleprompterViewText.swift */,
+				364C79DF27B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		367C7C6227974BBC0003E271 /* Configs */ = {
@@ -599,9 +624,11 @@
 				CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */,
 				23680D9B27B1B70200A09D94 /* MultipleSelectionRow.swift in Sources */,
 				2343C019276A604C00C3A3EE /* Episode+CoreDataProperties.swift in Sources */,
+				364C79DE27B2FB3C00E3C353 /* TeleprompterViewText.swift in Sources */,
 				23680D9927B1AF0400A09D94 /* MultipleSelectionListView.swift in Sources */,
 				1586E20227A9B4960083F78A /* EpisodeProgressView.swift in Sources */,
 				CDA0431327629B0B0020AF33 /* Persistence.swift in Sources */,
+				364C79DB27B2FAD300E3C353 /* TeleprompterView.swift in Sources */,
 				235026752799F8F900D14BC2 /* NotificationManager.swift in Sources */,
 				2350266E2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift in Sources */,
 				2343C027276CC06E00C3A3EE /* UserProfileView.swift in Sources */,
@@ -612,6 +639,7 @@
 				235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */,
 				367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */,
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
+				364C79E027B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift in Sources */,
 				2350266D2799F7AC00D14BC2 /* Notification+CoreDataProperties.swift in Sources */,
 				234661932791F8E00032B728 /* TopicView.swift in Sources */,
 				1586E20527AAF4B20083F78A /* ProgressDetailView.swift in Sources */,
