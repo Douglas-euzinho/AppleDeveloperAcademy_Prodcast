@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//MARK: - VIEW MODIFIER BASED ON DEVICE
 struct IPadNavigationViewStyle: ViewModifier {
     func body(content: Content) -> some View { content.navigationViewStyle(StackNavigationViewStyle()) }
 }
@@ -29,27 +30,27 @@ extension View {
 
 struct TeleprompterView: View {
     
-    @State var visualizacaoIndex = 0
-    @State var hideShowViewsWhenTapped: Bool = false
-    @State var isStopwatchActive: Bool = false
-    @State var buttonPlayPause: Bool = false
-    //@State var scrollText: Bool = false
+    //MARK: - PROPERTIES
+    @State private var visualizacaoIndex = 0
+    @State private var hideShowViewsWhenTapped: Bool = false
+    @State private var isStopwatchActive: Bool = false
+    @State private var buttonPlayPause: Bool = false
     
-    @State var timerRunning: Bool = false
-    @State var timeCount = 0.0
-    @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-    
+    @State private var timerRunning: Bool = false
+    @State private var timeCount = 0.0
+    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     let layoutHorizontal = [
         GridItem(.fixed(80)),
     ]
-    
     let layoutVertical = [
         GridItem(.fixed(80))
     ]
     
     var body: some View {
         NavigationView{
+            //MARK: - (MINIMIZE PART) TELEPROMPTER TEXT AND INTRODUCTION
+            //CHECK IF IS IN "MINIMIZE" OR IN "MAXIMIZE"
             if(self.visualizacaoIndex == 0){
                 VStack(alignment: .center, spacing: 15){
                     Picker(selection: $visualizacaoIndex) {
@@ -60,20 +61,24 @@ struct TeleprompterView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     VStack {
+                        //SHOW THE PROMPTER INTRODUCTION IN HORIZONTAL
                         ScrollView(.horizontal){
                             LazyHGrid(rows: layoutHorizontal, spacing: 10){
                                 ForEach(0..<70){_ in
                                     TeleprompterViewIntroduction()
                                 }
-                            } //fim LazyHGrid
-                        }//fim ScrollView 1
+                            }
+                        }
                     }
-                    .frame(minWidth: 170, maxWidth: 350, minHeight: 110, maxHeight: 200, alignment: .center)
+                    .frame(minWidth: 135, maxWidth: 950, minHeight: 110, maxHeight: 200, alignment: .center)
+                    //SHOW THE PROMPTER TEXT IN VERTICAL
                     TeleprompterViewText()
-                } //fim VStack 1
-                
+                }
+                //MARK: - INIT TOOLBAR
                 .toolbar {
                     ToolbarItemGroup(placement: ToolbarItemPlacement.bottomBar) {
+                        
+                        //BUTTON THAT CREATE/REMOVE THE STOPWATCH WHEN TAPPED
                         Button {
                             self.isStopwatchActive.toggle()
                             self.timeCount = 0
@@ -86,19 +91,12 @@ struct TeleprompterView: View {
                         }
                         Spacer()
                         
+                        //BUTTON THAT START/STOP THE STOPWATCH COUNTDOWN
                         Button {
                             //Iniciar contagem cronometro e scrollview automático
                             self.buttonPlayPause.toggle()
                             self.timerRunning.toggle()
-                            
-                            //TODO: criar método para o timer
-                            if self.buttonPlayPause{
-                                
-                                timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-                            }else{
-                                self.timer.upstream.connect().cancel()
-                            }
-                            
+                            checkButtonToTimerCount()
                         } label: {
                             VStack{
                                 if self.buttonPlayPause{
@@ -113,6 +111,7 @@ struct TeleprompterView: View {
                         }
                         Spacer()
                         
+                        //BUTTON WHO CALLS UP THE CONFIG SCREEN
                         Button {
                             //Configurações
                         } label: {
@@ -122,8 +121,9 @@ struct TeleprompterView: View {
                             }
                             .foregroundColor(.black)
                         }
-                    } //fim ToolbarItemGroup
+                    }
                     
+                    //THE STOPWATCH VIEW IN THE TOP SCREEN VIEW
                     ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
                         if(isStopwatchActive == true){
                             ZStack{
@@ -141,10 +141,11 @@ struct TeleprompterView: View {
                             .frame(width: 80, height:45)
                         }
                     }
-                } //fim toolbar
-            }else{ //Parte do Maximizar
-                
+                }
+                //MARK: - (MAXIMIZE PART) ONLY PROMPTER TEXT
+            }else{
                 VStack(alignment: .center){
+                    //CHECK IF THE READ MODE IS ON/OFF
                     if(self.hideShowViewsWhenTapped == false){
                         Picker(selection: $visualizacaoIndex) {
                             Text("Minimizar").tag(0)
@@ -155,6 +156,7 @@ struct TeleprompterView: View {
                         .pickerStyle(SegmentedPickerStyle())
                     }
                     
+                    //BUTTON THAT REMOVE/APPEAR THE VIEWS ON SCREEN
                     Button {
                         self.hideShowViewsWhenTapped.toggle()
                     } label: {
@@ -173,25 +175,17 @@ struct TeleprompterView: View {
                     }
                     .padding()
                     
+                    //THE TELEPROMPTER TEXT VIEW
                     ScrollView(.vertical){
                         LazyVGrid(columns: layoutVertical) {
                             ForEach(0..<70){
                                 Text("Item \($0)")
                                     .foregroundColor(.white)
                             }
-                            /*
-                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                             .offset(y: scrollText ? 100 : -400)
-                             .animation(Animation.linear(duration: 8))
-                             .onAppear(){
-                             self.scrollText.toggle()
-                             }
-                             */
-                        } //fim LazyVGrid
-                        
-                        
-                    } //fim ScrollView
+                        }
+                    }
                     
+                    //BUTTON THAT PAUSES THE AUTOMATIC SCROLL TEXT
                     if(self.hideShowViewsWhenTapped == false){
                         Button {
                             //pausar
@@ -201,19 +195,30 @@ struct TeleprompterView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                } //fim VStack
+                }
                 .background(.black)
-            } //fim else
-        } //fim Nav. View
+            }
+        }
+        //MODIFY THE LAYOUT ACCORDING TO SPECIFIC DEVICE
         .modify(if: UIDevice.current.userInterfaceIdiom == .pad, then: IPadNavigationViewStyle(), else: IPhoneNavigationViewStyle())
-    }//fim body
+    }
+    
+    /// Description: Check the button state for stopwatch counting
+    /// if the button is paused, the stopwatch pauses the count.
+    /// if the button is played, the stopwatch start the count
+    func checkButtonToTimerCount(){
+        if self.buttonPlayPause{
+            timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+        }else{
+            self.timer.upstream.connect().cancel()
+        }
+    }
+    
+    
 }
 
 struct TeleprompterView_Previews: PreviewProvider {
     static var previews: some View {
         TeleprompterView()
-        TeleprompterView()
-            .previewDevice("iPad mini (6th generation)")
-        
     }
 }

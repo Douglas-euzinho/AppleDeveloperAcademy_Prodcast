@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TeleprompterViewText: View {
     
+    //MARK: - PROPERTIES
     let layoutVertical = [
         GridItem(.fixed(80))
     ]
     
     var body: some View {
+        //HERE IS CREATED THE COMPONENTIZATION FROM TELEPROMPTER TEXT
         VStack(alignment: .center, spacing: 15){
             ScrollView(.vertical){
                 LazyVGrid(columns: layoutVertical, spacing: 10){
@@ -24,7 +26,7 @@ struct TeleprompterViewText: View {
                 }.background(.black) //fim LazyVGrid
             }
         }
-        .frame(minWidth: 240, maxWidth: 340, minHeight: 240, maxHeight: 350, alignment: .center)
+        .frame(minWidth: 150, maxWidth: 640, minHeight: 170, maxHeight: 730, alignment: .center)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
