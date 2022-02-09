@@ -29,8 +29,6 @@
 		2350266E2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350266A2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift */; };
 		2350266F2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350266B2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift */; };
 		235026752799F8F900D14BC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235026742799F8F900D14BC2 /* NotificationManager.swift */; };
-		235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413D827909B8100235B7F /* Topic+CoreDataClass.swift */; };
-		235413DB27909B8100235B7F /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413D927909B8100235B7F /* Topic+CoreDataProperties.swift */; };
 		235413DF2790A65000235B7F /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235413DE2790A65000235B7F /* EpisodeViewModel.swift */; };
 		2359203C27AA40C600299E4B /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359203A27AA40C600299E4B /* Profile+CoreDataClass.swift */; };
 		2359203D27AA40C600299E4B /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359203B27AA40C600299E4B /* Profile+CoreDataProperties.swift */; };
@@ -38,6 +36,8 @@
 		23680D9B27B1B70200A09D94 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680D9A27B1B70200A09D94 /* MultipleSelectionRow.swift */; };
 		23680D9D27B1BDB700A09D94 /* View+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23680D9C27B1BDB700A09D94 /* View+hideKeyboard.swift */; };
 		23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397510F276D171E0055AE41 /* HomeViewModel.swift */; };
+		23AF29EA27B45AE5003F941B /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E827B45AE5003F941B /* Topic+CoreDataClass.swift */; };
+		23AF29EB27B45AE5003F941B /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */; };
 		23D8AC9D27A3225200DF1298 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */; };
 		23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
@@ -106,8 +106,6 @@
 		2350266A2799F7AC00D14BC2 /* WeekDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeekDay+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2350266B2799F7AC00D14BC2 /* WeekDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeekDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		235026742799F8F900D14BC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		235413D827909B8100235B7F /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
-		235413D927909B8100235B7F /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		235413DE2790A65000235B7F /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
 		2359203A27AA40C600299E4B /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2359203B27AA40C600299E4B /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -115,6 +113,8 @@
 		23680D9A27B1B70200A09D94 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		23680D9C27B1BDB700A09D94 /* View+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+hideKeyboard.swift"; sourceTree = "<group>"; };
 		2397510F276D171E0055AE41 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		23AF29E827B45AE5003F941B /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableProtocol.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -286,8 +286,8 @@
 		2343C01D276A606000C3A3EE /* Topic */ = {
 			isa = PBXGroup;
 			children = (
-				235413D827909B8100235B7F /* Topic+CoreDataClass.swift */,
-				235413D927909B8100235B7F /* Topic+CoreDataProperties.swift */,
+				23AF29E827B45AE5003F941B /* Topic+CoreDataClass.swift */,
+				23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */,
 			);
 			path = Topic;
 			sourceTree = "<group>";
@@ -616,7 +616,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				235413DB27909B8100235B7F /* Topic+CoreDataProperties.swift in Sources */,
 				2359203C27AA40C600299E4B /* Profile+CoreDataClass.swift in Sources */,
 				23975110276D171F0055AE41 /* HomeViewModel.swift in Sources */,
 				2343C022276BC2E400C3A3EE /* CustomAlertView.swift in Sources */,
@@ -636,7 +635,6 @@
 				2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */,
 				CD4C61412787676500FF04AC /* RoadMapView.swift in Sources */,
 				2343C01A276A604C00C3A3EE /* Script+CoreDataClass.swift in Sources */,
-				235413DA27909B8100235B7F /* Topic+CoreDataClass.swift in Sources */,
 				367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */,
 				23E25CC3278630470082038B /* Enums.swift in Sources */,
 				364C79E027B2FB4C00E3C353 /* TeleprompterViewIntroduction.swift in Sources */,
@@ -657,9 +655,11 @@
 				15013D07276D07730020A48F /* EpisodeView.swift in Sources */,
 				CD8060802799E941008B3C19 /* StatesOfPodcast.swift in Sources */,
 				2350266C2799F7AC00D14BC2 /* Notification+CoreDataClass.swift in Sources */,
+				23AF29EA27B45AE5003F941B /* Topic+CoreDataClass.swift in Sources */,
 				235413DF2790A65000235B7F /* EpisodeViewModel.swift in Sources */,
 				CDA0430A27629B090020AF33 /* PodcastApp.swift in Sources */,
 				2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */,
+				23AF29EB27B45AE5003F941B /* Topic+CoreDataProperties.swift in Sources */,
 				CD4C613E27861DCC00FF04AC /* Searchbar.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 				CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */,

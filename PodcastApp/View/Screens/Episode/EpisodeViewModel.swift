@@ -25,6 +25,7 @@ class EpisodeViewModel: Modelable {
         }
         do {
             let _ = try persistence.createScript(typeOfScript: type, episode: episode)
+            setupInitialTopics()
             update()
         } catch {
             
@@ -45,8 +46,21 @@ class EpisodeViewModel: Modelable {
     
     
     func getAllTopics() -> [Topic] {
-        guard let episode = episode else { return [] }
-        return episode.script?.topics?.allObjects as? [Topic] ?? []
+        guard let topics = episode?.script?.topics?.allObjects as? [Topic] else { return [] }
+        
+        return topics.sorted{ $0.date ?? Date() < $1.date ?? Date() }
+    }
+    
+    
+    func getFormattedScript() -> String {
+        let topics = getAllTopics()
+        
+        var formattedScript = ""
+        
+        topics.forEach { topic in
+            formattedScript.append("\(topic.content ?? "")")
+        }
+        return formattedScript
     }
     
     
@@ -61,6 +75,17 @@ class EpisodeViewModel: Modelable {
     
     func update() {
         objectWillChange.send()
+    }
+    
+    
+    
+    private func setupInitialTopics() {
+        createTopic(title: "Tema")
+        createTopic(title: "Vinheta")
+        createTopic(title: "Introdução")
+        createTopic(title: "Conteúdo")
+        createTopic(title: "Comentário")
+        createTopic(title: "Finalização")
     }
     
     

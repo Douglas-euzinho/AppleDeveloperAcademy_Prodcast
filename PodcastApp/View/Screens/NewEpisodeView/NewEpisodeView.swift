@@ -54,8 +54,9 @@ struct NewEpisodeView: View {
                 
                     .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
                     .navigationBarItems(trailing: Button(action: {
-                        let _ = model.createEpisode(name: episodeName, date: selectedDate)
-                        homeModel.update()
+                        if !episodeName.isEmpty {
+                            let _ = model.createEpisode(name: episodeName, date: selectedDate)
+                        }
                         showSheetView = false
                     }) {
                         //TODO: show episode screen

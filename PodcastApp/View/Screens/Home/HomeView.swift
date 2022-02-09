@@ -36,8 +36,13 @@ struct HomeView: View {
                         NavigationLink {
                             ConfigView()
                         } label: {
-                            UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
-                        }.foregroundColor(.black)
+                            UserProfileView(name: homeViewModel.profile?.wrappedName ?? "No name")
+                                .onAppear(perform: {
+                                    homeViewModel.update()
+                                })
+                                .padding(.top, bounds.safeAreaInsets.top-80)
+                        }
+                        .foregroundColor(.black)
                         
                         
                         ZStack {

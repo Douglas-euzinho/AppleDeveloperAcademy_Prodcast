@@ -86,7 +86,7 @@ struct PersistenceController {
     //MARK: - TOPIC METHODS
     mutating func createTopic(title: String, script: Script) throws {
         let topic = Topic(context: context)
-        topic.id = UUID()
+        topic.date = Date()
         topic.title = title
         script.addToTopics(topic)
         try saveContext()
