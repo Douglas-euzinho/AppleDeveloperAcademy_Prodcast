@@ -7,15 +7,21 @@
 
 import SwiftUI
 
-
 struct CardsEpsView: View {
+    // MARK: - PROPERTIES
     @ObservedObject var episode: Episode
     let screen = UIScreen.main.bounds
+    
+    // MARK: - BODY
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color.init(uiColor: UIColor.init(named: "secundary-color") ?? UIColor.white))
-                 .frame(width: 152, height: 213)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(.black)
+                )
+                .frame(width: 152, height: 213)
             StatesOfPodcast(episode: episode)
         }
         

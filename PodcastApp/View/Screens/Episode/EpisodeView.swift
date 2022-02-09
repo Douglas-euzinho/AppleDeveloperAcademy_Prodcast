@@ -122,11 +122,11 @@ struct EpisodeView: View {
                     DatePicker("", selection: $actualDate, in: Date()..., displayedComponents: .date)
                         .datePickerStyle(.automatic)
                         .accentColor(Color("accent-color"))
-                        .background(Color.white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.black)
                         )
+                        .labelsHidden()
                         .frame(width: 20, alignment: .leading)
                         .offset(x: 40)
                 }
