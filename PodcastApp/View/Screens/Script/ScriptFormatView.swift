@@ -31,7 +31,7 @@ struct ScriptFormatView: View {
     var body: some View {
         List{
             ForEach(types){ type in
-                NavigationLink(destination: ScriptInputInfosView(selectedTopic: type.name).environmentObject(episodeViewModel)){
+                NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)){
                     Text("\(type.name)")
                 }
          
