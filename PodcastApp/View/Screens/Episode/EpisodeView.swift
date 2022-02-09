@@ -61,8 +61,8 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    //if episodeViewModel.episode?.script != nil {
-                        NavigationLink(destination: ScriptFormatView().environmentObject(episodeViewModel)) {
+                    if episodeViewModel.episode?.script != nil {
+                    NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
                             GroupBox {
                                 VStack {
                                     HStack {
@@ -74,7 +74,7 @@ struct EpisodeView: View {
                                             .modifier(groupBoxChevron())
                                     } //: HSTACK
                                         ScrollView(.vertical, showsIndicators: false) {
-                                            Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante. Nesse episódio iremos falar sobre os tipos existente de Alfabetos, para utilizar em seus mapas mentais e materiais de estudos.")
+                                            Text(episodeViewModel.getFormattedScript())
                                                 .multilineTextAlignment(.leading)
                                         }
                                     } //: VSTACK
@@ -84,37 +84,38 @@ struct EpisodeView: View {
                             .groupBoxStyle(groupBoxStroked())
                             .modifier(textFieldPadding())
                             .buttonStyle(PlainButtonStyle())
-//                    } else {
-//                        GroupBox {
-//                            VStack {
-//                                HStack {
-//                                    Text("Iniciar Teleprompter")
-//                                        .fontWeight(.semibold)
-//                                        .font(.subheadline)
-//                                    Spacer()
-//                                    Image(systemName: "chevron.forward")
-//                                        .modifier(groupBoxChevron())
-//                                }
-//                                .foregroundColor(.primary)
-//
-//                                Image(systemName: "book.circle.fill")
-//                                    .resizable()
-//                                    .padding()
-//                                    .frame(width: 100, height: 100, alignment: .center)
-//
-//                                Button {
-//                                    episodeViewModel.createScript(type: 1)
-//                                } label: {
-//                                    Text("Iniciar")
-//                                }
-//                                .buttonStyle(OrangeButton())
-//                                .padding(.bottom, 8)
-//                            }
-//                            .padding()
-//                        }
-//                        .groupBoxStyle(groupBoxStroked())
-//                        .modifier(textFieldPadding())
-                    
+                    } else {
+                        GroupBox {
+                            VStack {
+                                HStack {
+                                    //TODO: Change after to Iniciar Teleprompter
+                                    Text("Criar Roteiro")
+                                        .fontWeight(.semibold)
+                                        .font(.subheadline)
+                                    Spacer()
+                                    Image(systemName: "chevron.forward")
+                                        .modifier(groupBoxChevron())
+                                }
+                                .foregroundColor(.primary)
+
+                                Image(systemName: "book.circle.fill")
+                                    .resizable()
+                                    .padding()
+                                    .frame(width: 100, height: 100, alignment: .center)
+
+                                Button {
+                                    episodeViewModel.createScript(type: 1)
+                                } label: {
+                                    Text("Iniciar")
+                                }
+                                .buttonStyle(OrangeButton())
+                                .padding(.bottom, 8)
+                            }
+                            .padding()
+                        }
+                        .groupBoxStyle(groupBoxStroked())
+                        .modifier(textFieldPadding())
+                    }
                     Text("Lançamento")
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())

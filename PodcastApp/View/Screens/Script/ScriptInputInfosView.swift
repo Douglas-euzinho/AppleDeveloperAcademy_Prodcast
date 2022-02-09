@@ -20,7 +20,7 @@ struct ScriptInputInfosView: View {
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
                 List{
-                    ForEach((episodeViewModel.episode?.script?.topics?.allObjects as! [Topic])){ topic in
+                    ForEach(episodeViewModel.getAllTopics()){ topic in
                         Section{
                             Text("\(topic.title ?? "Sem título")")
                             NavigationLink {
@@ -53,7 +53,7 @@ struct ScriptInputInfosView: View {
                             showingVisualizer = true
                             
                         } label: {
-                            if episodeViewModel.episode?.script?.topics?.allObjects.count ?? 0 > 0 {
+                            if episodeViewModel.getAllTopics().count > 0 {
                                 NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
                                     Text("Visualizar")
                                         .foregroundColor(Color("accent-color"))
