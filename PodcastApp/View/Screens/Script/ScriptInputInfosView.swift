@@ -53,9 +53,14 @@ struct ScriptInputInfosView: View {
                             showingVisualizer = true
                             
                         } label: {
-                            NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
-                                Text("Visualizar").foregroundColor(.black).padding(.top)
+                            if episodeViewModel.episode?.script?.topics?.allObjects.count ?? 0 > 0 {
+                                NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
+                                    Text("Visualizar")
+                                        .foregroundColor(Color("accent-color"))
+                                        .padding(.top)
+                                }
                             }
+                          
                         }
                     }
                 }

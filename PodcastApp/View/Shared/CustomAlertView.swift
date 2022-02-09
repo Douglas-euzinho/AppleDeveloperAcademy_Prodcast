@@ -67,7 +67,7 @@ struct saveButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: 120, height: 40)
-            .background(Color("blue-button"))
+            .background(Color("accent-color"))
             .foregroundColor(.white)
             .cornerRadius(10)
     }
@@ -80,7 +80,7 @@ struct cancelButton: ButtonStyle {
             .foregroundColor(.black)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("blue-button"))
+                    .stroke(Color("accent-color"))
             )
     }
 }
