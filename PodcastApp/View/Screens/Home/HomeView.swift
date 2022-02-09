@@ -43,11 +43,12 @@ struct HomeView: View {
                         ZStack {
                             // MARK: - RADIAL BACKGROUND
                             Rectangle()
-                                .cornerRadius(radius: 60, corners: [.topLeft])
+                                .cornerRadius(radius: 40, corners: [.topLeft])
                                 .foregroundColor(Color("background-color"))
                                 .frame(minHeight: 620)
                             
                             VStack {
+                                Spacer()
                                 // MARK: - EPISODES
                                 
                                 /*
