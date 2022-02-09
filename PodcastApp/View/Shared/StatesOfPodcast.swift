@@ -15,8 +15,7 @@ struct StatesOfPodcast: View {
             ProgressBarView(progress: Int(Float(episode.status)))
                 .position(x: 20, y: 120)
                 .frame(width: 152, height: 213)
-            
-            VStack{
+            VStack{ //VStack 1
                 Text(episode.title ?? "Sem título")
                     .font(.custom("Helvetica Neue", size: 13))
                     .foregroundColor(.black)
@@ -42,9 +41,28 @@ struct StatesOfPodcast: View {
                             .padding(5)
                     }
                 }
+                .padding(.top)
+                    Label{
+                        Text(DateFormatter.formatedDate.string(from: episode.date ?? Date()))
+                            .foregroundColor(.black)
+                            .font(.custom("FONT_NAME", size: 11))
+                    } icon: {
+                        Image(systemName: "calendar.circle")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.leading, 42)
             }
+            .frame(width: 152, height: 213)
         }
     }
+}
+
+extension DateFormatter{
+    static let formatedDate: DateFormatter = {
+        let dayMonthYear = DateFormatter()
+        dayMonthYear.dateFormat = "dd/MM/yy"
+        return dayMonthYear
+    }()
 }
 
 //struct StatesOfPodcast_Previews: PreviewProvider {
