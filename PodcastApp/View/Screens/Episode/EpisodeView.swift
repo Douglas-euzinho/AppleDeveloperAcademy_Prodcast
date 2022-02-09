@@ -62,7 +62,7 @@ struct EpisodeView: View {
                         .modifier(textFieldTitle())
                     
                     if episodeViewModel.episode?.script != nil {
-                        NavigationLink(destination: ScriptFormatView().environmentObject(episodeViewModel)) {
+                        NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
                             GroupBox(label: Label("Resenha", systemImage: "text.justify")
                             ) {
                                 ScrollView(.vertical, showsIndicators: false) {
