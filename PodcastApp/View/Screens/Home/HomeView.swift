@@ -45,6 +45,7 @@ struct HomeView: View {
                             Rectangle()
                                 .cornerRadius(radius: 60, corners: [.topLeft])
                                 .foregroundColor(Color("background-color"))
+                                .frame(minHeight: 620)
                             
                             VStack {
                                 // MARK: - EPISODES
@@ -64,7 +65,7 @@ struct HomeView: View {
                                         Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(12)
-                                        
+                        
                                         ScrollView {
                                             LazyVGrid(columns: columns, spacing: 20) {
                                                 ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
@@ -109,12 +110,13 @@ struct HomeView: View {
                                 }else if UIDevice.current.localizedModel == "iPhone"{
                                     
                                     Text("Meus Episódios")
-                                        .font(.custom("", size: 28))
+                                        .font(.system(size: 26))
+                                        .fontWeight(.semibold)
+                                        .padding(.bottom, 12)
                                         .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                        .padding(10)
                                     Searchbar(searchText: $searchText)
                                         .frame(alignment: .leading)
-                                        .padding(12)
+                                        .padding(.horizontal, 16)
                                     
                                     ScrollView {
                                         LazyVGrid(columns: columns, spacing: 20) {
@@ -124,9 +126,9 @@ struct HomeView: View {
                                                 } label: {
                                                     CardsEpsView(episode: episode)
                                                 }
-                                                
                                             }
                                         }
+                                        .padding(.top, 15)
                                         .padding(.horizontal)
                                         .offset(x: 30)
                                     }
@@ -145,9 +147,9 @@ struct HomeView: View {
                                 showSheetView.toggle()
                             } label: {
                                 Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(Color("action-color"))
+                                    .foregroundColor(Color("accent-color"))
                                 Text("Novo Episódio")
-                                    .foregroundColor(Color("action-color"))
+                                    .foregroundColor(Color("accent-color"))
                             }
                         }
                         
