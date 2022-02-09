@@ -15,7 +15,7 @@ struct StatesOfPodcast: View {
             ProgressBarView(progress: Int(Float(episode.status)))
                 .position(x: 20, y: 120)
                 .frame(width: 152, height: 213)
-            VStack{ //VStack 1
+            VStack{
                 Text(episode.title ?? "Sem título")
                     .font(.custom("Helvetica Neue", size: 13))
                     .fontWeight(.semibold)
@@ -28,7 +28,6 @@ struct StatesOfPodcast: View {
                             .font(.custom("FONT_NAME", size: 12))
                             .foregroundColor(Color.black)
                             .padding(5)
-                        
                         Text("Gravado")
                             .font(.custom("FONT_NAME", size: 12))
                             .foregroundColor(Color.black)
@@ -44,15 +43,20 @@ struct StatesOfPodcast: View {
                     }
                 }
                 .padding(.top)
+                HStack {
                     Label{
-                        Text(DateFormatter.formatedDate.string(from: episode.date ?? Date()))
-                            .foregroundColor(.black)
-                            .font(.custom("FONT_NAME", size: 11))
-                    } icon: {
-                        Image(systemName: "calendar.circle")
-                            .foregroundColor(.black)
-                    }
+                            Text(DateFormatter.formatedDate.string(from: episode.date ?? Date()))
+                                .foregroundColor(.black)
+                                .font(.custom("FONT_NAME", size: 10))
+                        } icon: {
+                            Image(systemName: "calendar")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.black)
+                                .offset(x: 5)
+                        }
                     .padding(.leading, 42)
+                }
             }
             .frame(width: 152, height: 213)
         }
