@@ -19,6 +19,7 @@ struct NewEpisodeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                //MARK: - INPUT DATE AND EPISODE THEME
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Tema do Epsódio:").bold()
@@ -30,17 +31,11 @@ struct NewEpisodeView: View {
                             .font(Font.system(size: 15, weight: .medium, design: .serif))
                             .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white)))
                         
-                    } //: VSTACK
-                } //: HSTACK
-                .padding(.top, 25)
-                .padding(.horizontal, 20)
-                
-                HStack {
-                    VStack(alignment: .leading) {
                         Text("Data Prevista Para Lançamento:")
                             .bold()
                             .font(.system(size: 22))
-                        
+                            //.padding()
+
                         DatePicker("", selection: $selectedDate, displayedComponents: .date)
                             .datePickerStyle(CompactDatePickerStyle())
                             .clipped()
@@ -50,6 +45,8 @@ struct NewEpisodeView: View {
                         
                     } //: VSTACK
                 } //: HSTACK
+                .padding(.top, 25)
+
                 
                 //TODO: add date format
                 
@@ -72,6 +69,7 @@ struct NewEpisodeView: View {
                             .foregroundColor(Color.black)
                     })
             }
+            .padding(.leading)
             Spacer()
         }
         .onTapGesture {
