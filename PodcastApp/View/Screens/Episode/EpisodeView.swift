@@ -57,61 +57,69 @@ struct EpisodeView: View {
                     }
                     .modifier(textFieldPadding())
                     
-                    Text("Teleprompter")
+                    Text("Roteiro")
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    if episodeViewModel.episode?.script != nil {
-                        NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
-                            GroupBox(label: Label("Resenha", systemImage: "text.justify")
-                            ) {
-                                ScrollView(.vertical, showsIndicators: false) {
-                                    Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante. Nesse episódio iremos falar sobre os tipos existente de Alfabetos, para utilizar em seus mapas mentais e materiais de estudos.")
-                                        .multilineTextAlignment(.center)
+                    //if episodeViewModel.episode?.script != nil {
+                        NavigationLink(destination: ScriptFormatView().environmentObject(episodeViewModel)) {
+                            GroupBox {
+                                VStack {
+                                    HStack {
+                                        Text("Editar Progresso")
+                                            .fontWeight(.semibold)
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Image(systemName: "chevron.forward")
+                                            .modifier(groupBoxChevron())
+                                    } //: HSTACK
+                                        ScrollView(.vertical, showsIndicators: false) {
+                                            Text("Olá, aqui é Maria e você está ouvindo ao podcast Vida de Estudante. Nesse episódio iremos falar sobre os tipos existente de Alfabetos, para utilizar em seus mapas mentais e materiais de estudos.")
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                    } //: VSTACK
+                                    .padding()
                                 }
                             }
                             .groupBoxStyle(groupBoxStroked())
                             .modifier(textFieldPadding())
                             .buttonStyle(PlainButtonStyle())
-                            .frame(minHeight: 200)
-                        }
-                    } else {
-                        GroupBox {
-                            VStack {
-                                HStack {
-                                    Text("Iniciar Teleprompter")
-                                        .fontWeight(.semibold)
-                                        .font(.subheadline)
-                                    Spacer()
-                                    Image(systemName: "chevron.forward")
-                                        .modifier(groupBoxChevron())
-                                }
-                                .foregroundColor(.primary)
-                                
-                                Image(systemName: "book.circle.fill")
-                                    .resizable()
-                                    .padding()
-                                    .frame(width: 100, height: 100, alignment: .center)
-                                
-                                Button {
-                                    episodeViewModel.createScript(type: 1)
-                                } label: {
-                                    Text("Iniciar")
-                                }
-                                .buttonStyle(OrangeButton())
-                                .padding(.bottom, 8)
-                            }
-                            .padding()
-                        }
-                        .groupBoxStyle(groupBoxStroked())
-                        .modifier(textFieldPadding())
-                    }
+//                    } else {
+//                        GroupBox {
+//                            VStack {
+//                                HStack {
+//                                    Text("Iniciar Teleprompter")
+//                                        .fontWeight(.semibold)
+//                                        .font(.subheadline)
+//                                    Spacer()
+//                                    Image(systemName: "chevron.forward")
+//                                        .modifier(groupBoxChevron())
+//                                }
+//                                .foregroundColor(.primary)
+//
+//                                Image(systemName: "book.circle.fill")
+//                                    .resizable()
+//                                    .padding()
+//                                    .frame(width: 100, height: 100, alignment: .center)
+//
+//                                Button {
+//                                    episodeViewModel.createScript(type: 1)
+//                                } label: {
+//                                    Text("Iniciar")
+//                                }
+//                                .buttonStyle(OrangeButton())
+//                                .padding(.bottom, 8)
+//                            }
+//                            .padding()
+//                        }
+//                        .groupBoxStyle(groupBoxStroked())
+//                        .modifier(textFieldPadding())
                     
                     Text("Lançamento")
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    DatePicker("", selection: $actualDate, in: ...Date(), displayedComponents: .date)
+                    DatePicker("", selection: $actualDate, in: Date()..., displayedComponents: .date)
                         .datePickerStyle(.automatic)
                         .accentColor(Color("accent-color"))
                         .background(Color.white)
@@ -120,13 +128,13 @@ struct EpisodeView: View {
                                 .stroke(.black)
                         )
                         .frame(width: 20, alignment: .leading)
-                        .offset(x: 15)
-                    
+                        .offset(x: 40)
                 }
             }
         }
     }
 }
+//}
 
 // MARK: - STYLE MODIFIERS
 struct textFieldPadding: ViewModifier {
