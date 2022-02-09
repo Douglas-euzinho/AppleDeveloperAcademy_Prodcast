@@ -13,14 +13,14 @@ struct StatesOfPodcast: View {
         
         ZStack{
             ProgressBarView(progress: Int(Float(episode.status)))
-                .position(x: 20, y: 120)
+                .position(x: 20, y: 111)
                 .frame(width: 152, height: 213)
             VStack{
                 Text(episode.title ?? "Sem título")
                     .font(.custom("Helvetica Neue", size: 13))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
-                    .offset(y: -10)
+                    .offset(y: -2)
                     .frame(width: 150, height: 20, alignment: .center)
                 HStack{
                     VStack(alignment: .leading){
@@ -42,6 +42,8 @@ struct StatesOfPodcast: View {
                             .padding(5)
                     }
                 }
+                .offset(y: -9)
+                
                 .padding(.top)
                 HStack {
                     Label{
