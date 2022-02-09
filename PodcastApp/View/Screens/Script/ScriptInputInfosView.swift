@@ -10,7 +10,7 @@ import SwiftUI
 struct ScriptInputInfosView: View {
     
     
-    var selectedTopic: String
+   // var selectedTopic: String
     @State private var showingAlert = false
     @State private var topicName = ""
     @State private var showingVisualizer = false
@@ -36,7 +36,7 @@ struct ScriptInputInfosView: View {
 //                    }
                 }//End List
                 .toolbar{ EditButton()}
-                .navigationTitle("Roteiro: \(selectedTopic)")
+                .navigationTitle("Roteiro")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         Button {
