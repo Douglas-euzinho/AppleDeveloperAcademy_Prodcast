@@ -43,6 +43,11 @@ class EpisodeViewModel: Modelable {
         }
     }
     
+//    func getDate() -> [Topic]{
+//        guard let episodeDate = episode else{ return [] }
+//        return episodeDate.date? as? [Topic] ?? []
+//    }
+    
     
     func getAllTopics() -> [Topic] {
         guard let episode = episode else { return [] }
