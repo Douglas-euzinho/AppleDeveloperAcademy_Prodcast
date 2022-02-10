@@ -12,6 +12,7 @@ struct ScriptInputSpecificInfoView: View {
     @State var desc: String = ""
     @State var title: String = ""
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
         VStack(alignment: .center){
@@ -33,6 +34,7 @@ struct ScriptInputSpecificInfoView: View {
                     if title.count != 0 { topic.title = title }
                     episodeViewModel.save()
                     episodeViewModel.update()
+                    presentationMode.wrappedValue.dismiss()
                 }label: {
                     Text("Salvar")
                         .foregroundColor(.black)
