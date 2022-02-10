@@ -19,7 +19,7 @@ struct ProgressDetailCheckboxView: View {
                 HStack {
                     Spacer()
                     Image(systemName: isMarked ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(isMarked ? Color("blue-button") : Color(.black))
+                        .foregroundColor(isMarked ? Color("accent-color") : Color(.black))
                 }
                 
                 Text(title)

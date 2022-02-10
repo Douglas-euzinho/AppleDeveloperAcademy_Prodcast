@@ -18,59 +18,62 @@ struct NewEpisodeView: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Tema do Epsódio:").bold()
-                            .font(.system(size: 22))
-                        
-                        TextField("Nome do Episódio", text: $episodeName)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .font(Font.system(size: 15, weight: .medium, design: .serif))
-                            .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color.init(uiColor: UIColor.init(named: "TextField") ?? UIColor.white)))
-                        
-                    } //: VSTACK
-                } //: HSTACK
-                .padding(.top, 25)
-                .padding(.horizontal, 20)
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Data Prevista Para Lançamento:")
-                            .bold()
-                            .font(.system(size: 22))
-                        
-                        DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .clipped()
-                            .labelsHidden()
-                            .accentColor(Color.blue)
-                            .frame(alignment: .leading)
-                        
-                    } //: VSTACK
-                } //: HSTACK
-                
-                //TODO: add date format
-                
-                Spacer()
-                
-                    .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
-                    .navigationBarItems(trailing: Button(action: {
-                        let _ = model.createEpisode(name: episodeName, date: selectedDate)
-                        homeModel.update()
-                        showSheetView = false
-                    }) {
-                        //TODO: show episode screen
-                        Text("Salvar").bold()
-                            .foregroundColor(Color.black)
-                    })
-                    .navigationBarItems(leading: Button(action: {
-                        showSheetView = false
-                    }) {
-                        Text("Cancelar")
-                            .foregroundColor(Color.black)
-                    })
+            ZStack {
+                Color("background-color")
+                    .ignoresSafeArea()
+                VStack {
+                    //MARK: - INPUT DATE AND EPISODE THEME
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Tema do Epsódio:")
+                                .font(.system(size: 22))
+                            
+                            TextField("", text: $episodeName)
+                                .foregroundColor(.black)
+                                .padding(.vertical, 6)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(.black)
+                                )
+                                .font(Font.system(size: 17, weight: .medium, design: .serif))
+                                .background(.white)
+                                .padding(.trailing, 20)
+                            
+                            Text("Lançamento:")
+                                .font(.system(size: 22))
+
+                            DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                                .datePickerStyle(CompactDatePickerStyle())
+                                .clipped()
+                                .labelsHidden()
+                                .accentColor(Color.blue)
+                                .frame(alignment: .leading)
+                            
+                        } //: VSTACK
+                    } //: HSTACK
+                    .padding(.top, 25)                   
+                    //TODO: add date format
+                    
+                    Spacer()
+                    
+                        .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
+                        .navigationBarItems(trailing: Button(action: {
+                            let _ = model.createEpisode(name: episodeName, date: selectedDate)
+                            homeModel.update()
+                            showSheetView = false
+                        }) {
+                            //TODO: show episode screen
+                            Text("Salvar").bold()
+                                .foregroundColor(Color("accent-color"))
+                        })
+                        .navigationBarItems(leading: Button(action: {
+                            showSheetView = false
+                        }) {
+                            Text("Cancelar")
+                                .foregroundColor(Color("accent-color"))
+                        })
+                }
+                .padding(.leading)
             }
             Spacer()
         }

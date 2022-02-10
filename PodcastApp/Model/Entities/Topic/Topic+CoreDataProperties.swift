@@ -1,8 +1,8 @@
 //
 //  Topic+CoreDataProperties.swift
-//  PodcastApp
+//  ProdCast
 //
-//  Created by Igor Samoel da Silva on 13/01/22.
+//  Created by Igor Samoel da Silva on 09/02/22.
 //
 //
 
@@ -17,8 +17,8 @@ extension Topic {
     }
 
     @NSManaged public var content: String?
+    @NSManaged public var date: Date?
     @NSManaged public var title: String?
-    @NSManaged public var id: UUID?
     @NSManaged public var script: Script?
 
 }

@@ -10,54 +10,73 @@ import SwiftUI
 struct ScriptInputInfosView: View {
     
     
-    var selectedTopic: String
+   // var selectedTopic: String
     @State private var showingAlert = false
     @State private var topicName = ""
     @State private var showingVisualizer = false
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         //TODO: CREATE DELETE TOPIC FUNTION
             ZStack{
-                List{
-                    ForEach((episodeViewModel.episode?.script?.topics?.allObjects as! [Topic])){ topic in
-                        Section{
-                            Text("\(topic.title ?? "Sem título")")
-                            NavigationLink {
-                                ScriptInputSpecificInfoView(topic: topic).environmentObject(episodeViewModel)
+                VStack {
+                    
+                    List{
+                        ForEach(episodeViewModel.getAllTopics()){ topic in
+                            Section{
+                                Text("\(topic.title ?? "Sem título")")
+                                NavigationLink {
+                                    ScriptInputSpecificInfoView(topic: topic).environmentObject(episodeViewModel)
+                                } label: {
+                                    Text("\(topic.content ?? "Sem texto")")
+                                }
+                            }//End Section
+                        }//End ForEach
+                        //FIXME: ADD REMOVE TOPICS ACTION
+    //                    .onDelete { IndexSet in
+    //                        config.topics.remove(atOffsets: IndexSet)
+    //                    }
+                        
+                        //TODO: Corrigir o local do button
+                        VStack(){
+                            Button("Salvar"){
+                                self.presentationMode.wrappedValue.dismiss()
+                                //ação de salvar
+                            }
+                            .buttonStyle(saveButtonView())
+                        }
+                    }//End List
+                    
+                    .toolbar{ EditButton()}
+                    .navigationTitle("Roteiro")
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button {
+                                showingAlert = true
                             } label: {
-                                Text("\(topic.content ?? "Sem texto")")
-                            }
-                        }//End Section
-                    }//End ForEach
-                    //FIXME: ADD REMOVE TOPICS ACTION
-//                    .onDelete { IndexSet in
-//                        config.topics.remove(atOffsets: IndexSet)
-//                    }
-                }//End List
-                .toolbar{ EditButton()}
-                .navigationTitle("Roteiro: \(selectedTopic)")
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            showingAlert = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "plus.circle.fill").foregroundColor(.black)
-                                Text("Adicionar Tópico").foregroundColor(.black)
-                            }.padding(.top)
-                        }
-                    }
-                    ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            showingVisualizer = true
-                            
-                        } label: {
-                            NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
-                                Text("Visualizar").foregroundColor(.black).padding(.top)
+                                HStack {
+                                    Image(systemName: "plus.circle.fill").foregroundColor(.black)
+                                    Text("Adicionar Tópico").foregroundColor(.black)
+                                }.padding(.top)
                             }
                         }
-                    }
+                        ToolbarItem(placement: .bottomBar) {
+                            Button {
+                                showingVisualizer = true
+                                
+                            } label: {
+                                if episodeViewModel.getAllTopics().count > 0 {
+                                    NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
+                                        Text("Visualizar")
+                                            .foregroundColor(Color("accent-color"))
+                                            .padding(.top)
+                                    }
+                                }
+                              
+                            }
+                        }
+                }
                 }
                 //Show Custom View to input topic name
                 CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
@@ -68,6 +87,17 @@ struct ScriptInputInfosView: View {
         .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body
+}
+
+struct saveButtonView: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            //.frame(width: 180, height: 40)
+            .frame(minWidth: 150, maxWidth: 500, minHeight: 40, maxHeight: 70, alignment: .center)
+            .background(Color("accent-color"))
+            .foregroundColor(.white)
+            .cornerRadius(10)
+    }
 }
 
 /*
