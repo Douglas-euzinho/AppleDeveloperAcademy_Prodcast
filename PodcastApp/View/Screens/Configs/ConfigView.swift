@@ -9,14 +9,36 @@ import SwiftUI
 
 struct ConfigView: View {
     
+    //MARK: Properties
     @StateObject var configModel = ConfigViewModel()
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    
     var body: some View {
         VStack(alignment: .leading){
             
             Form{
                 Section{
-                    //ak fica a foto do perfil
-                    
+                    HStack {
+                        Spacer()
+                        VStack{
+                            //FIXME: PERSIST IMAGE ON CORE DATA
+                            Image(uiImage: inputImage ?? UIImage(systemName: "person.circle.fill")!)
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 62, height: 62)
+                            Button {
+                                showingImagePicker = true
+                            } label: {
+                                Text("Alterar foto do perfil")
+                                    .foregroundColor(Color("accent-color"))
+                            }
+
+                        }
+                        
+                        Spacer()
+                    }
+    
                 }//End Section 1
                 
                 Section{
@@ -41,6 +63,9 @@ struct ConfigView: View {
         }//End VStack
         .onTapGesture {
             self.hideKeyboard()
+        }
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker(image: $inputImage)
         }
     }//End body
 }//End struct
