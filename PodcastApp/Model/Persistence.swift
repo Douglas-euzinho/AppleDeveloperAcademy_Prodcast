@@ -13,6 +13,7 @@ struct PersistenceController {
     
     lazy var context: NSManagedObjectContext = {
         let viewContext = container.viewContext
+        viewContext.automaticallyMergesChangesFromParent = true
         return viewContext
     }()
     
