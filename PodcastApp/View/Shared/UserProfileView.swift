@@ -9,13 +9,13 @@ import SwiftUI
 
 struct UserProfileView: View {
     let screen = UIScreen.main.bounds
-    
+    var name: String
     var body: some View {
         VStack(spacing: 10){
             Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: 80, height: 80)
-            Text("Vida de Estudante").font(.custom("Helvetica Neue", size: 25))
+            Text(name).font(.custom("Helvetica Neue", size: 25))
                 .fontWeight(.medium)
         }
     }
@@ -23,6 +23,6 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView()
+        UserProfileView(name: "Vida de Estudante")
     }
 }

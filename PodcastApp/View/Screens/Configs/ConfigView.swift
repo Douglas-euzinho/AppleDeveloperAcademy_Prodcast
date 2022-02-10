@@ -10,7 +10,6 @@ import SwiftUI
 struct ConfigView: View {
     
     @StateObject var configModel = ConfigViewModel()
-    
     var body: some View {
         VStack(alignment: .leading){
             

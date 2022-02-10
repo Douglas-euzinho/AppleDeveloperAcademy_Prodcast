@@ -9,7 +9,11 @@ import Foundation
 
 
 class HomeViewModel: ObservableObject {
-     
+    
+    var profile: Profile? = {
+        return PersistenceController.shared.getProfile()
+    }()
+    
     @Published var episodes: [Episode] = {
         let episodes = PersistenceController.shared.fetchAllEpisodes()
         return episodes
@@ -17,6 +21,8 @@ class HomeViewModel: ObservableObject {
     
     func update() {
         self.episodes = PersistenceController.shared.fetchAllEpisodes()
+        self.profile = PersistenceController.shared.getProfile()
+        objectWillChange.send()
     }
     
 }

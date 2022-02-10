@@ -51,9 +51,7 @@ struct NewEpisodeView: View {
                             
                         } //: VSTACK
                     } //: HSTACK
-                    .padding(.top, 25)
-
-                    
+                    .padding(.top, 25)                   
                     //TODO: add date format
                     
                     Spacer()

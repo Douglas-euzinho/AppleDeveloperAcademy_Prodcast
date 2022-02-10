@@ -36,18 +36,24 @@ struct HomeView: View {
                         NavigationLink {
                             ConfigView()
                         } label: {
-                            UserProfileView().padding(.top, bounds.safeAreaInsets.top-80)
-                        }.foregroundColor(.black)
+                            UserProfileView(name: homeViewModel.profile?.wrappedName ?? "No name")
+                                .onAppear(perform: {
+                                    homeViewModel.update()
+                                })
+                                .padding(.top, bounds.safeAreaInsets.top-80)
+                        }
+                        .foregroundColor(.black)
                         
                         
                         ZStack {
                             // MARK: - RADIAL BACKGROUND
                             Rectangle()
-                                .cornerRadius(radius: 60, corners: [.topLeft])
+                                .cornerRadius(radius: 40, corners: [.topLeft])
                                 .foregroundColor(Color("background-color"))
                                 .frame(minHeight: 620)
                             
                             VStack {
+                                Spacer()
                                 // MARK: - EPISODES
                                 
                                 /*
