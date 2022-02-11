@@ -56,7 +56,6 @@ class EpisodeViewModel: Modelable {
         return topics.sorted{ $0.date ?? Date() < $1.date ?? Date() }
     }
     
-    
     func getFormattedScript() -> String {
         let topics = getAllTopics()
         

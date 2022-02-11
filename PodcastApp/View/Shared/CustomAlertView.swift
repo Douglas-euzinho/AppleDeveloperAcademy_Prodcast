@@ -11,7 +11,6 @@ struct CustomAlertView: View {
     let screenSize = UIScreen.main.bounds
     
     var title: String = ""
-    var textEditorPlaceholder = "Exemplo: Introdução"
     @Binding var isShown: Bool
     @Binding var text: String
     var onDone: (String) -> Void = { _ in }
@@ -56,10 +55,13 @@ struct CustomAlertView: View {
             .frame(width: screenSize.width * 0.83, height: screenSize.height * 0.23)
             .background(Color.init(uiColor: UIColor.init(named: "background-color") ?? UIColor.gray))
             .opacity(1.3)
-            .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black)
+            )
             .offset(y: isShown ? 0 : screenSize.height)
         }
-
     }
 }
 
