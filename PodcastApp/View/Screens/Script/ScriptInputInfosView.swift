@@ -16,6 +16,7 @@ struct ScriptInputInfosView: View {
     @State private var topicName = ""
     @State private var scriptText = ""
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         //TODO: CREATE DELETE TOPIC FUNTION
@@ -93,7 +94,10 @@ struct ScriptInputInfosView: View {
                 }
             }
         }
-    }
+        .navigationViewStyle(.stack)
+        //End NavigationView
+    }//End Body
+}
     //End NavigationView
 }//End Body
 
