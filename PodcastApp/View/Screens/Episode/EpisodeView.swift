@@ -62,7 +62,7 @@ struct EpisodeView: View {
                         .modifier(textFieldTitle())
                     
                     if episodeViewModel.episode?.script != nil {
-                    NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
+                        NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
                             GroupBox {
                                 VStack {
                                     HStack {
@@ -73,17 +73,17 @@ struct EpisodeView: View {
                                         Image(systemName: "chevron.forward")
                                             .modifier(groupBoxChevron())
                                     } //: HSTACK
-                                        ScrollView(.vertical, showsIndicators: false) {
-                                            Text(episodeViewModel.getFormattedScript())
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                    } //: VSTACK
-                                    .padding()
-                                }
+                                    ScrollView(.vertical, showsIndicators: false) {
+                                        Text(episodeViewModel.getFormattedScript())
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                } //: VSTACK
+                                .padding()
                             }
-                            .groupBoxStyle(groupBoxStroked())
-                            .modifier(textFieldPadding())
-                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .groupBoxStyle(groupBoxStroked())
+                        .modifier(textFieldPadding())
+                        .buttonStyle(PlainButtonStyle())
                     } else {
                         GroupBox {
                             VStack {
@@ -97,12 +97,12 @@ struct EpisodeView: View {
                                         .modifier(groupBoxChevron())
                                 }
                                 .foregroundColor(.primary)
-
+                                
                                 Image(systemName: "book.circle.fill")
                                     .resizable()
                                     .padding()
                                     .frame(width: 100, height: 100, alignment: .center)
-
+                                
                                 Button {
                                     episodeViewModel.createScript(type: 1)
                                 } label: {
@@ -131,6 +131,24 @@ struct EpisodeView: View {
                         .frame(width: 20, alignment: .leading)
                         .offset(x: 40)
                 }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "trash.fill")
+                        .foregroundColor(Color("accent-color"))
+                    
+                    Text("Excluir Episódio")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("accent-color"))
+                }
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                Spacer()
             }
         }
     }

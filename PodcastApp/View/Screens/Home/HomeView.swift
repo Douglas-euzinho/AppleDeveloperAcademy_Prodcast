@@ -154,7 +154,9 @@ struct HomeView: View {
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .foregroundColor(Color("accent-color"))
+                                
                                 Text("Novo Episódio")
+                                    .fontWeight(.bold)
                                     .foregroundColor(Color("accent-color"))
                             }
                         }

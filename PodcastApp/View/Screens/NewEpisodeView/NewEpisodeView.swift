@@ -21,6 +21,7 @@ struct NewEpisodeView: View {
             ZStack {
                 Color("background-color")
                     .ignoresSafeArea()
+                
                 VStack {
                     //MARK: - INPUT DATE AND EPISODE THEME
                     HStack {
