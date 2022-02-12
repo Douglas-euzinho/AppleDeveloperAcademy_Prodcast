@@ -27,7 +27,6 @@ struct ConfigView: View {
                         showingImagePicker = true
                     } label: {
                         Text("Alterar foto do perfil")
-                            .bold()
                             .foregroundColor(Color("accent-color"))
                     }
                     
@@ -38,7 +37,6 @@ struct ConfigView: View {
             Form{
                 Section{
                     Text("Nome do Podcast")
-                        .bold()
                         .font(.title2)
                     TextField("Podcast name...", text: $configModel.profile.wrappedName )
                         .onChange(of: $configModel.profile.wrappedValue) { _ in
@@ -48,7 +46,6 @@ struct ConfigView: View {
                 
                 Section{
                     Text("Recursos")
-                        .bold()
                         .font(.title2)
                     
                     NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
