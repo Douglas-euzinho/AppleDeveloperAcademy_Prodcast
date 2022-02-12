@@ -37,17 +37,12 @@ struct HomeView: View {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
                         VStack {
                             // MARK: - PROFILE VIEW
-                            NavigationLink {
-                                ConfigView()
-                            } label: {
+                           
                                 UserProfileView(name: homeViewModel.profile.wrappedName, image: homeViewModel.profile.image?.toUIImage())
                                     .onAppear(perform: {
                                         homeViewModel.update()
                                     })
                                     .padding(.top, bounds.safeAreaInsets.top-80)
-                            }
-                            .foregroundColor(.black)
-                            
                             ZStack {
                                 // MARK: - RADIAL BACKGROUND
                                 Rectangle()

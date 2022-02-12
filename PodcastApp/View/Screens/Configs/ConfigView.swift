@@ -40,10 +40,11 @@ struct ConfigView: View {
                 
                 VStack(alignment: .leading) {
                     Text("Nome do Podcast")
-                        .padding(.horizontal, 25)
-                        .padding(.bottom, 10)
                         .bold()
                         .font(.title2)
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 10)
+                       
 
                     TextField("Podcast name...", text: $configModel.profile.wrappedName )
                         .onChange(of: $configModel.profile.wrappedValue) { _ in
@@ -53,10 +54,11 @@ struct ConfigView: View {
                         .padding(.bottom, 25)
                     
                     Text("Recursos")
-                        .padding(.horizontal, 25)
-                        .padding(.bottom, 10)
                         .bold()
                         .font(.title2)
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 10)
+              
                     
                     NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
                         HStack {

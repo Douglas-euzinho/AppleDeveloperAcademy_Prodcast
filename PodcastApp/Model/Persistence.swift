@@ -92,7 +92,7 @@ struct PersistenceController {
     mutating func createProfile() throws -> Profile{
         let profile = Profile(context: context)
         profile.createdDate = Date()
-        profile.name = ""
+        profile.name = "Meu Podcast"
         profile.isActiveNotification = false
         try saveContext()
         return profile
