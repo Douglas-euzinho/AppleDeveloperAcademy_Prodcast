@@ -119,11 +119,10 @@ struct HomeView: View {
                                     }else if UIDevice.current.localizedModel == "iPhone"{
                                         
                                         Text("Meus Episódios")
-
-                                            .font(.custom("semibold", size: 28))
-                                            .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
-                                            .padding(10)
-
+                                            .font(.system(size: 26))
+                                            .fontWeight(.semibold)
+                                            .padding(.bottom, 12)
+                                            .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                         Searchbar(searchText: $searchText)
                                             .frame(alignment: .leading)
                                             .padding(.horizontal, 16)
@@ -142,20 +141,22 @@ struct HomeView: View {
                                             .padding(.horizontal)
                                             .offset(x: 30)
                                         }
-
-                                        .frame(maxHeight: 480)
-                                    }
-                                }else if UIDevice.current.localizedModel == "iPhone"{
-                                    
-                                    Text("Meus Episódios")
-                                        .font(.system(size: 26))
-                                        .fontWeight(.bold)
-                                        .padding(.bottom, 12)
-                                        .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                    Searchbar(searchText: $searchText)
-                                        .frame(alignment: .leading)
-                                        .padding(.horizontal, 16)
-
+                                        .frame(maxHeight: 500)
+                                    }//End else if
+                                }
+                                
+                                
+                            } //: VSTACK
+                            .padding(.top)
+                        } //: ZSTACK
+                        .padding(.top)
+                        .toolbar {
+                            ToolbarItem(placement: .bottomBar) {
+                                Button{
+                                    showSheetView.toggle()
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(Color("accent-color"))
                                     
                                     Text("Novo Episódio")
                                         .fontWeight(.bold)

@@ -52,9 +52,6 @@
 		367C7C6427974BDA0003E271 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6327974BDA0003E271 /* ConfigView.swift */; };
 		367C7C6627974F2F0003E271 /* ConfigNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C7C6527974F2F0003E271 /* ConfigNotificationView.swift */; };
 		36FCCF2927989B1400AE59FA /* ConfigViewAllNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */; };
-		CD24601F27B841CA002796B3 /* Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD24601E27B841CA002796B3 /* Semibold.ttf */; };
-		CD24602327B8450C002796B3 /* Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD24602227B8450C002796B3 /* Bold.ttf */; };
-		CD24602527B84515002796B3 /* Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD24602427B84515002796B3 /* Regular.ttf */; };
 		CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25E009276D04F2003012C6 /* NewEpisodeView.swift */; };
 		CD2864A12767E7AF00D17C47 /* CardsEpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */; };
 		CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2864A62769161C00D17C47 /* Colors.xcassets */; };
@@ -137,9 +134,6 @@
 		367C7C6327974BDA0003E271 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		367C7C6527974F2F0003E271 /* ConfigNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNotificationView.swift; sourceTree = "<group>"; };
 		36FCCF2827989B1400AE59FA /* ConfigViewAllNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewAllNotifications.swift; sourceTree = "<group>"; };
-		CD24601E27B841CA002796B3 /* Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Semibold.ttf; sourceTree = "<group>"; };
-		CD24602227B8450C002796B3 /* Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Bold.ttf; path = "../../../../../../../Desktop/Fonts para o app mini 03/Bold.ttf"; sourceTree = "<group>"; };
-		CD24602427B84515002796B3 /* Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Regular.ttf; path = "../../../../../../../Desktop/Fonts para o app mini 03/Regular.ttf"; sourceTree = "<group>"; };
 		CD25E009276D04F2003012C6 /* NewEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisodeView.swift; sourceTree = "<group>"; };
 		CD2864A02767E7AF00D17C47 /* CardsEpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEpsView.swift; sourceTree = "<group>"; };
 		CD2864A62769161C00D17C47 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -262,7 +256,6 @@
 		2301283E2763D02D003173F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CD24601D27B841B6002796B3 /* FONT */,
 				CDA0430D27629B0B0020AF33 /* Assets.xcassets */,
 				CD2864A62769161C00D17C47 /* Colors.xcassets */,
 			);
@@ -432,16 +425,6 @@
 				23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */,
 			);
 			path = Configs;
-			sourceTree = "<group>";
-		};
-		CD24601D27B841B6002796B3 /* FONT */ = {
-			isa = PBXGroup;
-			children = (
-				CD24602427B84515002796B3 /* Regular.ttf */,
-				CD24602227B8450C002796B3 /* Bold.ttf */,
-				CD24601E27B841CA002796B3 /* Semibold.ttf */,
-			);
-			path = FONT;
 			sourceTree = "<group>";
 		};
 		CD25E007276D04B5003012C6 /* NewEpisodeView */ = {
@@ -648,9 +631,6 @@
 				CD2864A72769161C00D17C47 /* Colors.xcassets in Resources */,
 				CDA0431127629B0B0020AF33 /* Preview Assets.xcassets in Resources */,
 				CDA0430E27629B0B0020AF33 /* Assets.xcassets in Resources */,
-				CD24602527B84515002796B3 /* Regular.ttf in Resources */,
-				CD24602327B8450C002796B3 /* Bold.ttf in Resources */,
-				CD24601F27B841CA002796B3 /* Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
