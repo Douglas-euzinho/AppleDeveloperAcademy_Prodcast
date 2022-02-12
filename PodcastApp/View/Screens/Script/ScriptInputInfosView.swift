@@ -42,11 +42,12 @@ struct ScriptInputInfosView: View {
                                 .foregroundColor(.black)
                                 .padding(.vertical, 15)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.black)
+                                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                                        .stroke(.black, lineWidth: 2.2)
                                 )
                                 .font(Font.system(size: 17, weight: .regular))
                                 .background(.white)
+                                .cornerRadius(4)
                         }
                     } //: VSTACK
                     .padding(.horizontal, 35)
