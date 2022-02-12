@@ -2,9 +2,8 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct MessageDocument: FileDocument {
-
-    static var readableContentTypes: [UTType] { [.plainText] }
-
+    
+    static var readableContentTypes = [UTType.plainText]
     var message: String
 
     init(message: String) {
@@ -19,7 +18,7 @@ struct MessageDocument: FileDocument {
         }
         message = string
     }
-
+    
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         return FileWrapper(regularFileWithContents: message.data(using: .utf8)!)
     }
