@@ -10,7 +10,6 @@ import UniformTypeIdentifiers
 
 struct RoadMapView: View {
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
-    @State private var document: MessageDocument = MessageDocument(message: "Hello, World!")
     @State private var showingExporter = false
     @State private var isImporting: Bool = false
     @State private var isExporting: Bool = false
@@ -21,18 +20,14 @@ struct RoadMapView: View {
             Color("background-color")
                 .ignoresSafeArea()
             
-           /* ScrollView {
+            ScrollView {
                 ForEach(episodeViewModel.getAllTopics()) { topic in
                     TopicView(title: topic.title ?? "Sem título", content: topic.content ?? "Sem texto")
                 }
-            }*/
-            
-            GroupBox(label: Text("TESTE")) {
-                TextEditor(text: $document.message)
             }
             .fileExporter(
-                isPresented: $showingExporter,
-                document: document,
+                isPresented: $isExporting,
+                document: MessageDocument(message: episodeViewModel.getFormattedScript()),
                 contentType: UTType.plainText,
                 defaultFilename: "Message"
             ) { result in
@@ -46,9 +41,7 @@ struct RoadMapView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    //isExporting = false
-                    
-                    //fix broken picker sheet
+                    isExporting = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         isExporting = true
                     }
@@ -78,22 +71,4 @@ struct RoadMapView: View {
         }
     }
 }
-
-//extension URL {
-//    func mimeType() -> String {
-//        let pathExtension = self.pathExtension
-//        if let type = UTType(filenameExtension: pathExtension) {
-//            if let mimetype = type.preferredMIMEType {
-//                return mimetype as String
-//            }
-//        }
-//        return "application/octet-stream"
-//    }
-//}
-//// MARK: - PREVIEW
-//struct RoadMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RoadMapView()
-//    }
-//}
 

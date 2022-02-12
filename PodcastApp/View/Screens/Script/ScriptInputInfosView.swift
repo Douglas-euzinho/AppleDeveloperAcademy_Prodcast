@@ -99,7 +99,7 @@ struct ScriptInputInfosView: View {
     }//End Body
 }
     //End NavigationView
-}//End Body
+//End Body
 
 /*
  struct ScriptInputInfosView_Previews: PreviewProvider {
