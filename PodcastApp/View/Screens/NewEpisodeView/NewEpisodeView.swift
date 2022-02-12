@@ -27,9 +27,11 @@ struct NewEpisodeView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Nome do Epsódio:")
+                                .bold()
                                 .font(.system(size: 22))
                             
                             TextField("", text: $episodeName)
+                                .font(.system(size: 17))
                                 //.cornerRadius(10)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 6)
@@ -48,6 +50,7 @@ struct NewEpisodeView: View {
                             
                             //MARK: Select Launch Date
                             Text("Lançamento:")
+                                .bold()
                                 .font(.system(size: 22))
 
                             DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)

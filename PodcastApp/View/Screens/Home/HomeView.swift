@@ -120,7 +120,7 @@ struct HomeView: View {
                                         
                                         Text("Meus Episódios")
                                             .font(.system(size: 26))
-                                            .fontWeight(.semibold)
+                                            .fontWeight(.bold)
                                             .padding(.bottom, 12)
                                             .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                         Searchbar(searchText: $searchText)
