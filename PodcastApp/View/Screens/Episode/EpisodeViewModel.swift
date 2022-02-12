@@ -90,4 +90,8 @@ class EpisodeViewModel: Modelable {
     }
     
     
+    deinit {
+        print("Deinit EpisodeView Model")
+    }
+    
 }

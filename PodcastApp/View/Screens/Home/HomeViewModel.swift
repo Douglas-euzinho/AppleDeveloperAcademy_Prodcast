@@ -10,7 +10,8 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
-    var profile: Profile? = {
+    
+    @Published var profile: Profile = {
         return PersistenceController.shared.getProfile()
     }()
     
@@ -19,10 +20,27 @@ class HomeViewModel: ObservableObject {
         return episodes
     }()
     
+    
+    
+    init() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+6.0) { [weak self] in
+            self?.update()
+        }
+    }
+    
+    
+    
     func update() {
         self.episodes = PersistenceController.shared.fetchAllEpisodes()
         self.profile = PersistenceController.shared.getProfile()
         objectWillChange.send()
+    }
+    
+    
+    
+    
+    deinit {
+        print("Home View Deinit")
     }
     
 }

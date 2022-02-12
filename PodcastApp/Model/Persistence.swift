@@ -82,7 +82,7 @@ struct PersistenceController {
         try saveContext()
         return script
     }
-     
+    
     
     //MARK: - TOPIC METHODS
     mutating func createTopic(title: String, script: Script) throws {
@@ -94,32 +94,37 @@ struct PersistenceController {
     }
     
     
-
+    
     
     //MARK: - PROFILE METHODS
-    mutating func createProfile() throws {
+    mutating func createProfile() throws -> Profile{
         let profile = Profile(context: context)
-        profile.name = "Meu Podcast"
+        profile.createdDate = Date()
+        profile.name = ""
         profile.isActiveNotification = false
         try saveContext()
+        return profile
     }
     
     
-    mutating func getProfile() -> Profile? {
+    mutating func getProfile() -> Profile {
         var profile: Profile?
         
         do {
-            profile = try context.fetch(Profile.fetchRequest()).first
-            if let profile = profile {
-                return profile
+            let userCreated = UserDefaults.standard.bool(forKey: "userCreated")
+            if userCreated {
+                let profiles = try context.fetch(Profile.fetchRequest())
+                // Fetch the oldest profile in the coredata and cloudkit
+                let profilesSorted = profiles.sorted{ $0.createdDate ?? Date() < $1.createdDate ?? Date() }
+                profile = profilesSorted.first!
             } else {
-                try createProfile()
-                profile = try context.fetch(Profile.fetchRequest()).first
+                profile = try createProfile()
+                UserDefaults.standard.set(true, forKey: "userCreated")
             }
         } catch {
             //TODO: Create Error
         }
-        return profile
+        return profile!
     }
     
     
@@ -135,12 +140,12 @@ struct PersistenceController {
         profile.addToNotifications(notification)
         
         let weekDays = WeekDay(context: context)
-       
+        
         weekDays.sunday = days[0]; weekDays.monday = days[1];weekDays.tuersday = days[2];weekDays.wednesday = days[3];weekDays.thursday = days[4]; weekDays.friday = days[5];weekDays.saturday = days[6]
         
         notification.days = weekDays
         do {
-           try saveContext()
+            try saveContext()
         } catch {
             
         }
