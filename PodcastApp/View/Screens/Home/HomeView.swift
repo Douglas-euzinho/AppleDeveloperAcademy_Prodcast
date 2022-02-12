@@ -14,6 +14,7 @@ struct HomeView: View {
     // MARK: - PROPERTIES
     @State var orientation: UIDeviceOrientation
     @State private var searchText: String = ""
+    @State var searching = false
     @State private var showSheetView = false
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
@@ -71,7 +72,7 @@ struct HomeView: View {
                                                 .font(.custom("", size: 28))
                                                 .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
                                                 .padding(10)
-                                            Searchbar(searchText: $searchText)
+                                            Searchbar(searchText: $searchText, searching: $searching)
                                                 .frame(alignment: .leading)
                                                 .padding(12)
                                             
@@ -96,7 +97,7 @@ struct HomeView: View {
                                                 .font(.custom("", size: 28))
                                                 .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
                                                 .padding(10)
-                                            Searchbar(searchText: $searchText)
+                                            Searchbar(searchText: $searchText, searching: $searching)
                                                 .frame(alignment: .leading)
                                                 .padding(12)
                                             
@@ -118,12 +119,14 @@ struct HomeView: View {
                                         }
                                     }else if UIDevice.current.localizedModel == "iPhone"{
                                         
+                                        Spacer()
+                                        
                                         Text("Meus Episódios")
                                             .font(.system(size: 26))
                                             .fontWeight(.bold)
-                                            .padding(.bottom, 12)
+                                            .padding(.bottom, 1)
                                             .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                        Searchbar(searchText: $searchText)
+                                        Searchbar(searchText: $searchText, searching: $searching)
                                             .frame(alignment: .leading)
                                             .padding(.horizontal, 16)
                                         
