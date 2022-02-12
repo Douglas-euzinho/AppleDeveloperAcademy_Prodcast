@@ -42,11 +42,12 @@ struct ScriptInputInfosView: View {
                                 .foregroundColor(.black)
                                 .padding(.vertical, 15)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.black)
+                                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                                        .stroke(.black, lineWidth: 2.2)
                                 )
                                 .font(Font.system(size: 17, weight: .regular))
                                 .background(.white)
+                                .cornerRadius(4)
                         }
                     } //: VSTACK
                     .padding(.horizontal, 35)
@@ -76,7 +77,7 @@ struct ScriptInputInfosView: View {
                         Text("Adicionar Tópico")
                             .fontWeight(.bold)
                             .foregroundColor(Color("accent-color"))
-                    }.padding(.top)
+                    }
                 }
             }
             ToolbarItem(placement: .bottomBar) {
@@ -87,7 +88,6 @@ struct ScriptInputInfosView: View {
                         NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
                             Text("Visualizar")
                                 .foregroundColor(Color("accent-color"))
-                                .padding(.top)
                         }
                     }
                 }

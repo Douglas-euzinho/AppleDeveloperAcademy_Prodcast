@@ -45,6 +45,10 @@ class EpisodeViewModel: Modelable {
     }
     
 
+    func deleteEpisode() -> Bool {
+        guard let episode = episode else {return false}
+        return persistence.deleteObjectInContext(object: episode)
+    }
     
     
     func getAllTopics() -> [Topic] {

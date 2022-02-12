@@ -18,7 +18,7 @@ struct StatesOfPodcast: View {
             VStack{
                 Text(episode.title ?? "Sem título")
                     .font(.custom("Helvetica Neue", size: 13))
-                    .fontWeight(.semibold)
+                    .fontWeight(.bold)
                     .foregroundColor(.black)
                     .offset(y: -2)
                     .frame(width: 150, height: 20, alignment: .center)

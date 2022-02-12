@@ -13,7 +13,9 @@ struct EpisodeView: View {
     @State var showSheetView = false
     @ObservedObject var episodeViewModel: EpisodeViewModel
     @ObservedObject var homeViewModel: HomeViewModel
-    
+    @State var showScript = false
+    @Environment(\.presentationMode) var presentationMode
+
     init (episode: Episode) {
         self.episodeViewModel = EpisodeViewModel(episode: episode)
         self.homeViewModel = HomeViewModel()
@@ -24,6 +26,14 @@ struct EpisodeView: View {
         ZStack {
             Color("background-color")
                 .ignoresSafeArea(.all)
+            
+            NavigationLink(isActive: $showScript) {
+                ScriptInputInfosView()
+                    .environmentObject(episodeViewModel)
+            } label: {
+                
+            }
+
             
             ScrollView {
                 VStack(alignment: .leading) {
@@ -58,6 +68,7 @@ struct EpisodeView: View {
                         } //: GROUP BOX
                         .groupBoxStyle(groupBoxStroked())
                     }
+                    .cornerRadius(7)
                     .modifier(textFieldPadding())
                     
                     Text("Roteiro")
@@ -69,7 +80,7 @@ struct EpisodeView: View {
                             GroupBox {
                                 VStack {
                                     HStack {
-                                        Text("Editar Progresso")
+                                        Text("Editar Roteiro")
                                             .fontWeight(.semibold)
                                             .font(.subheadline)
                                         Spacer()
@@ -84,6 +95,7 @@ struct EpisodeView: View {
                                 .padding()
                             }
                         }
+                        .cornerRadius(7)
                         .groupBoxStyle(groupBoxStroked())
                         .modifier(textFieldPadding())
                         .buttonStyle(PlainButtonStyle())
@@ -108,6 +120,7 @@ struct EpisodeView: View {
                                 
                                 Button {
                                     episodeViewModel.createScript(type: 1)
+                                    showScript = true
                                 } label: {
                                     Text("Iniciar")
                                 }
@@ -116,6 +129,7 @@ struct EpisodeView: View {
                             }
                             .padding()
                         }
+                        .cornerRadius(7)
                         .groupBoxStyle(groupBoxStroked())
                         .modifier(textFieldPadding())
                     }
@@ -139,7 +153,9 @@ struct EpisodeView: View {
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    
+                    if episodeViewModel.deleteEpisode() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 } label: {
                     Image(systemName: "trash.fill")
                         .foregroundColor(Color("accent-color"))
@@ -170,7 +186,6 @@ struct EpisodeView: View {
         }
     }
 }
-//}
 
 // MARK: - STYLE MODIFIERS
 struct textFieldPadding: ViewModifier {
@@ -222,8 +237,8 @@ struct groupBoxStroked: GroupBoxStyle {
             }
             configuration.content
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black)
+                    RoundedRectangle(cornerRadius: 7, style: .continuous)
+                        .stroke(.black, lineWidth: 2.5)
                 )
         }
         .background(Color.white)

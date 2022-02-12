@@ -27,23 +27,33 @@ struct NewEpisodeView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Nome do Epsódio:")
+                                .bold()
                                 .font(.system(size: 22))
                             
                             TextField("", text: $episodeName)
+                                .font(.system(size: 17))
+                                //.cornerRadius(10)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 6)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.black)
+                                    RoundedRectangle(cornerRadius: 9.5)
+                                        .stroke(.black, lineWidth: 2.2)
                                 )
                                 .font(Font.system(size: 17, weight: .medium, design: .serif))
                                 .background(.white)
+                                .cornerRadius(10)
                                 .padding(.trailing, 20)
+                                .cornerRadius(10)
+                                
+                                
                             
+                            
+                            //MARK: Select Launch Date
                             Text("Lançamento:")
+                                .bold()
                                 .font(.system(size: 22))
 
-                            DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                            DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                                 .datePickerStyle(CompactDatePickerStyle())
                                 .clipped()
                                 .labelsHidden()
@@ -52,21 +62,25 @@ struct NewEpisodeView: View {
                             
                         } //: VSTACK
                     } //: HSTACK
-                    .padding(.top, 25)                   
-                    //TODO: add date format
+                    .padding(.top, 25)
                     
                     Spacer()
                     
                         .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
+                        //MARK: Save Action
                         .navigationBarItems(trailing: Button(action: {
-                            let _ = model.createEpisode(name: episodeName, date: selectedDate)
-                            homeModel.update()
-                            showSheetView = false
+                            //TODO: Create action to show episodeView
+                            if !episodeName.isEmpty {
+                                let _ = model.createEpisode(name: episodeName, date: selectedDate)
+                                homeModel.update()
+                                showSheetView = false
+                            }
                         }) {
-                            //TODO: show episode screen
                             Text("Salvar").bold()
                                 .foregroundColor(Color("accent-color"))
+                                .opacity(episodeName.isEmpty ? 0.5 : 1.0)
                         })
+                    //MARK: Cancel Action
                         .navigationBarItems(leading: Button(action: {
                             showSheetView = false
                         }) {
