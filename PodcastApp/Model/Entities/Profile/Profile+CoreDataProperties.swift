@@ -15,7 +15,7 @@ extension Profile {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Profile> {
         return NSFetchRequest<Profile>(entityName: "Profile")
     }
-
+    @NSManaged public var createdDate: Date?
     @NSManaged public var image: Data?
     @NSManaged public var isActiveNotification: Bool
     @NSManaged public var name: String?
@@ -45,5 +45,6 @@ extension Profile {
 }
 
 extension Profile : Identifiable {
-
+    
 }
+

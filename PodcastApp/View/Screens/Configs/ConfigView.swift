@@ -12,35 +12,29 @@ struct ConfigView: View {
     //MARK: Properties
     @StateObject var configModel = ConfigViewModel()
     @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
     
     var body: some View {
         VStack(alignment: .leading){
+            HStack {
+                Spacer()
+                VStack{
+                    Image(uiImage: configModel.profile.image?.toUIImage() ?? UIImage(systemName: "person.circle.fill")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .frame(width: 62, height: 62)
+                    Button {
+                        showingImagePicker = true
+                    } label: {
+                        Text("Alterar foto do perfil")
+                            .foregroundColor(Color("accent-color"))
+                    }
+                    
+                }
+                Spacer()
+            }
             
             Form{
-                Section{
-                    HStack {
-                        Spacer()
-                        VStack{
-                            //FIXME: PERSIST IMAGE ON CORE DATA
-                            Image(uiImage: inputImage ?? UIImage(systemName: "person.circle.fill")!)
-                                .resizable()
-                                .clipShape(Circle())
-                                .frame(width: 62, height: 62)
-                            Button {
-                                showingImagePicker = true
-                            } label: {
-                                Text("Alterar foto do perfil")
-                                    .foregroundColor(Color("accent-color"))
-                            }
-
-                        }
-                        
-                        Spacer()
-                    }
-    
-                }//End Section 1
-                
                 Section{
                     Text("Nome do Podcast")
                         .font(.title2)
@@ -48,7 +42,7 @@ struct ConfigView: View {
                         .onChange(of: $configModel.profile.wrappedValue) { _ in
                             configModel.save()
                         }
-                }//End Section 2
+                }//End Section
                 
                 Section{
                     Text("Recursos")
@@ -65,7 +59,10 @@ struct ConfigView: View {
             self.hideKeyboard()
         }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(image: $inputImage)
+            ImagePicker(imageData: $configModel.profile.image, perform: {
+                configModel.save()
+                configModel.update()
+            })
         }
     }//End body
 }//End struct

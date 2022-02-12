@@ -25,6 +25,8 @@ struct HomeView: View {
         GridItem(.flexible()),
     ]
     
+    
+    
     // MARK: - BODY
     var body: some View {
         GeometryReader { bounds in
@@ -36,7 +38,7 @@ struct HomeView: View {
                         NavigationLink {
                             ConfigView()
                         } label: {
-                            UserProfileView(name: homeViewModel.profile?.wrappedName ?? "No name")
+                            UserProfileView(name: homeViewModel.profile.wrappedName, image: homeViewModel.profile.image?.toUIImage())
                                 .onAppear(perform: {
                                     homeViewModel.update()
                                 })

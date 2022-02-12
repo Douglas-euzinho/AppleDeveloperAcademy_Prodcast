@@ -9,19 +9,20 @@ import Foundation
 
 class ConfigViewModel: Modelable {
     
-    @Published var profile: Profile
     
-    init() {
-        self.profile = PersistenceController.shared.getProfile() ?? Profile()
-    }
+    @Published var profile: Profile = {
+        return PersistenceController.shared.getProfile()
+    }()
+    
+
     
     func update() {
+        self.profile = PersistenceController.shared.getProfile()
         objectWillChange.send()
     }
     
     
     func createNotification(days: [Bool], hour: Date, title: String, message: String) {
-       
         PersistenceController.shared.createNotification(title: title, hour: hour, message: message, days: days, profile: profile)
     }
     
@@ -40,6 +41,7 @@ class ConfigViewModel: Modelable {
     
     deinit {
         save()
+        print("DEINIT Config View Model")
     }
     
 }
