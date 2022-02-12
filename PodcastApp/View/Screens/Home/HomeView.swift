@@ -174,25 +174,21 @@ struct HomeView: View {
                     }
                     .onTapGesture {
                         self.hideKeyboard()
-                    } //Update episode list 
+                    } //Update episode list
                     .onAppear {
                         homeViewModel.update()
                     }
                 }//zstack
-                }
-                
             }
-            .accentColor(Color("accent-color"))
-            .ignoresSafeArea()
-            .background(Color("secundary-color"))
+            
         }
-        
-        
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
             NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
         }
-    
+        .accentColor(Color("accent-color"))
+        .ignoresSafeArea()
+        .background(Color("secundary-color"))
     }
 }
 
