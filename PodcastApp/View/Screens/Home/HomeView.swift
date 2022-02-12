@@ -94,7 +94,7 @@ struct HomeView: View {
                                     }else if orientation.isLandscape{
                                         
                                         Text("Meus Episódios")
-                                            .font(.custom("", size: 28))
+                                            .font(.custom("semibold", size: 28))
                                             .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
                                             .padding(10)
                                         Searchbar(searchText: $searchText)
@@ -121,7 +121,7 @@ struct HomeView: View {
                                     
                                     Text("Meus Episódios")
                                         .font(.system(size: 26))
-                                        .fontWeight(.semibold)
+                                        .fontWeight(.bold)
                                         .padding(.bottom, 12)
                                         .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                     Searchbar(searchText: $searchText)

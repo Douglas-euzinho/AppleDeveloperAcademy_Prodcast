@@ -27,6 +27,7 @@ struct NewEpisodeView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Nome do Epsódio:")
+                                .bold()
                                 .font(.system(size: 22))
                             
                             TextField("", text: $episodeName)
@@ -41,6 +42,7 @@ struct NewEpisodeView: View {
                                 .padding(.trailing, 20)
                             
                             Text("Lançamento:")
+                                .bold()
                                 .font(.system(size: 22))
 
                             DatePicker("", selection: $selectedDate, displayedComponents: .date)
@@ -57,7 +59,8 @@ struct NewEpisodeView: View {
                     
                     Spacer()
                     
-                        .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
+                        .navigationBarTitle(Text("Novo Episódio").bold(), displayMode: .inline)
+                        
                         .navigationBarItems(trailing: Button(action: {
                             let _ = model.createEpisode(name: episodeName, date: selectedDate)
                             homeModel.update()
@@ -71,6 +74,8 @@ struct NewEpisodeView: View {
                             showSheetView = false
                         }) {
                             Text("Cancelar")
+                                
+                                
                                 .foregroundColor(Color("accent-color"))
                         })
                 }
