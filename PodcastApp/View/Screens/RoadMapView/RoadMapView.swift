@@ -10,9 +10,10 @@ import UniformTypeIdentifiers
 
 struct RoadMapView: View {
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @Environment(\.presentationMode) var presentation
     @State private var showingExporter = false
     @State private var isImporting: Bool = false
-    @State private var isExporting: Bool = false
+    @State private var isExporting: Bool  = false
     
     // MARK: - BODY
     var body: some View {
@@ -54,7 +55,7 @@ struct RoadMapView: View {
             
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    // TODO: ADD EDIT ACTION
+                    self.presentation.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "square.and.pencil")
                         .foregroundColor(Color("accent-color"))

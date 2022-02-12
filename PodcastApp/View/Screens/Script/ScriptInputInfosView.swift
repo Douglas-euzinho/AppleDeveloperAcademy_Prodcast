@@ -64,7 +64,6 @@ struct ScriptInputInfosView: View {
             }
             .navigationViewStyle(.stack)
         }
-        .toolbar{ EditButton() }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button {
