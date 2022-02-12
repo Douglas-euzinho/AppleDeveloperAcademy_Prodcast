@@ -40,10 +40,12 @@ struct NewEpisodeView: View {
                                 .background(.white)
                                 .padding(.trailing, 20)
                             
+                            
+                            //MARK: Select Launch Date
                             Text("Lançamento:")
                                 .font(.system(size: 22))
 
-                            DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                            DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                                 .datePickerStyle(CompactDatePickerStyle())
                                 .clipped()
                                 .labelsHidden()
@@ -52,21 +54,25 @@ struct NewEpisodeView: View {
                             
                         } //: VSTACK
                     } //: HSTACK
-                    .padding(.top, 25)                   
-                    //TODO: add date format
+                    .padding(.top, 25)
                     
                     Spacer()
                     
                         .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
+                        //MARK: Save Action
                         .navigationBarItems(trailing: Button(action: {
-                            let _ = model.createEpisode(name: episodeName, date: selectedDate)
-                            homeModel.update()
-                            showSheetView = false
+                            //TODO: Create action to show episodeView
+                            if !episodeName.isEmpty {
+                                let _ = model.createEpisode(name: episodeName, date: selectedDate)
+                                homeModel.update()
+                                showSheetView = false
+                            }
                         }) {
-                            //TODO: show episode screen
                             Text("Salvar").bold()
                                 .foregroundColor(Color("accent-color"))
+                                .opacity(episodeName.isEmpty ? 0.5 : 1.0)
                         })
+                    //MARK: Cancel Action
                         .navigationBarItems(leading: Button(action: {
                             showSheetView = false
                         }) {
