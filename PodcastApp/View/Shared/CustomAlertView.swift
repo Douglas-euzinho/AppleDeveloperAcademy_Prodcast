@@ -30,10 +30,11 @@ struct CustomAlertView: View {
                     .font(.headline)
                 TextEditor(text: $text)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color.black, lineWidth: 2.1)
                     )
                     .frame(minHeight: 40, maxHeight: 40)
+                    .cornerRadius(7)
                 
                 HStack() {
                     Button("Cancelar") {
