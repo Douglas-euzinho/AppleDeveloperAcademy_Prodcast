@@ -26,7 +26,7 @@ struct NewEpisodeView: View {
                     //MARK: - INPUT DATE AND EPISODE THEME
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Tema do Epsódio:")
+                            Text("Nome do Epsódio:")
                                 .font(.system(size: 22))
                             
                             TextField("", text: $episodeName)
