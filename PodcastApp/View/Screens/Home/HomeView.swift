@@ -179,8 +179,6 @@ struct HomeView: View {
             .ignoresSafeArea()
             .background(Color("secundary-color"))
         }
-        
-        
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
             NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)

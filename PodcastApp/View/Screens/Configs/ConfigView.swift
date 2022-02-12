@@ -14,47 +14,80 @@ struct ConfigView: View {
     @State private var showingImagePicker = false
     
     var body: some View {
-        VStack(alignment: .leading){
-            HStack {
-                Spacer()
-                VStack{
+        ZStack {
+            Color("background-color")
+                .ignoresSafeArea()
+            
+            VStack {
+                Group {
+                    
                     Image(uiImage: configModel.profile.image?.toUIImage() ?? UIImage(systemName: "person.circle.fill")!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
                         .frame(width: 62, height: 62)
+                    
                     Button {
                         showingImagePicker = true
                     } label: {
                         Text("Alterar foto do perfil")
                             .foregroundColor(Color("accent-color"))
                     }
-                    
+                    .offset(y: -25)
                 }
-                Spacer()
-            }
-            
-            Form{
-                Section{
+                .offset(y: -55)
+                .padding(.bottom, 25)
+                
+                VStack(alignment: .leading) {
                     Text("Nome do Podcast")
-                        .font(.title2)
+                        .font(.system(size: 22))
+                        .fontWeight(.medium)
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 10)
+                    
                     TextField("Podcast name...", text: $configModel.profile.wrappedName )
                         .onChange(of: $configModel.profile.wrappedValue) { _ in
                             configModel.save()
                         }
-                }//End Section
-                
-                Section{
+                        .textFieldStyle(MyTextFieldStyle())
+                        .padding(.bottom, 25)
+                    
                     Text("Recursos")
-                        .font(.title2)
+                        .font(.system(size: 22))
+                        .fontWeight(.medium)
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 10)
                     
                     NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
-                        Text("Notificações")
-                            .font(.subheadline)
+                        HStack {
+                            Text("Notificações")
+                                .font(.system(size: 18))
+                                .fontWeight(.regular)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 18))
+                                .padding(.trailing, 5)
+                                .foregroundColor(Color("accent-color"))
+                        }
+                        .padding(10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .stroke(.black, lineWidth: 2)
+                        )
+                        .background(
+                            .white
+                        )
                     }
-                }//End Section 3
-            }//End Form
-        }//End VStack
+                    .padding(.horizontal, 25)
+                    .foregroundColor(.black)
+                }
+                Spacer()
+            }
+            .padding(15)
+            Spacer()
+        }
         .onTapGesture {
             self.hideKeyboard()
         }
@@ -63,9 +96,25 @@ struct ConfigView: View {
                 configModel.save()
                 configModel.update()
             })
-        }
+        }//End Section 3
     }//End body
-}//End struct
+}//End VStack
+
+struct MyTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(10)
+            .foregroundColor(.black)
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(Color.black, lineWidth: 2)
+            )
+            .background(
+                .white
+            )
+            .padding(.horizontal, 25)
+    }
+}
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {

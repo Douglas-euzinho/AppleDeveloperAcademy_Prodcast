@@ -16,7 +16,6 @@ struct CustomAlertView: View {
     var onDone: (String) -> Void = { _ in }
     var onCancel: () -> Void = { }
     
-    
     var body: some View {
     
         ZStack {
