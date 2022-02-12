@@ -172,6 +172,13 @@ struct HomeView: View {
                             self.hideKeyboard()
                         }
                     }
+                    .onTapGesture {
+                        self.hideKeyboard()
+                    } //Update episode list 
+                    .onAppear {
+                        homeViewModel.update()
+                    }
+                }//zstack
                 }
                 
             }
@@ -185,6 +192,7 @@ struct HomeView: View {
         .sheet(isPresented: $showSheetView) {
             NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
         }
+    
     }
 }
 

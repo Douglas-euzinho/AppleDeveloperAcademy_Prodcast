@@ -77,7 +77,7 @@ struct ScriptInputInfosView: View {
                         Text("Adicionar Tópico")
                             .fontWeight(.bold)
                             .foregroundColor(Color("accent-color"))
-                    }.padding(.top)
+                    }
                 }
             }
             ToolbarItem(placement: .bottomBar) {
@@ -88,7 +88,6 @@ struct ScriptInputInfosView: View {
                         NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
                             Text("Visualizar")
                                 .foregroundColor(Color("accent-color"))
-                                .padding(.top)
                         }
                     }
                 }

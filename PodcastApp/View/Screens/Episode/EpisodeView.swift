@@ -10,8 +10,9 @@ import SwiftUI
 struct EpisodeView: View {
     // MARK: - PROPERTIES
     @State var actualDate = Date()
+    @State var showScript = false
     @ObservedObject var episodeViewModel: EpisodeViewModel
-    
+    @Environment(\.presentationMode) var presentationMode
     init (episode: Episode) {
         self.episodeViewModel = EpisodeViewModel(episode: episode)
     }
@@ -21,6 +22,14 @@ struct EpisodeView: View {
         ZStack {
             Color("background-color")
                 .ignoresSafeArea(.all)
+            
+            NavigationLink(isActive: $showScript) {
+                ScriptInputInfosView()
+                    .environmentObject(episodeViewModel)
+            } label: {
+                
+            }
+
             
             ScrollView {
                 VStack(alignment: .leading) {
@@ -67,7 +76,7 @@ struct EpisodeView: View {
                             GroupBox {
                                 VStack {
                                     HStack {
-                                        Text("Editar Progresso")
+                                        Text("Editar Roteiro")
                                             .fontWeight(.semibold)
                                             .font(.subheadline)
                                         Spacer()
@@ -107,6 +116,7 @@ struct EpisodeView: View {
                                 
                                 Button {
                                     episodeViewModel.createScript(type: 1)
+                                    showScript = true
                                 } label: {
                                     Text("Iniciar")
                                 }
@@ -139,7 +149,9 @@ struct EpisodeView: View {
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    
+                    if episodeViewModel.deleteEpisode() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 } label: {
                     Image(systemName: "trash.fill")
                         .foregroundColor(Color("accent-color"))
