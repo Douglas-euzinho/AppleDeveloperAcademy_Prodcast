@@ -13,14 +13,16 @@ struct UserProfileView: View {
     var image: UIImage?
     
     var body: some View {
-        VStack(spacing: 10){
+        HStack(spacing: 15) {
             Image(uiImage: image ?? UIImage(systemName: "person.circle.fill")!)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
-                .frame(width: 80, height: 80)
-            Text(name).font(.custom("Helvetica Neue", size: 25))
-                .fontWeight(.medium)
+                .frame(width: 62, height: 62)
+            
+            Text(name).font(.custom("Helvetica Neue", size: 22))
+                .fontWeight(.semibold)
+                            
         }
     }
 }

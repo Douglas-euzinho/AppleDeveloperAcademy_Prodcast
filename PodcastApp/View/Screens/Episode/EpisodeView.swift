@@ -10,11 +10,15 @@ import SwiftUI
 struct EpisodeView: View {
     // MARK: - PROPERTIES
     @State var actualDate = Date()
-    @State var showScript = false
+    @State var showSheetView = false
     @ObservedObject var episodeViewModel: EpisodeViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
+    @State var showScript = false
     @Environment(\.presentationMode) var presentationMode
+
     init (episode: Episode) {
         self.episodeViewModel = EpisodeViewModel(episode: episode)
+        self.homeViewModel = HomeViewModel()
     }
     
     // MARK: - BODY
@@ -165,6 +169,20 @@ struct EpisodeView: View {
             ToolbarItem(placement: .bottomBar) {
                 Spacer()
             }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showSheetView.toggle()
+                }) {
+                    //TODO: show episode screen
+                    Text("Editar").bold()
+                        .foregroundColor(Color("accent-color"))
+                }
+            }
+        }
+        .sheet(isPresented: $showSheetView) {
+            EditEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
         }
     }
 }
