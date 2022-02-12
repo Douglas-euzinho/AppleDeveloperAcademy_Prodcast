@@ -30,15 +30,20 @@ struct NewEpisodeView: View {
                                 .font(.system(size: 22))
                             
                             TextField("", text: $episodeName)
+                                //.cornerRadius(10)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 6)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.black)
+                                    RoundedRectangle(cornerRadius: 9.5)
+                                        .stroke(.black, lineWidth: 2.2)
                                 )
                                 .font(Font.system(size: 17, weight: .medium, design: .serif))
                                 .background(.white)
+                                .cornerRadius(10)
                                 .padding(.trailing, 20)
+                                .cornerRadius(10)
+                                
+                                
                             
                             
                             //MARK: Select Launch Date

@@ -64,6 +64,7 @@ struct EpisodeView: View {
                         } //: GROUP BOX
                         .groupBoxStyle(groupBoxStroked())
                     }
+                    .cornerRadius(7)
                     .modifier(textFieldPadding())
                     
                     Text("Roteiro")
@@ -90,6 +91,7 @@ struct EpisodeView: View {
                                 .padding()
                             }
                         }
+                        .cornerRadius(7)
                         .groupBoxStyle(groupBoxStroked())
                         .modifier(textFieldPadding())
                         .buttonStyle(PlainButtonStyle())
@@ -123,6 +125,7 @@ struct EpisodeView: View {
                             }
                             .padding()
                         }
+                        .cornerRadius(7)
                         .groupBoxStyle(groupBoxStroked())
                         .modifier(textFieldPadding())
                     }
@@ -165,7 +168,6 @@ struct EpisodeView: View {
         }
     }
 }
-//}
 
 // MARK: - STYLE MODIFIERS
 struct textFieldPadding: ViewModifier {
@@ -217,8 +219,8 @@ struct groupBoxStroked: GroupBoxStyle {
             }
             configuration.content
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black)
+                    RoundedRectangle(cornerRadius: 7, style: .continuous)
+                        .stroke(.black, lineWidth: 2.5)
                 )
         }
         .background(Color.white)
