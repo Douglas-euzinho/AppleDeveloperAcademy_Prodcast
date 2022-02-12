@@ -29,6 +29,8 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { bounds in
             NavigationView {
+                ZStack{
+                    Color("background-color").edgesIgnoringSafeArea(.bottom)
                 ZStack {
                     Color("secundary-color").edgesIgnoringSafeArea(.top)
                     VStack {
@@ -168,12 +170,15 @@ struct HomeView: View {
                     .onTapGesture {
                         self.hideKeyboard()
                     }
+                }//essa zstack
                 }
                 
             } //: VSTACK
             .ignoresSafeArea()
             .background(Color("secundary-color"))
         }
+        
+        
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
             NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
