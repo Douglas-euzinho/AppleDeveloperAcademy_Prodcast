@@ -15,6 +15,7 @@ struct HomeView: View {
     @State var orientation: UIDeviceOrientation
     @State private var searchText: String = ""
     @State private var showSheetView = false
+    @State private var showProfileView = false
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
@@ -37,12 +38,25 @@ struct HomeView: View {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
                         VStack {
                             // MARK: - PROFILE VIEW
-                           
+                            HStack {
                                 UserProfileView(name: homeViewModel.profile.wrappedName, image: homeViewModel.profile.image?.toUIImage())
                                     .onAppear(perform: {
                                         homeViewModel.update()
                                     })
-                                    .padding(.top, bounds.safeAreaInsets.top-80)
+                                    .offset(x: -5, y: 15)
+                                    .padding(.top, bounds.safeAreaInsets.top-40)
+                                    .padding(.trailing, 50)
+                                                                
+//                                Button {
+//                                    showProfileView.toggle()
+//                                } label: {
+//                                    Image(systemName: "gearshape.fill")
+//                                        .foregroundColor(Color("accent-color"))
+//                                }
+//                                .offset(x: 20, y: -35)
+//                                .padding(.bottom, 70)
+//                                .padding(.leading, 60)
+                            }
                             ZStack {
                                 // MARK: - RADIAL BACKGROUND
                                 Rectangle()
