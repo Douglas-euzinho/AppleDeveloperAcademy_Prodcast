@@ -14,7 +14,6 @@ struct ScriptInputInfosView: View {
     @State private var showingAlert = false
     @State private var showingVisualizer = false
     @State private var topicName = ""
-    @State private var scriptText = ""
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
     @Environment(\.presentationMode) var presentationMode
     
@@ -34,19 +33,18 @@ struct ScriptInputInfosView: View {
                         .padding(.bottom, 20)
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        ForEach(episodeViewModel.getAllTopics()){ topic in
-                            Text("\(topic.title ?? ""):")
-                                .fontWeight(.semibold)
+                        ForEach($episodeViewModel.topics){ topic in
+                            TextField("", text: topic.wrappedTitle)
                             
-                            TextEditor(text: $scriptText)
+                            TextEditor(text: topic.wrappedContent)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 15)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 5, style: .continuous)
                                         .stroke(.black, lineWidth: 2.2)
                                 )
-                                .font(Font.system(size: 17, weight: .regular))
                                 .background(.white)
+                                .font(Font.system(size: 17, weight: .regular))
                                 .cornerRadius(4)
                         }
                     } //: VSTACK
@@ -56,6 +54,10 @@ struct ScriptInputInfosView: View {
                 //                    .onDelete { IndexSet in
                 //                        config.topics.remove(atOffsets: IndexSet)
                 //                    }
+                
+                .onDisappear {
+                    episodeViewModel.save()
+                }
             }//End List
             
             //Show Custom View to input topic name

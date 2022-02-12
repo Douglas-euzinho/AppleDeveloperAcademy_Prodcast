@@ -12,9 +12,11 @@ class EpisodeViewModel: Modelable {
     
     @Published var episode: Episode?
     private var persistence = PersistenceController.shared
+    @Published var topics: [Topic]!
     
     init(episode: Episode) {
         self.episode = episode
+        self.topics = getAllTopics()
         update()
     }
     
