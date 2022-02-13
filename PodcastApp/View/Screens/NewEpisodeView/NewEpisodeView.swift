@@ -32,7 +32,6 @@ struct NewEpisodeView: View {
                             
                             TextField("", text: $episodeName)
                                 .font(.system(size: 17))
-                                //.cornerRadius(10)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 6)
                                 .overlay(
@@ -44,15 +43,15 @@ struct NewEpisodeView: View {
                                 .cornerRadius(10)
                                 .padding(.trailing, 20)
                                 .cornerRadius(10)
-                                
-                                
+                            
+                            
                             
                             
                             //MARK: Select Launch Date
                             Text("Lançamento:")
                                 .bold()
                                 .font(.system(size: 22))
-
+                            
                             DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                                 .datePickerStyle(CompactDatePickerStyle())
                                 .clipped()
@@ -67,7 +66,7 @@ struct NewEpisodeView: View {
                     Spacer()
                     
                         .navigationBarTitle(Text("Novo Episódio"), displayMode: .inline)
-                        //MARK: Save Action
+                    //MARK: Save Action
                         .navigationBarItems(trailing: Button(action: {
                             //TODO: Create action to show episodeView
                             if !episodeName.isEmpty {

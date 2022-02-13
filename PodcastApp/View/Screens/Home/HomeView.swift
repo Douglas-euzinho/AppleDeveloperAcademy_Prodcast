@@ -33,9 +33,9 @@ struct HomeView: View {
         GeometryReader { bounds in
             NavigationView {
                 ZStack{
-                    NavigationLink(destination: ConfigView(), isActive: $showProfileView) {
-                        
-                    }
+//                    NavigationLink(destination: ConfigView(), isActive: $showProfileView) {
+//
+//                    }
                     Color("background-color").edgesIgnoringSafeArea(.bottom)
                     ZStack {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
@@ -203,6 +203,10 @@ struct HomeView: View {
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
             NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
+        }
+        .sheet(isPresented: $showProfileView){
+            ConfigView(podcastName: homeViewModel.profile.wrappedName, imageData: homeViewModel.profile.image)
+                .environmentObject(homeViewModel)
         }
         .accentColor(Color("accent-color"))
         .ignoresSafeArea()

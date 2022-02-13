@@ -44,7 +44,7 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: ProgressDetailView().environmentObject(episodeViewModel)) {
                         GroupBox {
                             VStack {
                                 HStack {
