@@ -19,7 +19,6 @@ struct ProgressDetailView: View {
     
     // MARK: - BODY
     var body: some View {
-        NavigationView {
             ZStack {
                 Color("background-color")
                     .ignoresSafeArea(.all)
@@ -47,7 +46,6 @@ struct ProgressDetailView: View {
                 }
             }
             .ignoresSafeArea()
-        }
         .navigationBarTitle("Progresso", displayMode: .inline)
     }
 }

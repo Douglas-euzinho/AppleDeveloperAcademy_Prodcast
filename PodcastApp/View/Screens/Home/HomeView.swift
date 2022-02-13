@@ -17,10 +17,7 @@ struct HomeView: View {
     @State private var showSheetView = false
     @State private var showProfileView = false
     @StateObject var homeViewModel = HomeViewModel()
-    let screen = UIScreen.main.bounds
-    
-    let data = (1...100).map { "Item \($0)" }
-    
+        
     let columns = [
         GridItem(.fixed(100)),
         GridItem(.flexible()),
