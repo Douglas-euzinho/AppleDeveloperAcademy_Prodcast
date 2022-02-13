@@ -105,14 +105,19 @@ struct ConfigView: View {
                     }),
                     trailing:
                     Button(action: {
-                        configModel.profile.wrappedName = podcastName
-                        configModel.profile.image = imageData
-                        configModel.save()
-                        homeModel.update()
-                    presentationMode.wrappedValue.dismiss()
+                        if !podcastName.isEmpty {
+                            configModel.profile.wrappedName = podcastName
+                            configModel.profile.image = imageData
+                            configModel.save()
+                            homeModel.update()
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }, label: {
-                        Text("Salvar")
-                            .foregroundColor(Color("accent-color"))
+                        if !podcastName.isEmpty {
+                            Text("Salvar")
+                                .foregroundColor(Color("accent-color"))
+                                .opacity(podcastName.isEmpty ? 0.5 : 1.0)
+                        }
                     })
         )
 

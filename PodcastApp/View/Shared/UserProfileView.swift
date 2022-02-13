@@ -14,7 +14,7 @@ struct UserProfileView: View {
     
     var body: some View {
         HStack(spacing: 15) {
-            Image(uiImage: image ?? UIImage(systemName: "person.circle.fill")!)
+            Image(uiImage: image ?? UIImage(named: "emptyProfile")!)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
