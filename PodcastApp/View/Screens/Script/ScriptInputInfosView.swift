@@ -25,14 +25,6 @@ struct ScriptInputInfosView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Roteiro")
-                        .font(.system(size: 28))
-                        .fontWeight(.semibold)
-                        .offset(y: -15)
-                        .padding(.horizontal, 35)
-                        .padding(.bottom, 20)
-                    
                     VStack(alignment: .leading, spacing: 10) {
                         ForEach($episodeViewModel.topics, id: \.self){ topic in
                             HStack {
@@ -65,15 +57,11 @@ struct ScriptInputInfosView: View {
                       
                         }
                         .padding(.horizontal, 35)
-                        
-                        
-                    }
-                    //: VSTACK
-                    
-                }
+                }  //: VSTACK
                 .onDisappear {
                     episodeViewModel.save()
                 }
+                .padding(.top, 20)
             }//End List
             
             //Show Custom View to input topic name
@@ -121,6 +109,7 @@ struct ScriptInputInfosView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .navigationBarTitle("Roteiro", displayMode: .automatic)
         //End NavigationView
     }//End Body
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class EpisodeViewModel: Modelable {
     
-    @Published var episode: Episode?
+    @Published var episode: Episode!
     private var persistence = PersistenceController.shared
     @Published var topics: [Topic]!
     

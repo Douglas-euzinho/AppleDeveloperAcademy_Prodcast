@@ -20,7 +20,6 @@ struct RoadMapView: View {
         ZStack {
             Color("background-color")
                 .ignoresSafeArea()
-            
             ScrollView {
                 ForEach(episodeViewModel.getAllTopics()) { topic in
                     TopicView(title: topic.title ?? "Sem título", content: topic.content ?? "Sem texto")
@@ -38,7 +37,10 @@ struct RoadMapView: View {
                     print("Failure")
                 }
             }
+            .padding(.top, 20)
         }
+        .navigationTitle(episodeViewModel.episode.wrappedTitle)
+        .navigationBarTitleDisplayMode(.automatic)
         .toolbar {
             ToolbarItem {
                 Button {
@@ -47,10 +49,10 @@ struct RoadMapView: View {
                         isExporting = true
                     }
                 }
-                label: {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(Color("accent-color"))
-                }
+            label: {
+                Image(systemName: "square.and.arrow.up")
+                    .foregroundColor(Color("accent-color"))
+            }
             }
             
             ToolbarItem(placement: .bottomBar) {

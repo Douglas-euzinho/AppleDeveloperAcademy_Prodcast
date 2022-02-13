@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EditEpisodeView: View {
     @Binding var showSheetView: Bool
-    @State var episodeName: String = ""
     @ObservedObject var model: EpisodeViewModel
     
     // MARK: - BODY
@@ -26,7 +25,7 @@ struct EditEpisodeView: View {
                             Text("Nome do Epsódio:")
                                 .font(.system(size: 22))
                             
-                            TextField("", text: $episodeName)
+                            TextField("", text: $model.episode.wrappedTitle)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 6)
                                 .overlay(
@@ -44,8 +43,7 @@ struct EditEpisodeView: View {
                     .navigationBarTitle(Text("Editar"), displayMode: .inline)
                     .navigationBarItems(trailing:
                         Button(action: {
-                        if !episodeName.isEmpty {
-                            model.episode?.wrappedTitle = episodeName
+                        if !model.episode.wrappedTitle.isEmpty {
                             model.save()
                             showSheetView = false
                         }
@@ -53,7 +51,7 @@ struct EditEpisodeView: View {
                             Text("Salvar")
                                 .bold()
                                 .foregroundColor(Color("accent-color"))
-                                .opacity(episodeName.isEmpty ? 0.5 : 1.0)
+                                .opacity(model.episode.wrappedTitle.isEmpty ? 0.5 : 1.0)
                         }
                     )
                     .navigationBarItems(leading:
