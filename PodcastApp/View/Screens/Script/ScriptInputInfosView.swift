@@ -15,6 +15,7 @@ struct ScriptInputInfosView: View {
     @State private var showingVisualizer = false
     @State private var topicName = ""
     @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @Environment(\.editMode) var editMode
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -25,7 +26,7 @@ struct ScriptInputInfosView: View {
             
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Roteiro: Resenha")
+                    Text("Roteiro")
                         .font(.system(size: 28))
                         .fontWeight(.semibold)
                         .offset(y: -15)
@@ -33,28 +34,43 @@ struct ScriptInputInfosView: View {
                         .padding(.bottom, 20)
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        ForEach($episodeViewModel.topics){ topic in
-                            TextField("", text: topic.wrappedTitle)
-                            
-                            TextEditor(text: topic.wrappedContent)
-                                .foregroundColor(.black)
-                                .padding(.vertical, 15)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5, style: .continuous)
-                                        .stroke(.black, lineWidth: 2.2)
-                                )
-                                .background(.white)
-                                .font(Font.system(size: 17, weight: .regular))
-                                .cornerRadius(4)
+                        ForEach($episodeViewModel.topics, id: \.self){ topic in
+                            HStack {
+                                VStack {
+                                    TextField("", text: topic.wrappedTitle)
+                                    
+                                    TextEditor(text: topic.wrappedContent)
+                                        .foregroundColor(.black)
+                                        .padding(.vertical, 15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 5, style: .continuous)
+                                                .stroke(.black, lineWidth: 2.2)
+                                        )
+                                        .background(.white)
+                                        .font(Font.system(size: 17, weight: .regular))
+                                        .cornerRadius(4)
+                                }
+                                if self.editMode?.wrappedValue == .active {
+                                    Button {
+                                        if let index = episodeViewModel.topics.firstIndex(of: topic.wrappedValue) {
+                                            episodeViewModel.deleteTopic(topic:episodeViewModel.topics.remove(at: index)) 
+                                            episodeViewModel.save()
+                                        }
+                                    } label: {
+                                        Image(systemName: "minus.circle")
+                                    }
+                                    .padding(.top)
+                                }
+                            }
+                      
                         }
-                    } //: VSTACK
-                    .padding(.horizontal, 35)
+                        .padding(.horizontal, 35)
+                        
+                        
+                    }
+                    //: VSTACK
+                    
                 }
-                //FIXME: ADD REMOVE TOPICS ACTION
-                //                    .onDelete { IndexSet in
-                //                        config.topics.remove(atOffsets: IndexSet)
-                //                    }
-                
                 .onDisappear {
                     episodeViewModel.save()
                 }
@@ -94,12 +110,17 @@ struct ScriptInputInfosView: View {
                     }
                 }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
         }
         .navigationViewStyle(.stack)
         //End NavigationView
     }//End Body
 }
-    //End NavigationView
+
+
+//End NavigationView
 //End Body
 
 /*

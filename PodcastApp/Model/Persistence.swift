@@ -81,6 +81,7 @@ struct PersistenceController {
         let topic = Topic(context: context)
         topic.date = Date()
         topic.title = title
+        topic.content = "\0"
         script.addToTopics(topic)
         try saveContext()
     }

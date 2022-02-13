@@ -46,6 +46,15 @@ class EpisodeViewModel: Modelable {
         }
     }
     
+    
+    
+    func deleteTopic(topic: Topic) {
+        if persistence.deleteObjectInContext(object: topic) {
+            update()
+        }
+    }
+    
+    
 
     func deleteEpisode() -> Bool {
         guard let episode = episode else {return false}
@@ -81,6 +90,7 @@ class EpisodeViewModel: Modelable {
     }
     
     func update() {
+        self.topics = getAllTopics()
         objectWillChange.send()
     }
     
