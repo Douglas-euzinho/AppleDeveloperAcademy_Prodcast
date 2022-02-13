@@ -20,7 +20,6 @@ struct ConfigView: View {
             
             VStack {
                 Group {
-                    
                     Image(uiImage: configModel.profile.image?.toUIImage() ?? UIImage(systemName: "person.circle.fill")!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -33,19 +32,17 @@ struct ConfigView: View {
                         Text("Alterar foto do perfil")
                             .foregroundColor(Color("accent-color"))
                     }
-                    .offset(y: -25)
+                    .padding(.top, 5)
+                    
                 }
-                .offset(y: -55)
-                .padding(.bottom, 25)
-                
                 VStack(alignment: .leading) {
                     Text("Nome do Podcast")
                         .bold()
                         .font(.title2)
                         .padding(.horizontal, 25)
                         .padding(.bottom, 10)
-                       
-
+                    
+                    
                     TextField("Podcast name...", text: $configModel.profile.wrappedName )
                         .onChange(of: $configModel.profile.wrappedValue) { _ in
                             configModel.save()
@@ -58,7 +55,6 @@ struct ConfigView: View {
                         .font(.title2)
                         .padding(.horizontal, 25)
                         .padding(.bottom, 10)
-              
                     
                     NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
                         HStack {
@@ -85,11 +81,12 @@ struct ConfigView: View {
                     .padding(.horizontal, 25)
                     .foregroundColor(.black)
                 }
+                .padding(.top)
                 Spacer()
             }
-            .padding(15)
-            Spacer()
+            .padding(.top, 70)
         }
+        .ignoresSafeArea()
         .onTapGesture {
             self.hideKeyboard()
         }
