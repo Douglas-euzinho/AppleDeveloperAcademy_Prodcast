@@ -33,9 +33,6 @@ struct HomeView: View {
         GeometryReader { bounds in
             NavigationView {
                 ZStack{
-//                    NavigationLink(destination: ConfigView(), isActive: $showProfileView) {
-//
-//                    }
                     Color("background-color").edgesIgnoringSafeArea(.bottom)
                     ZStack {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
@@ -49,35 +46,97 @@ struct HomeView: View {
                                     .padding(.top, 60)
                                     .padding(.bottom, 10)
                                     .padding(.leading, 25)
-                                Spacer()
                             }
                             ZStack {
                                 // MARK: - RADIAL BACKGROUND
                                 Rectangle()
                                     .cornerRadius(radius: 40, corners: [.topLeft])
-                                    .foregroundColor(Color("background-color"))
+                                    .foregroundColor(homeViewModel.episodes.isEmpty ? .white : Color("background-color"))
                                     .frame(minHeight: 620)
+                                    .ignoresSafeArea()
                                 
                                 VStack {
-                                    Spacer()
-                                    // MARK: - EPISODES
-                                    
                                     /*
                                      Regular = Portrait(em pé).
                                      Compact = Landscape(deitado) -> iPhone
                                      */
-                                    
-                                    if UIDevice.current.localizedModel == "iPad"{
+                                    if homeViewModel.episodes.isEmpty {
+                                        VStack{
+                                            Text("Olá")
+                                                .font(.system(size: 28))
+                                                .bold()
+                                            Image("emptyHome")
+                                                .resizable()
+                                                .frame(width: 390, height: 390)
+                                            Text("Crie um novo episódio para começar!")
+                                                .font(.system(size: 28))
+                                                .bold()
+                                        }
                                         
-                                        if orientation.isPortrait{
+                                    } else {
+                                        if UIDevice.current.localizedModel == "iPad"{
+                                            
+                                            if orientation.isPortrait{
+                                                Text("Meus Episódios")
+                                                    .font(.custom("", size: 28))
+                                                    .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
+                                                    .padding(10)
+                                                Searchbar(searchText: $searchText, searching: $searching)
+                                                    .frame(alignment: .leading)
+                                                    .padding(12)
+                                                
+                                                ScrollView {
+                                                    LazyVGrid(columns: columns, spacing: 20) {
+                                                        ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                            NavigationLink {
+                                                                EpisodeView(episode: episode)
+                                                            } label: {
+                                                                CardsEpsView(episode: episode)
+                                                            }
+                                                        }
+                                                    }
+                                                    .padding(.horizontal)
+                                                    .offset(x: 100)
+                                                }
+                                                .frame(maxHeight: 680)
+                                                
+                                            }else if orientation.isLandscape{
+                                                
+                                                Text("Meus Episódios")
+                                                    .font(.custom("", size: 28))
+                                                    .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
+                                                    .padding(10)
+                                                Searchbar(searchText: $searchText, searching: $searching)
+                                                    .frame(alignment: .leading)
+                                                    .padding(12)
+                                                
+                                                ScrollView {
+                                                    LazyVGrid(columns: columns, spacing: 20) {
+                                                        ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                            NavigationLink {
+                                                                EpisodeView(episode: episode)
+                                                            } label: {
+                                                                CardsEpsView(episode: episode)
+                                                            }
+                                                            
+                                                        }
+                                                    }
+                                                    .padding(.horizontal)
+                                                    .offset(x: 230)
+                                                }
+                                                .frame(maxHeight: 480)
+                                            }
+                                        }else if UIDevice.current.localizedModel == "iPhone"{
+                                            
+                                            Spacer()
                                             Text("Meus Episódios")
-                                                .font(.custom("", size: 28))
-                                                .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
-                                                .padding(10)
+                                                .font(.system(size: 26))
+                                                .fontWeight(.bold)
+                                                .padding(.bottom, 1)
+                                                .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
                                             Searchbar(searchText: $searchText, searching: $searching)
                                                 .frame(alignment: .leading)
-                                                .padding(12)
-                                            
+                                                .padding(.horizontal, 16)
                                             ScrollView {
                                                 LazyVGrid(columns: columns, spacing: 20) {
                                                     ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
@@ -88,71 +147,16 @@ struct HomeView: View {
                                                         }
                                                     }
                                                 }
+                                                .padding(.top, 15)
                                                 .padding(.horizontal)
-                                                .offset(x: 100)
+                                                .offset(x: 30)
                                             }
-                                            .frame(maxHeight: 680)
-                                            
-                                        }else if orientation.isLandscape{
-                                            
-                                            Text("Meus Episódios")
-                                                .font(.custom("", size: 28))
-                                                .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
-                                                .padding(10)
-                                            Searchbar(searchText: $searchText, searching: $searching)
-                                                .frame(alignment: .leading)
-                                                .padding(12)
-                                            
-                                            ScrollView {
-                                                LazyVGrid(columns: columns, spacing: 20) {
-                                                    ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
-                                                        NavigationLink {
-                                                            EpisodeView(episode: episode)
-                                                        } label: {
-                                                            CardsEpsView(episode: episode)
-                                                        }
-                                                        
-                                                    }
-                                                }
-                                                .padding(.horizontal)
-                                                .offset(x: 230)
-                                            }
-                                            .frame(maxHeight: 480)
+                                            .frame(maxHeight: 500)
                                         }
-                                    }else if UIDevice.current.localizedModel == "iPhone"{
-                                        
-                                        Spacer()
-                                        
-                                        Text("Meus Episódios")
-                                            .font(.system(size: 26))
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 1)
-                                            .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                        Searchbar(searchText: $searchText, searching: $searching)
-                                            .frame(alignment: .leading)
-                                            .padding(.horizontal, 16)
-                                        
-                                        ScrollView {
-                                            LazyVGrid(columns: columns, spacing: 20) {
-                                                ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
-                                                    NavigationLink {
-                                                        EpisodeView(episode: episode)
-                                                    } label: {
-                                                        CardsEpsView(episode: episode)
-                                                    }
-                                                }
-                                            }
-                                            .padding(.top, 15)
-                                            .padding(.horizontal)
-                                            .offset(x: 30)
-                                        }
-                                        .frame(maxHeight: 500)
                                     }//End else if
                                 }
-                                
-                                
-                            } //: VSTACK
-                            .padding(.top)
+                            }
+                            //: VSTACK
                         } //: ZSTACK
                         .padding(.top)
                         .toolbar {
@@ -187,14 +191,13 @@ struct HomeView: View {
                             self.hideKeyboard()
                         }
                     }
-                    .ignoresSafeArea()
                     .onTapGesture {
                         self.hideKeyboard()
                     } //Update episode list
                     .onAppear {
                         homeViewModel.update()
                     }
-                }
+                }.ignoresSafeArea()
                 //zstack
             }
             .ignoresSafeArea()
