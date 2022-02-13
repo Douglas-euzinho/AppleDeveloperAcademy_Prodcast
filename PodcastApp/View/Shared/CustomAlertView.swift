@@ -11,11 +11,14 @@ struct CustomAlertView: View {
     let screenSize = UIScreen.main.bounds
     
     var title: String = ""
+    var subtitle: String = ""
+    var showInput = true
+    var isConfirmation = false
     @Binding var isShown: Bool
     @Binding var text: String
     var onDone: (String) -> Void = { _ in }
     var onCancel: () -> Void = { }
-    
+    var deleteAction:() -> Void = { }
     var body: some View {
     
         ZStack {
@@ -27,13 +30,21 @@ struct CustomAlertView: View {
             VStack(spacing: 20) {
                 Text(title)
                     .font(.headline)
-                TextEditor(text: $text)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 7)
-                            .stroke(Color.black, lineWidth: 2.1)
-                    )
-                    .frame(minHeight: 40, maxHeight: 40)
-                    .cornerRadius(7)
+                if !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.subheadline)
+                }
+                //MARK: INPUT TEXT
+                if showInput {
+                    TextEditor(text: $text)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 7)
+                                .stroke(Color.black, lineWidth: 2.1)
+                        )
+                        .frame(minHeight: 40, maxHeight: 40)
+                        .cornerRadius(7)
+                }
+ 
                 
                 HStack() {
                     Button("Cancelar") {
@@ -44,11 +55,16 @@ struct CustomAlertView: View {
                     
                     Spacer()
                     
-                    Button("Salvar") {
-                        self.isShown = false
-                        self.onDone(self.text)
+                    Button(isConfirmation ? "Excluir" : "Salvar") {
+                        if isConfirmation {
+                            self.deleteAction()
+                            self.isShown = false
+                        } else {
+                            self.onDone(self.text)
+                            self.isShown = false
+                        }
                     }
-                    .buttonStyle(saveButton())
+                    .buttonStyle(doneButton())
                 }
             }
             .padding()
@@ -65,7 +81,7 @@ struct CustomAlertView: View {
     }
 }
 
-struct saveButton: ButtonStyle {
+struct doneButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: 120, height: 40)
@@ -89,6 +105,6 @@ struct cancelButton: ButtonStyle {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlertView(title: "Adicionar Tópico", isShown: .constant(true), text: .constant(""))
+        CustomAlertView(title: "Adicionar Tópico", isShown: .constant(true), text: .constant(""), deleteAction: {print("delete")})
     }
 }

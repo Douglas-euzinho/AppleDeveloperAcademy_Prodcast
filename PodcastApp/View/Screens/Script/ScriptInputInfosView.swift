@@ -79,7 +79,10 @@ struct ScriptInputInfosView: View {
             //Show Custom View to input topic name
             CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
                 //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
-                if name.count != 0 { episodeViewModel.createTopic(title: name)}
+                if !name.isEmpty {
+                    episodeViewModel.createTopic(title: name)
+                    topicName = ""
+                }
             }
             .navigationViewStyle(.stack)
         }
@@ -111,7 +114,10 @@ struct ScriptInputInfosView: View {
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
+                if !episodeViewModel.topics.isEmpty {
+                    EditButton()
+                }
+ 
             }
         }
         .navigationViewStyle(.stack)

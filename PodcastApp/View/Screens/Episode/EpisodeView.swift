@@ -11,6 +11,7 @@ struct EpisodeView: View {
     // MARK: - PROPERTIES
     @State var actualDate = Date()
     @State var showSheetView = false
+    @State var showDeleteAlert = false
     @ObservedObject var episodeViewModel: EpisodeViewModel
     @State var showScript = false
     @Environment(\.presentationMode) var presentationMode
@@ -144,13 +145,12 @@ struct EpisodeView: View {
                         .offset(x: 40)
                 }
             }
+            CustomAlertView(title: "Excluir Episódio", subtitle: "Deseja mesmo excluir esse episódio?", showInput: false, isConfirmation: true, isShown: $showDeleteAlert, text: .constant(""), deleteAction: deleteEpisode)
         }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button {
-                    if episodeViewModel.deleteEpisode() {
-                        presentationMode.wrappedValue.dismiss()
-                    }
+                  showDeleteAlert = true
                 } label: {
                     Image(systemName: "trash.fill")
                         .foregroundColor(Color("accent-color"))
@@ -178,6 +178,12 @@ struct EpisodeView: View {
         }
         .sheet(isPresented: $showSheetView) {
             EditEpisodeView(showSheetView: $showSheetView, model: episodeViewModel)
+        }
+
+    }
+    private func deleteEpisode() {
+        if episodeViewModel.deleteEpisode() {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }
