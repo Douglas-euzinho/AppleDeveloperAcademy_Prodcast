@@ -20,9 +20,12 @@ struct UserProfileView: View {
                 .clipShape(Circle())
                 .frame(width: 62, height: 62)
             
-            Text(name).font(.custom("Helvetica Neue", size: 22))
+            Text(name)
+                .font(.custom("Helvetica Neue", size: 22))
                 .fontWeight(.semibold)
-                            
+                .padding(.leading, 5)
+                .lineLimit(2)
+            Spacer()
         }
     }
 }

@@ -34,6 +34,9 @@ struct HomeView: View {
         GeometryReader { bounds in
             NavigationView {
                 ZStack{
+                    NavigationLink(destination: ConfigView(), isActive: $showProfileView) {
+                        
+                    }
                     Color("background-color").edgesIgnoringSafeArea(.bottom)
                     ZStack {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
@@ -44,19 +47,10 @@ struct HomeView: View {
                                     .onAppear(perform: {
                                         homeViewModel.update()
                                     })
-                                    .offset(x: -5, y: 15)
-                                    .padding(.top, bounds.safeAreaInsets.top-40)
-                                    .padding(.trailing, 50)
-                                                                
-//                                Button {
-//                                    showProfileView.toggle()
-//                                } label: {
-//                                    Image(systemName: "gearshape.fill")
-//                                        .foregroundColor(Color("accent-color"))
-//                                }
-//                                .offset(x: 20, y: -35)
-//                                .padding(.bottom, 70)
-//                                .padding(.leading, 60)
+                                    .padding(.top, 60)
+                                    .padding(.bottom, 10)
+                                    .padding(.leading, 25)
+                                Spacer()
                             }
                             ZStack {
                                 // MARK: - RADIAL BACKGROUND
@@ -163,6 +157,16 @@ struct HomeView: View {
                         } //: ZSTACK
                         .padding(.top)
                         .toolbar {
+                            
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    showProfileView = true
+                                } label: {
+                                    Image(systemName: "gearshape.fill")
+                                        .foregroundColor(Color("accent-color"))
+                                }
+                            }
+                            
                             ToolbarItem(placement: .bottomBar) {
                                 Button{
                                     showSheetView.toggle()
@@ -184,14 +188,17 @@ struct HomeView: View {
                             self.hideKeyboard()
                         }
                     }
+                    .ignoresSafeArea()
                     .onTapGesture {
                         self.hideKeyboard()
                     } //Update episode list
                     .onAppear {
                         homeViewModel.update()
                     }
-                }//zstack
+                }
+                //zstack
             }
+            .ignoresSafeArea()
             
         }
         .navigationViewStyle(.stack)
