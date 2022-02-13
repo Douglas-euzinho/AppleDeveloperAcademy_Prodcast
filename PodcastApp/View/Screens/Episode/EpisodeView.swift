@@ -12,13 +12,11 @@ struct EpisodeView: View {
     @State var actualDate = Date()
     @State var showSheetView = false
     @ObservedObject var episodeViewModel: EpisodeViewModel
-    @ObservedObject var homeViewModel: HomeViewModel
     @State var showScript = false
     @Environment(\.presentationMode) var presentationMode
 
     init (episode: Episode) {
         self.episodeViewModel = EpisodeViewModel(episode: episode)
-        self.homeViewModel = HomeViewModel()
     }
     
     // MARK: - BODY
@@ -30,10 +28,7 @@ struct EpisodeView: View {
             NavigationLink(isActive: $showScript) {
                 ScriptInputInfosView()
                     .environmentObject(episodeViewModel)
-            } label: {
-                
-            }
-
+            } label: {}
             
             ScrollView {
                 VStack(alignment: .leading) {
@@ -173,7 +168,7 @@ struct EpisodeView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    showSheetView.toggle()
+                    showSheetView = true
                 }) {
                     //TODO: show episode screen
                     Text("Editar").bold()
@@ -182,7 +177,7 @@ struct EpisodeView: View {
             }
         }
         .sheet(isPresented: $showSheetView) {
-            EditEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
+            EditEpisodeView(showSheetView: $showSheetView, model: episodeViewModel)
         }
     }
 }
