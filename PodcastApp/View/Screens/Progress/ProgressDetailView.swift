@@ -30,7 +30,6 @@ struct ProgressDetailView: View {
                         
                     LazyVGrid(columns: layout, spacing: 35) {
                         ProgressDetailCheckboxView(title: "Roteirizado", imageName: "scriptedProgress", marked:  25)
-                        //    .opacity(model.episode.status < 25 ? 0.5 : 1.0)
                             .environmentObject(model)
                         ProgressDetailCheckboxView(title: "Gravado", imageName: "recordedProgress", marked: 50)
                             .opacity(model.episode.status >= 25 ? 1.0 : 0.5)

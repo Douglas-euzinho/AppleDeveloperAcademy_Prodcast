@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct RoadMapView: View {
-    @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @EnvironmentObject var model: EpisodeViewModel
     @Environment(\.presentationMode) var presentation
     @State private var showingExporter = false
     @State private var isImporting: Bool = false
@@ -21,13 +21,13 @@ struct RoadMapView: View {
             Color("background-color")
                 .ignoresSafeArea()
             ScrollView {
-                ForEach(episodeViewModel.getAllTopics()) { topic in
+                ForEach(model.getAllTopics()) { topic in
                     TopicView(title: topic.title ?? "Sem título", content: topic.content ?? "Sem texto")
                 }
             }
             .fileExporter(
                 isPresented: $isExporting,
-                document: MessageDocument(message: episodeViewModel.getFormattedScript()),
+                document: MessageDocument(message: model.getFormattedScript()),
                 contentType: UTType.plainText,
                 defaultFilename: "Message"
             ) { result in
@@ -39,7 +39,7 @@ struct RoadMapView: View {
             }
             .padding(.top, 20)
         }
-        .navigationTitle(episodeViewModel.episode.wrappedTitle)
+        .navigationTitle(model.episode.wrappedTitle)
         .navigationBarTitleDisplayMode(.automatic)
         .toolbar {
             ToolbarItem {

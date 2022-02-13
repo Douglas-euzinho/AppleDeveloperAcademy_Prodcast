@@ -12,12 +12,12 @@ struct EpisodeView: View {
     @State var actualDate = Date()
     @State var showSheetView = false
     @State var showDeleteAlert = false
-    @ObservedObject var episodeViewModel: EpisodeViewModel
+    @ObservedObject var model: EpisodeViewModel
     @State var showScript = false
     @Environment(\.presentationMode) var presentationMode
 
     init (episode: Episode) {
-        self.episodeViewModel = EpisodeViewModel(episode: episode)
+        self.model = EpisodeViewModel(episode: episode)
     }
     
     // MARK: - BODY
@@ -28,12 +28,12 @@ struct EpisodeView: View {
             
             NavigationLink(isActive: $showScript) {
                 ScriptInputInfosView()
-                    .environmentObject(episodeViewModel)
+                    .environmentObject(model)
             } label: {}
             
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text(episodeViewModel.episode?.title ?? "Sem título")
+                    Text(model.episode?.title ?? "Sem título")
                         .font(.system(size: 34))
                         .fontWeight(.semibold)
                         .padding(.horizontal, 25)
@@ -44,7 +44,7 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    NavigationLink(destination: ProgressDetailView().environmentObject(episodeViewModel)) {
+                    NavigationLink(destination: ProgressDetailView().environmentObject(model)) {
                         GroupBox {
                             VStack {
                                 HStack {
@@ -57,7 +57,7 @@ struct EpisodeView: View {
                                 } //: HSTACK
                                 .foregroundColor(.primary)
                                 
-                                EpisodeProgressView(episode: episodeViewModel.episode ?? Episode())
+                                EpisodeProgressView(episode: model.episode ?? Episode())
                                     .offset(x: -65)
                             } //: VSTACK
                             .padding()
@@ -71,8 +71,8 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    if episodeViewModel.episode?.script != nil {
-                        NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
+                    if model.episode?.script != nil {
+                        NavigationLink(destination: ScriptInputInfosView().environmentObject(model)) {
                             GroupBox {
                                 VStack {
                                     HStack {
@@ -84,7 +84,7 @@ struct EpisodeView: View {
                                             .modifier(groupBoxChevron())
                                     } //: HSTACK
                                     ScrollView(.vertical, showsIndicators: false) {
-                                        Text(episodeViewModel.getFormattedScript())
+                                        Text(model.getFormattedScript())
                                             .multilineTextAlignment(.leading)
                                     }
                                 } //: VSTACK
@@ -115,7 +115,7 @@ struct EpisodeView: View {
                                     .frame(width: 100, height: 100, alignment: .center)
                                 
                                 Button {
-                                    episodeViewModel.createScript(type: 1)
+                                    model.createScript(type: 1)
                                     showScript = true
                                 } label: {
                                     Text("Iniciar")
@@ -178,12 +178,12 @@ struct EpisodeView: View {
         }
         .sheet(isPresented: $showSheetView) {
             //MARK: Episode Name Edit View
-            EditEpisodeView(showSheetView: $showSheetView, model: episodeViewModel)
+            EditEpisodeView(showSheetView: $showSheetView, model: model)
         }
 
     }
     private func deleteEpisode() {
-        if episodeViewModel.deleteEpisode() {
+        if model.deleteEpisode() {
             presentationMode.wrappedValue.dismiss()
         }
     }

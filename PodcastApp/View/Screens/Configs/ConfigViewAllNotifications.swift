@@ -10,18 +10,18 @@ import SwiftUI
 struct ConfigViewAllNotifications: View {
     
     @State var createNotificationView: Bool = false
-    @EnvironmentObject var configModel: ConfigViewModel
+    @EnvironmentObject var model: ConfigViewModel
     
     var body: some View {
         VStack{
             Form{
                 Section{
-                    Toggle(isOn: $configModel.profile.isActiveNotification) {
+                    Toggle(isOn: $model.profile.isActiveNotification) {
                         Text("Permitir Notificação")
                             .font(.subheadline)
                     }
                 }//End Section
-                ForEach(configModel.profile.notifications?.allObjects as! [Notification]) { notification in
+                ForEach(model.profile.notifications?.allObjects as! [Notification]) { notification in
                     Text("\(notification.title ?? "No title")")
                 }
             }//End Form

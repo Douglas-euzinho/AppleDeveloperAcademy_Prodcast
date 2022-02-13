@@ -11,7 +11,7 @@ struct ScriptInputSpecificInfoView: View {
     @ObservedObject var topic: Topic
     @State var desc: String = ""
     @State var title: String = ""
-    @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @EnvironmentObject var model: EpisodeViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         //TODO: Custom TextEditor view to conform prototype
@@ -32,8 +32,8 @@ struct ScriptInputSpecificInfoView: View {
                 Button{
                     topic.content = desc
                     if title.count != 0 { topic.title = title }
-                    episodeViewModel.save()
-                    episodeViewModel.update()
+                    model.save()
+                    model.update()
                     presentationMode.wrappedValue.dismiss()
                 }label: {
                     Text("Salvar")

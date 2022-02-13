@@ -12,7 +12,7 @@ struct ConfigNotificationView: View {
     @State var days: [String] = []
     @State var dateNotification: Date = Date()
     
-    @EnvironmentObject var configModel: ConfigViewModel
+    @EnvironmentObject var model: ConfigViewModel
     
     var body: some View {
         Form{
@@ -44,7 +44,7 @@ struct ConfigNotificationView: View {
                 }
                 
                 Button {
-                    configModel.createNotification(days: [true,false,false,true,false,true,false], hour: dateNotification, title: "Episode 01", message: "Any Message")
+                    model.createNotification(days: [true,false,false,true,false,true,false], hour: dateNotification, title: "Episode 01", message: "Any Message")
                 } label: {
                     Text("Salvar")
                 }

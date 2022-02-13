@@ -14,7 +14,7 @@ struct ScriptInputInfosView: View {
     @State private var showingAlert = false
     @State private var showingVisualizer = false
     @State private var topicName = ""
-    @EnvironmentObject var episodeViewModel: EpisodeViewModel
+    @EnvironmentObject var model: EpisodeViewModel
     @Environment(\.editMode) var editMode
     @Environment(\.presentationMode) var presentationMode
     
@@ -26,7 +26,7 @@ struct ScriptInputInfosView: View {
             
             ScrollView {
                     VStack(alignment: .leading, spacing: 10) {
-                        ForEach($episodeViewModel.topics, id: \.self){ topic in
+                        ForEach($model.topics, id: \.self){ topic in
                             HStack {
                                 VStack {
                                     TextField("", text: topic.wrappedTitle)
@@ -44,9 +44,9 @@ struct ScriptInputInfosView: View {
                                 }
                                 if self.editMode?.wrappedValue == .active {
                                     Button {
-                                        if let index = episodeViewModel.topics.firstIndex(of: topic.wrappedValue) {
-                                            episodeViewModel.deleteTopic(topic:episodeViewModel.topics.remove(at: index)) 
-                                            episodeViewModel.save()
+                                        if let index = model.topics.firstIndex(of: topic.wrappedValue) {
+                                            model.deleteTopic(topic:model.topics.remove(at: index)) 
+                                            model.save()
                                         }
                                     } label: {
                                         Image(systemName: "minus.circle")
@@ -59,7 +59,7 @@ struct ScriptInputInfosView: View {
                         .padding(.horizontal, 35)
                 }  //: VSTACK
                 .onDisappear {
-                    episodeViewModel.save()
+                    model.save()
                 }
                 .padding(.top, 20)
             }//End List
@@ -68,7 +68,7 @@ struct ScriptInputInfosView: View {
             CustomAlertView(title: "Adicionar Tópico", isShown: $showingAlert, text: $topicName) { name in
                 //TODO: CREATE METHOD IN MODELVIEW TO ADD TOPIC
                 if !name.isEmpty {
-                    episodeViewModel.createTopic(title: name)
+                    model.createTopic(title: name)
                     topicName = ""
                 }
             }
@@ -93,8 +93,8 @@ struct ScriptInputInfosView: View {
                 Button {
                     showingVisualizer = true
                 } label: {
-                    if episodeViewModel.getAllTopics().count > 0 {
-                        NavigationLink(destination: RoadMapView().environmentObject(episodeViewModel), isActive: $showingVisualizer) {
+                    if model.getAllTopics().count > 0 {
+                        NavigationLink(destination: RoadMapView().environmentObject(model), isActive: $showingVisualizer) {
                             Text("Visualizar")
                                 .foregroundColor(Color("accent-color"))
                         }
@@ -102,7 +102,7 @@ struct ScriptInputInfosView: View {
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                if !episodeViewModel.topics.isEmpty {
+                if !model.topics.isEmpty {
                     EditButton()
                 }
  

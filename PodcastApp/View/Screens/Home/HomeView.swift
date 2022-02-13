@@ -16,7 +16,7 @@ struct HomeView: View {
     @State var searching = false
     @State private var showSheetView = false
     @State private var showProfileView = false
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var model = HomeViewModel()
         
     let columns = [
         GridItem(.fixed(100)),
@@ -36,9 +36,9 @@ struct HomeView: View {
                         VStack {
                             // MARK: - PROFILE VIEW
                             HStack {
-                                UserProfileView(name: homeViewModel.profile.wrappedName, image: homeViewModel.profile.image?.toUIImage())
+                                UserProfileView(name: model.profile.wrappedName, image: model.profile.image?.toUIImage())
                                     .onAppear(perform: {
-                                        homeViewModel.update()
+                                        model.update()
                                     })
                                     .padding(.top, 60)
                                     .padding(.bottom, 10)
@@ -48,7 +48,7 @@ struct HomeView: View {
                                 // MARK: - RADIAL BACKGROUND
                                 Rectangle()
                                     .cornerRadius(radius: 40, corners: [.topLeft])
-                                    .foregroundColor(homeViewModel.episodes.isEmpty ? .white : Color("background-color"))
+                                    .foregroundColor(model.episodes.isEmpty ? .white : Color("background-color"))
                                     .frame(minHeight: 620)
                                     .ignoresSafeArea()
                                 
@@ -57,7 +57,7 @@ struct HomeView: View {
                                      Regular = Portrait(em pé).
                                      Compact = Landscape(deitado) -> iPhone
                                      */
-                                    if homeViewModel.episodes.isEmpty {
+                                    if model.episodes.isEmpty {
                                         VStack{
                                             Text("Olá")
                                                 .font(.system(size: 28))
@@ -84,7 +84,7 @@ struct HomeView: View {
                                                 
                                                 ScrollView {
                                                     LazyVGrid(columns: columns, spacing: 20) {
-                                                        ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                        ForEach(model.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                             NavigationLink {
                                                                 EpisodeView(episode: episode)
                                                             } label: {
@@ -109,7 +109,7 @@ struct HomeView: View {
                                                 
                                                 ScrollView {
                                                     LazyVGrid(columns: columns, spacing: 20) {
-                                                        ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                        ForEach(model.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                             NavigationLink {
                                                                 EpisodeView(episode: episode)
                                                             } label: {
@@ -136,7 +136,7 @@ struct HomeView: View {
                                                 .padding(.horizontal, 16)
                                             ScrollView {
                                                 LazyVGrid(columns: columns, spacing: 20) {
-                                                    ForEach(homeViewModel.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
+                                                    ForEach(model.episodes.filter { $0.wrappedTitle.contains(searchText) || searchText.isEmpty}) { episode in
                                                         NavigationLink {
                                                             EpisodeView(episode: episode)
                                                         } label: {
@@ -192,7 +192,7 @@ struct HomeView: View {
                         self.hideKeyboard()
                     } //Update episode list
                     .onAppear {
-                        homeViewModel.update()
+                        model.update()
                     }
                 }.ignoresSafeArea()
                 //zstack
@@ -202,11 +202,11 @@ struct HomeView: View {
         }
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSheetView) {
-            NewEpisodeView(showSheetView: $showSheetView, homeModel: homeViewModel)
+            NewEpisodeView(showSheetView: $showSheetView, homeModel: model)
         }
         .sheet(isPresented: $showProfileView){
-            ConfigView(podcastName: homeViewModel.profile.wrappedName, imageData: homeViewModel.profile.image)
-                .environmentObject(homeViewModel)
+            ConfigView(podcastName: model.profile.wrappedName, imageData: model.profile.image)
+                .environmentObject(model)
         }
         .accentColor(Color("accent-color"))
         .ignoresSafeArea()
