@@ -14,11 +14,7 @@ struct Searchbar: View {
     
     var body: some View {
         ZStack{
-            Rectangle()
-                .strokeBorder(.black)
-                .frame(height: 39)
-                
-            ZStack {
+        ZStack {
                 Rectangle()
                     .foregroundColor(Color("SearchBar"))
                 HStack {
@@ -40,6 +36,9 @@ struct Searchbar: View {
                 .foregroundColor(.gray)
                 .padding()
             }
+            Rectangle()
+                .strokeBorder(.black)
+                .frame(height: 39)
         }
         .frame(height: 40)
         .cornerRadius(4)
