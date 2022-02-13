@@ -10,8 +10,7 @@ import SwiftUI
 struct EditEpisodeView: View {
     @Binding var showSheetView: Bool
     @State var episodeName: String = ""
-    @ObservedObject var homeModel: HomeViewModel
-    //@StateObject var model = NewEpisodeModel()
+    @ObservedObject var model: EpisodeViewModel
     
     // MARK: - BODY
     var body: some View {
@@ -39,23 +38,32 @@ struct EditEpisodeView: View {
                                 .padding(.trailing, 20)
                         } //: VSTACK
                     } //: HSTACK
-                    .padding(.top, 25)                    
+                    .padding(.top, 25)
                     Spacer()
-                    
-                        .navigationBarTitle(Text("Editar"), displayMode: .inline)
-                        .navigationBarItems(trailing: Button(action: {
-                            
+                
+                    .navigationBarTitle(Text("Editar"), displayMode: .inline)
+                    .navigationBarItems(trailing:
+                        Button(action: {
+                        if !episodeName.isEmpty {
+                            model.episode?.wrappedTitle = episodeName
+                            model.save()
+                            showSheetView = false
+                        }
                         }) {
-                            //TODO: show episode screen
-                            Text("Salvar").bold()
+                            Text("Salvar")
+                                .bold()
                                 .foregroundColor(Color("accent-color"))
-                        })
-                        .navigationBarItems(leading: Button(action: {
-                            
+                                .opacity(episodeName.isEmpty ? 0.5 : 1.0)
+                        }
+                    )
+                    .navigationBarItems(leading:
+                        Button(action: {
+                            showSheetView = false
                         }) {
                             Text("Cancelar")
                                 .foregroundColor(Color("accent-color"))
-                        })
+                        }
+                    )
                 }
                 .padding(.leading)
             }
@@ -70,6 +78,6 @@ struct EditEpisodeView: View {
 
 struct EditEpisodeView_Previews: PreviewProvider {
     static var previews: some View {
-        EditEpisodeView(showSheetView: .constant(true), homeModel: HomeViewModel())
+        EditEpisodeView(showSheetView: .constant(true), model: EpisodeViewModel(episode: Episode()))
     }
 }
