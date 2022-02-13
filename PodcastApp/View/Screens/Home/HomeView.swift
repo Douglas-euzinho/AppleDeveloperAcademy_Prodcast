@@ -14,7 +14,9 @@ struct HomeView: View {
     // MARK: - PROPERTIES
     @State var orientation: UIDeviceOrientation
     @State private var searchText: String = ""
+    @State var searching = false
     @State private var showSheetView = false
+    @State private var showProfileView = false
     @StateObject var homeViewModel = HomeViewModel()
     let screen = UIScreen.main.bounds
     
@@ -37,12 +39,25 @@ struct HomeView: View {
                         Color("secundary-color").edgesIgnoringSafeArea(.top)
                         VStack {
                             // MARK: - PROFILE VIEW
-                           
+                            HStack {
                                 UserProfileView(name: homeViewModel.profile.wrappedName, image: homeViewModel.profile.image?.toUIImage())
                                     .onAppear(perform: {
                                         homeViewModel.update()
                                     })
-                                    .padding(.top, bounds.safeAreaInsets.top-80)
+                                    .offset(x: -5, y: 15)
+                                    .padding(.top, bounds.safeAreaInsets.top-40)
+                                    .padding(.trailing, 50)
+                                                                
+//                                Button {
+//                                    showProfileView.toggle()
+//                                } label: {
+//                                    Image(systemName: "gearshape.fill")
+//                                        .foregroundColor(Color("accent-color"))
+//                                }
+//                                .offset(x: 20, y: -35)
+//                                .padding(.bottom, 70)
+//                                .padding(.leading, 60)
+                            }
                             ZStack {
                                 // MARK: - RADIAL BACKGROUND
                                 Rectangle()
@@ -66,7 +81,7 @@ struct HomeView: View {
                                                 .font(.custom("", size: 28))
                                                 .frame(width: bounds.size.width-80, height: 55, alignment: .bottomLeading)
                                                 .padding(10)
-                                            Searchbar(searchText: $searchText)
+                                            Searchbar(searchText: $searchText, searching: $searching)
                                                 .frame(alignment: .leading)
                                                 .padding(12)
                                             
@@ -91,7 +106,7 @@ struct HomeView: View {
                                                 .font(.custom("", size: 28))
                                                 .frame(width: bounds.size.width-80, height: 46, alignment: .bottomLeading)
                                                 .padding(10)
-                                            Searchbar(searchText: $searchText)
+                                            Searchbar(searchText: $searchText, searching: $searching)
                                                 .frame(alignment: .leading)
                                                 .padding(12)
                                             
@@ -113,12 +128,14 @@ struct HomeView: View {
                                         }
                                     }else if UIDevice.current.localizedModel == "iPhone"{
                                         
+                                        Spacer()
+                                        
                                         Text("Meus Episódios")
                                             .font(.system(size: 26))
                                             .fontWeight(.bold)
-                                            .padding(.bottom, 12)
+                                            .padding(.bottom, 1)
                                             .frame(width: bounds.size.width-70, height: 40, alignment: .bottomLeading)
-                                        Searchbar(searchText: $searchText)
+                                        Searchbar(searchText: $searchText, searching: $searching)
                                             .frame(alignment: .leading)
                                             .padding(.horizontal, 16)
                                         
