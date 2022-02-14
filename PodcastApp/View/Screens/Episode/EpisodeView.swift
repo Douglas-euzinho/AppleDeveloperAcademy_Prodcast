@@ -57,8 +57,8 @@ struct EpisodeView: View {
                                 } //: HSTACK
                                 .foregroundColor(.primary)
                                 
-                                EpisodeProgressView(episode: model.episode ?? Episode())
-                                    .offset(x: -65)
+                                EpisodeProgressView()
+                                    .environmentObject(model.episode)
                             } //: VSTACK
                             .padding()
                         } //: GROUP BOX

@@ -43,6 +43,7 @@
 		23AF29EA27B45AE5003F941B /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E827B45AE5003F941B /* Topic+CoreDataClass.swift */; };
 		23AF29EB27B45AE5003F941B /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */; };
 		23AF29EF27B530B3003F941B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AF29EE27B530B3003F941B /* CloudKit.framework */; };
+		23BBA45927B9D761008C8F81 /* DateFormatter+formatedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */; };
 		23D8AC9D27A3225200DF1298 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */; };
 		23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
@@ -126,6 +127,7 @@
 		23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23AF29EC27B52FC3003F941B /* ProdCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProdCast.entitlements; sourceTree = "<group>"; };
 		23AF29EE27B530B3003F941B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+formatedDate.swift"; sourceTree = "<group>"; };
 		23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableProtocol.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */,
 				23680D9C27B1BDB700A09D94 /* View+hideKeyboard.swift */,
 				230A256527B6E00800E0FBBC /* Data+toUIImage.swift */,
+				23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				156445E027B6F12A0048ABC8 /* Document.swift in Sources */,
 				CD4C613E27861DCC00FF04AC /* Searchbar.swift in Sources */,
 				230A256627B6E00800E0FBBC /* Data+toUIImage.swift in Sources */,
+				23BBA45927B9D761008C8F81 /* DateFormatter+formatedDate.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 				CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */,
 				156445E927B831250048ABC8 /* EditEpisodeView.swift in Sources */,

@@ -8,52 +8,50 @@
 import SwiftUI
 
 struct EpisodeProgressView: View {
-    @ObservedObject var episode: Episode
+    @EnvironmentObject var episode: Episode
     
     var body: some View {
         ZStack {
-            ProgressView(value: 25, total: 100)
-                .progressViewStyle(CustomRoundedCornerProgressViewStyle())
-            
-            HStack {
-                VStack(alignment: .leading, spacing: 45){
-                    Text("Roterizado")
-                        .font(.custom("FONT_NAME", size: 17))
-                        .foregroundColor(Color.black)
-                        .padding(5)
-                    
-                    Text("Gravado")
-                        .font(.custom("FONT_NAME", size: 17))
-                        .foregroundColor(Color.black)
-                        .padding(5)
-                    
-                    Text("Editado")
-                        .font(.custom("FONT_NAME", size: 17))
-                        .foregroundColor(Color.black)
-                        .padding(5)
-                    
-                    Text("Lançado")
-                        .font(.custom("FONT_NAME", size: 17))
-                        .foregroundColor(Color.black)
-                        .padding(5)
+            VStack(alignment: .leading) {
+                HStack (spacing: 5){
+                    Image("progress\(episode.status)Percent")
+                        .resizable()
+                        .frame(width: 25, height: 175)
+                    VStack(alignment: .leading, spacing: 20){
+                        Text("Roterizado")
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("FONT_NAME", size: 17))
+                            .foregroundColor(Color.black)
+                        Text("Gravado")
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("FONT_NAME", size: 17))
+                            .foregroundColor(Color.black)
+                        
+                        Text("Editado")
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("FONT_NAME", size: 17))
+                            .foregroundColor(Color.black)
+                        
+                        Text("Lançado")
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("FONT_NAME", size: 17))
+                            .foregroundColor(Color.black)
+                    }
+                    Spacer()
                 }
+                
             }
         }
+        .ignoresSafeArea()
     }
 }
 
-struct CustomRoundedCornerProgressViewStyle: ProgressViewStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        ProgressView(configuration)
-            .accentColor(Color.green)
-            .scaleEffect(x: 0.8, y: 4, anchor: .center)
-            .rotationEffect(.degrees(90))
-            .offset(x: -65)
-    }
-}
+
+
 
 struct EpisodeProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        EpisodeProgressView(episode: Episode())
+        EpisodeProgressView()
     }
 }
+
