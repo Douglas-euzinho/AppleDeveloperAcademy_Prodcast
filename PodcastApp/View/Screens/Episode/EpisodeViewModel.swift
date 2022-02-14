@@ -74,7 +74,7 @@ class EpisodeViewModel: Modelable {
         var formattedScript = ""
         
         topics.forEach { topic in
-            formattedScript.append("\(topic.content ?? "")")
+            formattedScript.append("\(topic.wrappedTitle) \n \(topic.content ?? "") \n")
         }
         return formattedScript
     }

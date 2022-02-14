@@ -29,7 +29,7 @@ struct RoadMapView: View {
                 isPresented: $isExporting,
                 document: MessageDocument(message: model.getFormattedScript()),
                 contentType: UTType.plainText,
-                defaultFilename: "Message"
+                defaultFilename: "\(model.episode.title ?? "roteiro")"
             ) { result in
                 if case .success = result {
                     print("Success")

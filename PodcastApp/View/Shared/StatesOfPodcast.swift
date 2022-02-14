@@ -46,10 +46,10 @@ struct CardEpisodeProgressView: View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack (spacing: 5){
-                    Image("progress\(episode.status)Percent")
+                    Image("whiteProgress\(episode.status)Percent")
                         .resizable()
                         .frame(width: 25, height: 150)
-                    VStack(alignment: .leading, spacing: 20){
+                    VStack(alignment: .leading, spacing: 15){
                         Text("Roteirizado")
                             .multilineTextAlignment(.leading)
                             .font(.custom("FONT_NAME", size: 12))

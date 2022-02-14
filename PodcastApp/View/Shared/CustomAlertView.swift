@@ -47,13 +47,14 @@ struct CustomAlertView: View {
  
                 
                 HStack() {
+                    Spacer()
                     Button("Cancelar") {
                         self.isShown = false
                         self.onCancel()
                     }
                     .buttonStyle(cancelButton())
+                    .padding(.trailing, 10)
                     
-                    Spacer()
                     
                     Button(isConfirmation ? "Excluir" : "Salvar") {
                         if isConfirmation {
@@ -65,10 +66,12 @@ struct CustomAlertView: View {
                         }
                     }
                     .buttonStyle(doneButton())
+                    .padding(.leading, 10)
+                    Spacer()
                 }
             }
             .padding()
-            .frame(width: screenSize.width * 0.83, height: screenSize.height * 0.23)
+            .frame(width: UIDevice.current.localizedModel == "iPad" ? screenSize.width * 0.35 :  screenSize.width * 0.83 , height: screenSize.height * 0.23)
             .background(Color.init(uiColor: UIColor.init(named: "background-color") ?? UIColor.gray))
             .opacity(1.3)
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
