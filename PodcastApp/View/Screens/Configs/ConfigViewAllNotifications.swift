@@ -5,35 +5,24 @@
 //  Created by Douglas Figueirôa on 19/01/22.
 //
 
-//MARK: - PROPERTIES FROM ANY NOTIFICATION
-struct NotificationAtributes: Identifiable{
-    var id = UUID()
-    var day: String?
-    var time: String?
-    var title: String?
-    var message: String?
-}//End struct
-
 import SwiftUI
 
 struct ConfigViewAllNotifications: View {
     
     @State var createNotificationView: Bool = false
-    @EnvironmentObject var configModel: ConfigViewModel
+    @EnvironmentObject var model: ConfigViewModel
     
     var body: some View {
         VStack{
             Form{
                 Section{
-                    Toggle(isOn: $configModel.profile.isActiveNotification) {
+                    Toggle(isOn: $model.profile.isActiveNotification) {
                         Text("Permitir Notificação")
                             .font(.subheadline)
                     }
                 }//End Section
-                List{
-                    ForEach(configModel.profile.notifications?.allObjects as! [Notification]) { notification in
-                        Text("\(notification.title ?? "No title")")
-                    }
+                ForEach(model.profile.notifications?.allObjects as! [Notification]) { notification in
+                    Text("\(notification.title ?? "No title")")
                 }
             }//End Form
             
@@ -41,7 +30,7 @@ struct ConfigViewAllNotifications: View {
                 ConfigNotificationView()
             } label: {
             }
-
+            
         }//End VStack
         .navigationTitle("Minhas notificações")
         .toolbar{EditButton()}
@@ -52,10 +41,14 @@ struct ConfigViewAllNotifications: View {
                     self.createNotificationView = true
                 } label: {
                     HStack {
-                        Image(systemName: "plus.circle.fill").foregroundColor(.black)
-                        Text("Adicionar Notificação").foregroundColor(.black)
-                    }.padding(.top)
+                        Image(systemName: "plus.circle.fill")
+                        Text("Adicionar Notificação")
+                    }
+                    .foregroundColor(Color("accent-color"))
                 }
+            }
+            ToolbarItem(placement: .bottomBar) {
+                Spacer()
             }
         }//End toolbar
     }//End body

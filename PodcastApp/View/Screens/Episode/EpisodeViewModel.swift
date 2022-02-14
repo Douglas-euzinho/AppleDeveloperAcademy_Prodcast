@@ -10,11 +10,13 @@ import Foundation
 
 class EpisodeViewModel: Modelable {
     
-    @Published var episode: Episode?
+    @Published var episode: Episode!
     private var persistence = PersistenceController.shared
+    @Published var topics: [Topic]!
     
     init(episode: Episode) {
         self.episode = episode
+        self.topics = getAllTopics()
         update()
     }
     
@@ -44,10 +46,20 @@ class EpisodeViewModel: Modelable {
         }
     }
     
-//    func getDate() -> [Topic]{
-//        guard let episodeDate = episode else{ return [] }
-//        return episodeDate.date? as? [Topic] ?? []
-//    }
+    
+    
+    func deleteTopic(topic: Topic) {
+        if persistence.deleteObjectInContext(object: topic) {
+            update()
+        }
+    }
+    
+    
+
+    func deleteEpisode() -> Bool {
+        guard let episode = episode else {return false}
+        return persistence.deleteObjectInContext(object: episode)
+    }
     
     
     func getAllTopics() -> [Topic] {
@@ -56,14 +68,13 @@ class EpisodeViewModel: Modelable {
         return topics.sorted{ $0.date ?? Date() < $1.date ?? Date() }
     }
     
-    
     func getFormattedScript() -> String {
         let topics = getAllTopics()
         
         var formattedScript = ""
         
         topics.forEach { topic in
-            formattedScript.append("\(topic.content ?? "")")
+            formattedScript.append("\(topic.wrappedTitle) \n \(topic.content ?? "") \n")
         }
         return formattedScript
     }
@@ -79,6 +90,7 @@ class EpisodeViewModel: Modelable {
     }
     
     func update() {
+        self.topics = getAllTopics()
         objectWillChange.send()
     }
     
@@ -93,5 +105,9 @@ class EpisodeViewModel: Modelable {
         createTopic(title: "Finalização")
     }
     
+    
+    deinit {
+        print("Deinit EpisodeView Model")
+    }
     
 }

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProgressDetailCheckboxView: View {
     var title: String
-    @State var isMarked: Bool = false
-    
+    var imageName: String
+    @EnvironmentObject var model: EpisodeViewModel
+    @State var marked: Int
     var body: some View {
         ZStack {
             Color.white
@@ -18,8 +19,8 @@ struct ProgressDetailCheckboxView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Image(systemName: isMarked ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(isMarked ? Color("accent-color") : Color(.black))
+                    Image(systemName: model.episode.status >= marked ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(model.episode.status >= marked ? Color("accent-color") : Color(.black))
                 }
                 
                 Text(title)
@@ -28,13 +29,21 @@ struct ProgressDetailCheckboxView: View {
                     .padding(.top, 6)
                     .padding(.bottom)
                 
-                Image(systemName: "book.circle.fill")
+                Image(imageName)
                     .resizable()
                     .frame(width: 110, height: 90)
             } //: VSTACK
             .padding()
             .onTapGesture {
-                isMarked.toggle()
+                if model.episode.status == marked {
+                        model.episode.status = model.episode.status - 25
+                       // print("\(model.episode.status)")
+                } else if model.episode.status < marked && (model.episode.status + 25) == marked {
+                        model.episode.status += 25
+                        print("\(model.episode.status)")
+                }
+                model.save()
+                model.update()
             }
         } //: ZSTACK
         .cornerRadius(18)
@@ -44,7 +53,7 @@ struct ProgressDetailCheckboxView: View {
 
 struct ProgressDetailCheckboxView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressDetailCheckboxView(title: "Roteirizado", isMarked: false)
+        ProgressDetailCheckboxView(title: "Roteirizado", imageName: "", marked: 25)
             .previewLayout(.sizeThatFits)
             .padding()
     }

@@ -10,13 +10,22 @@ import SwiftUI
 struct UserProfileView: View {
     let screen = UIScreen.main.bounds
     var name: String
+    var image: UIImage?
+    
     var body: some View {
-        VStack(spacing: 10){
-            Image(systemName: "person.circle.fill")
+        HStack(spacing: 15) {
+            Image(uiImage: image ?? UIImage(named: "emptyProfile")!)
                 .resizable()
-                .frame(width: 80, height: 80)
-            Text(name).font(.custom("Helvetica Neue", size: 25))
-                .fontWeight(.medium)
+                .aspectRatio(contentMode: .fill)
+                .clipShape(Circle())
+                .frame(width: 62, height: 62)
+            
+            Text(name)
+                .font(.custom("Helvetica Neue", size: 22))
+                .fontWeight(.semibold)
+                .padding(.leading, 5)
+                .lineLimit(2)
+            Spacer()
         }
     }
 }

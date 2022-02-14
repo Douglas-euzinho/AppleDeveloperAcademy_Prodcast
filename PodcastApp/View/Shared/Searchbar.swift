@@ -10,28 +10,46 @@ import SwiftUI
 struct Searchbar: View {
     
     @Binding var searchText: String
+    @Binding var searching: Bool
     
     var body: some View {
-        
-        HStack{
-            Image(systemName: "magnifyingglass").foregroundColor(.primary)
-            TextField("Buscar episódio", text: $searchText)
-                .padding(7)
-                .background(Color.white)
-                .cornerRadius(8)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.black)
-                )
+        ZStack{
+        ZStack {
+                Rectangle()
+                    .foregroundColor(Color("SearchBar"))
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    TextField("Buscar episódio", text: $searchText)
+                    { startedSearching in
+                        if startedSearching {
+                            withAnimation {
+                                searching = true
+                            }
+                        }
+                    } onCommit: {
+                        withAnimation {
+                            
+                            searching = false
+                        }
+                    }
+                }
+                .foregroundColor(.gray)
+                .padding()
+            }
+            Rectangle()
+                .strokeBorder(.black)
+                .frame(height: 39)
         }
-        .padding(.horizontal, 20)
-        .offset(x: -10)
+        .frame(height: 40)
+        .cornerRadius(4)
+        .padding()
     }
 }
 
+
 struct Searchbar_Previews: PreviewProvider {
     static var previews: some View {
-        Searchbar(searchText: .constant("Teste"))
+        Searchbar(searchText: .constant(""), searching: .constant(false))
     }
 }
 

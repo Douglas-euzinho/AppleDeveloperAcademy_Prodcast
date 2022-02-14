@@ -26,18 +26,9 @@ struct PersistenceController {
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                //TODO: Throws an error
+                debugPrint(error)
+               // fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
     }
@@ -69,7 +60,8 @@ struct PersistenceController {
         } catch {
             //CoreDataError.fetchError(error.localizedDescription)
         }
-        return episodes
+        let sortedEpisodes = episodes.sorted { $0.date ?? Date() < $1.date ?? Date() }
+        return sortedEpisodes
     }
     
     
@@ -82,44 +74,50 @@ struct PersistenceController {
         try saveContext()
         return script
     }
-     
+    
     
     //MARK: - TOPIC METHODS
     mutating func createTopic(title: String, script: Script) throws {
         let topic = Topic(context: context)
         topic.date = Date()
         topic.title = title
+        topic.content = "\0"
         script.addToTopics(topic)
         try saveContext()
     }
     
     
-
+    
     
     //MARK: - PROFILE METHODS
-    mutating func createProfile() throws {
+    mutating func createProfile() throws -> Profile{
         let profile = Profile(context: context)
+        profile.createdDate = Date()
         profile.name = "Meu Podcast"
         profile.isActiveNotification = false
         try saveContext()
+        return profile
     }
     
     
-    mutating func getProfile() -> Profile? {
+    mutating func getProfile() -> Profile {
         var profile: Profile?
         
         do {
-            profile = try context.fetch(Profile.fetchRequest()).first
-            if let profile = profile {
-                return profile
+            let userCreated = UserDefaults.standard.bool(forKey: "userCreated")
+            if userCreated {
+                let profiles = try context.fetch(Profile.fetchRequest())
+                // Fetch the oldest profile in the coredata and cloudkit
+                let profilesSorted = profiles.sorted{ $0.createdDate ?? Date() < $1.createdDate ?? Date() }
+                profile = profilesSorted.first!
             } else {
-                try createProfile()
-                profile = try context.fetch(Profile.fetchRequest()).first
+                profile = try createProfile()
+                UserDefaults.standard.set(true, forKey: "userCreated")
             }
         } catch {
             //TODO: Create Error
         }
-        return profile
+        return profile!
     }
     
     
@@ -135,12 +133,12 @@ struct PersistenceController {
         profile.addToNotifications(notification)
         
         let weekDays = WeekDay(context: context)
-       
+        
         weekDays.sunday = days[0]; weekDays.monday = days[1];weekDays.tuersday = days[2];weekDays.wednesday = days[3];weekDays.thursday = days[4]; weekDays.friday = days[5];weekDays.saturday = days[6]
         
         notification.days = weekDays
         do {
-           try saveContext()
+            try saveContext()
         } catch {
             
         }

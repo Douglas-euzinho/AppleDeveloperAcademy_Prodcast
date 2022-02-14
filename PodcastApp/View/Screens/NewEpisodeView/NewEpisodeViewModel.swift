@@ -14,7 +14,7 @@ class NewEpisodeModel: Modelable {
     
     func createEpisode(name: String, date: Date) -> Bool{
         do {
-            self.episode = try PersistenceController.shared.createEpisode(title: name, status: 25, date: date)
+            self.episode = try PersistenceController.shared.createEpisode(title: name, status: 0, date: date)
             return true
         } catch {
             //TODO: - CREATE ERROR

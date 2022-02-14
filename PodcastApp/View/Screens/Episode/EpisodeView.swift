@@ -9,11 +9,14 @@ import SwiftUI
 
 struct EpisodeView: View {
     // MARK: - PROPERTIES
-    @State var actualDate = Date()
-    @ObservedObject var episodeViewModel: EpisodeViewModel
-    
+    @State var showSheetView = false
+    @State var showDeleteAlert = false
+    @ObservedObject var model: EpisodeViewModel
+    @State var showScript = false
+    @Environment(\.presentationMode) var presentationMode
+
     init (episode: Episode) {
-        self.episodeViewModel = EpisodeViewModel(episode: episode)
+        self.model = EpisodeViewModel(episode: episode)
     }
     
     // MARK: - BODY
@@ -22,9 +25,14 @@ struct EpisodeView: View {
             Color("background-color")
                 .ignoresSafeArea(.all)
             
+            NavigationLink(isActive: $showScript) {
+                ScriptInputInfosView()
+                    .environmentObject(model)
+            } label: {}
+            
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text(episodeViewModel.episode?.title ?? "Sem título")
+                    Text(model.episode?.title ?? "Sem título")
                         .font(.system(size: 34))
                         .fontWeight(.semibold)
                         .padding(.horizontal, 25)
@@ -35,7 +43,7 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: ProgressDetailView().environmentObject(model)) {
                         GroupBox {
                             VStack {
                                 HStack {
@@ -48,42 +56,44 @@ struct EpisodeView: View {
                                 } //: HSTACK
                                 .foregroundColor(.primary)
                                 
-                                EpisodeProgressView(episode: episodeViewModel.episode ?? Episode())
-                                    .offset(x: -65)
+                                EpisodeProgressView()
+                                    .environmentObject(model.episode)
                             } //: VSTACK
                             .padding()
                         } //: GROUP BOX
                         .groupBoxStyle(groupBoxStroked())
                     }
+                    .cornerRadius(7)
                     .modifier(textFieldPadding())
                     
                     Text("Roteiro")
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    if episodeViewModel.episode?.script != nil {
-                    NavigationLink(destination: ScriptInputInfosView().environmentObject(episodeViewModel)) {
+                    if model.episode?.script != nil {
+                        NavigationLink(destination: ScriptInputInfosView().environmentObject(model)) {
                             GroupBox {
                                 VStack {
                                     HStack {
-                                        Text("Editar Progresso")
+                                        Text("Editar Roteiro")
                                             .fontWeight(.semibold)
                                             .font(.subheadline)
                                         Spacer()
                                         Image(systemName: "chevron.forward")
                                             .modifier(groupBoxChevron())
                                     } //: HSTACK
-                                        ScrollView(.vertical, showsIndicators: false) {
-                                            Text(episodeViewModel.getFormattedScript())
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                    } //: VSTACK
-                                    .padding()
-                                }
+                                    ScrollView(.vertical, showsIndicators: false) {
+                                        Text(model.getFormattedScript())
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                } //: VSTACK
+                                .padding()
                             }
-                            .groupBoxStyle(groupBoxStroked())
-                            .modifier(textFieldPadding())
-                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .cornerRadius(7)
+                        .groupBoxStyle(groupBoxStroked())
+                        .modifier(textFieldPadding())
+                        .buttonStyle(PlainButtonStyle())
                     } else {
                         GroupBox {
                             VStack {
@@ -97,14 +107,15 @@ struct EpisodeView: View {
                                         .modifier(groupBoxChevron())
                                 }
                                 .foregroundColor(.primary)
-
-                                Image(systemName: "book.circle.fill")
+                                
+                                Image("scriptedProgress")
                                     .resizable()
                                     .padding()
-                                    .frame(width: 100, height: 100, alignment: .center)
-
+                                    .frame(width: 200, height: 200, alignment: .center)
+                                
                                 Button {
-                                    episodeViewModel.createScript(type: 1)
+                                    model.createScript(type: 1)
+                                    showScript = true
                                 } label: {
                                     Text("Iniciar")
                                 }
@@ -113,6 +124,7 @@ struct EpisodeView: View {
                             }
                             .padding()
                         }
+                        .cornerRadius(7)
                         .groupBoxStyle(groupBoxStroked())
                         .modifier(textFieldPadding())
                     }
@@ -120,7 +132,7 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    DatePicker("", selection: $actualDate, in: Date()..., displayedComponents: .date)
+                    DatePicker("", selection: $model.episode.wrappedDate, in: Date()..., displayedComponents: .date)
                         .datePickerStyle(.automatic)
                         .accentColor(Color("accent-color"))
                         .overlay(
@@ -132,10 +144,53 @@ struct EpisodeView: View {
                         .offset(x: 40)
                 }
             }
+            .onDisappear {
+                model.save()
+                model.update()
+            }
+            CustomAlertView(title: "Excluir Episódio", subtitle: "Deseja mesmo excluir esse episódio?", showInput: false, isConfirmation: true, isShown: $showDeleteAlert, text: .constant(""), deleteAction: deleteEpisode)
+        }
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Button {
+                  showDeleteAlert = true
+                } label: {
+                    Image(systemName: "trash.fill")
+                        .foregroundColor(Color("accent-color"))
+                    
+                    Text("Excluir Episódio")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("accent-color"))
+                }
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                Spacer()
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showSheetView = true
+                }) {
+                    //TODO: show episode screen
+                    Text("Editar").bold()
+                        .foregroundColor(Color("accent-color"))
+                }
+            }
+        }
+        .sheet(isPresented: $showSheetView) {
+            //MARK: Episode Name Edit View
+            EditEpisodeView(showSheetView: $showSheetView, model: model)
+        }
+
+    }
+    private func deleteEpisode() {
+        if model.deleteEpisode() {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }
-//}
 
 // MARK: - STYLE MODIFIERS
 struct textFieldPadding: ViewModifier {
@@ -187,8 +242,8 @@ struct groupBoxStroked: GroupBoxStyle {
             }
             configuration.content
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.black)
+                    RoundedRectangle(cornerRadius: 7, style: .continuous)
+                        .stroke(.black, lineWidth: 2.5)
                 )
         }
         .background(Color.white)

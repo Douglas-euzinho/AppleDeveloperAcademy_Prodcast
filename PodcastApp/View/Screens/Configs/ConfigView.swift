@@ -12,66 +12,138 @@ struct ConfigView: View {
     //MARK: Properties
     @StateObject var configModel = ConfigViewModel()
     @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
-    
+    @State var podcastName: String
+    @State var imageData: Data?
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var homeModel: HomeViewModel
     var body: some View {
-        VStack(alignment: .leading){
-            
-            Form{
-                Section{
-                    HStack {
-                        Spacer()
-                        VStack{
-                            //FIXME: PERSIST IMAGE ON CORE DATA
-                            Image(uiImage: inputImage ?? UIImage(systemName: "person.circle.fill")!)
-                                .resizable()
-                                .clipShape(Circle())
-                                .frame(width: 62, height: 62)
-                            Button {
-                                showingImagePicker = true
-                            } label: {
-                                Text("Alterar foto do perfil")
-                                    .foregroundColor(Color("accent-color"))
-                            }
-
-                        }
+        
+        NavigationView {
+            ZStack {
+                Color("background-color")
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Group {
+                        Image(uiImage: imageData?.toUIImage() ?? UIImage(named: "emptyProfile")!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .frame(width: 62, height: 62)
                         
-                        Spacer()
-                    }
-    
-                }//End Section 1
-                
-                Section{
-                    Text("Nome do Podcast")
-                        .font(.title2)
-                    TextField("Podcast name...", text: $configModel.profile.wrappedName )
-                        .onChange(of: $configModel.profile.wrappedValue) { _ in
-                            configModel.save()
+                        Button {
+                            showingImagePicker = true
+                        } label: {
+                            Text("Alterar foto do perfil")
+                                .foregroundColor(Color("accent-color"))
                         }
-                }//End Section 2
-                
-                Section{
-                    Text("Recursos")
-                        .font(.title2)
-                    
-                    NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
-                        Text("Notificações")
-                            .font(.subheadline)
+                        .padding(.top, 5)
+                        
                     }
-                }//End Section 3
-            }//End Form
-        }//End VStack
-        .onTapGesture {
-            self.hideKeyboard()
-        }
-        .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(image: $inputImage)
+                    VStack(alignment: .leading) {
+                        Text("Nome do Podcast")
+                            .bold()
+                            .font(.title2)
+                            .padding(.horizontal, 25)
+                            .padding(.bottom, 10)
+                        
+                        
+                        TextField(podcastName, text: $podcastName )
+                            .textFieldStyle(MyTextFieldStyle())
+                            .padding(.bottom, 25)
+                  //TODO: Create notifications flow screens
+//                        Text("Recursos")
+//                            .bold()
+//                            .font(.title2)
+//                            .padding(.horizontal, 25)
+//                            .padding(.bottom, 10)
+//
+//                        NavigationLink(destination: ConfigViewAllNotifications().environmentObject(configModel)){
+//                            HStack {
+//                                Text("Notificações")
+//                                    .font(.system(size: 18))
+//                                    .fontWeight(.regular)
+//
+//                                Spacer()
+//
+//                                Image(systemName: "chevron.right")
+//                                    .font(.system(size: 18))
+//                                    .padding(.trailing, 5)
+//                                    .foregroundColor(Color("accent-color"))
+//                            }
+//                            .padding(10)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+//                                    .stroke(.black, lineWidth: 2)
+//                            )
+//                            .background(
+//                                .white
+//                            )
+//                        }
+//                        .padding(.horizontal, 25)
+//                        .foregroundColor(.black)
+                    }
+                    .padding(.top)
+                    Spacer()
+                }
+                .padding(.top, 70)
+            }
+            .ignoresSafeArea()
+            .onTapGesture {
+                self.hideKeyboard()
+            }
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(imageData: $imageData)
+            }
+            .navigationBarTitle(Text("Configações"), displayMode: .inline)
+            .navigationBarItems(leading:
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Cancelar")
+                            .foregroundColor(Color("accent-color"))
+                    }),
+                    trailing:
+                    Button(action: {
+                        if !podcastName.isEmpty {
+                            configModel.profile.wrappedName = podcastName
+                            configModel.profile.image = imageData
+                            configModel.save()
+                            homeModel.update()
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }, label: {
+                        if !podcastName.isEmpty {
+                            Text("Salvar")
+                                .foregroundColor(Color("accent-color"))
+                                .opacity(podcastName.isEmpty ? 0.5 : 1.0)
+                        }
+                    })
+        )
+
+
         }
     }//End body
-}//End struct
+}//End VStack
+
+struct MyTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(10)
+            .foregroundColor(.black)
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(Color.black, lineWidth: 2)
+            )
+            .background(
+                .white
+            )
+            .padding(.horizontal, 25)
+    }
+}
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigView()
+        ConfigView(podcastName: "Vida de estudante")
     }
 }

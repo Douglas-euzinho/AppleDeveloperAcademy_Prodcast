@@ -10,9 +10,12 @@
 		15013D07276D07730020A48F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15013D06276D07730020A48F /* EpisodeView.swift */; };
 		15049B74278F5ADA0007934A /* PodcastAppDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */; };
 		15049B76278F5BB40007934A /* PodcastAppUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */; };
+		156445E027B6F12A0048ABC8 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156445DF27B6F12A0048ABC8 /* Document.swift */; };
+		156445E927B831250048ABC8 /* EditEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156445E827B831250048ABC8 /* EditEpisodeView.swift */; };
 		1586E20227A9B4960083F78A /* EpisodeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20127A9B4960083F78A /* EpisodeProgressView.swift */; };
 		1586E20527AAF4B20083F78A /* ProgressDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20427AAF4B20083F78A /* ProgressDetailView.swift */; };
 		1586E20727AB033F0083F78A /* ProgressDetailCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586E20627AB033F0083F78A /* ProgressDetailCheckboxView.swift */; };
+		230A256627B6E00800E0FBBC /* Data+toUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A256527B6E00800E0FBBC /* Data+toUIImage.swift */; };
 		2343C00D276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */; };
 		2343C00E276A5D7800C3A3EE /* ScriptFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */; };
 		2343C00F276A5D7800C3A3EE /* ScriptInputInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */; };
@@ -40,6 +43,7 @@
 		23AF29EA27B45AE5003F941B /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E827B45AE5003F941B /* Topic+CoreDataClass.swift */; };
 		23AF29EB27B45AE5003F941B /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */; };
 		23AF29EF27B530B3003F941B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AF29EE27B530B3003F941B /* CloudKit.framework */; };
+		23BBA45927B9D761008C8F81 /* DateFormatter+formatedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */; };
 		23D8AC9D27A3225200DF1298 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */; };
 		23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */; };
 		23E25CC3278630470082038B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E25CC2278630460082038B /* Enums.swift */; };
@@ -89,9 +93,12 @@
 		15013D06276D07730020A48F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		15049B73278F5ADA0007934A /* PodcastAppDeleteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppDeleteTests.swift; sourceTree = "<group>"; };
 		15049B75278F5BB40007934A /* PodcastAppUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAppUpdateTests.swift; sourceTree = "<group>"; };
+		156445DF27B6F12A0048ABC8 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		156445E827B831250048ABC8 /* EditEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEpisodeView.swift; sourceTree = "<group>"; };
 		1586E20127A9B4960083F78A /* EpisodeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeProgressView.swift; sourceTree = "<group>"; };
 		1586E20427AAF4B20083F78A /* ProgressDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailView.swift; sourceTree = "<group>"; };
 		1586E20627AB033F0083F78A /* ProgressDetailCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailCheckboxView.swift; sourceTree = "<group>"; };
+		230A256527B6E00800E0FBBC /* Data+toUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+toUIImage.swift"; sourceTree = "<group>"; };
 		2343C00A276A5D7800C3A3EE /* ScriptInputSpecificInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputSpecificInfoView.swift; sourceTree = "<group>"; };
 		2343C00B276A5D7800C3A3EE /* ScriptFormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptFormatView.swift; sourceTree = "<group>"; };
 		2343C00C276A5D7800C3A3EE /* ScriptInputInfosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInputInfosView.swift; sourceTree = "<group>"; };
@@ -120,6 +127,7 @@
 		23AF29E927B45AE5003F941B /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23AF29EC27B52FC3003F941B /* ProdCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProdCast.entitlements; sourceTree = "<group>"; };
 		23AF29EE27B530B3003F941B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+formatedDate.swift"; sourceTree = "<group>"; };
 		23D8AC9C27A3225200DF1298 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		23DD3B5B2790B401002241F1 /* ModelableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableProtocol.swift; sourceTree = "<group>"; };
 		23E25CC2278630460082038B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -187,6 +195,22 @@
 			path = Episode;
 			sourceTree = "<group>";
 		};
+		156445DE27B6F10F0048ABC8 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				156445DF27B6F12A0048ABC8 /* Document.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		156445E727B830FE0048ABC8 /* EditEpisodeView */ = {
+			isa = PBXGroup;
+			children = (
+				156445E827B831250048ABC8 /* EditEpisodeView.swift */,
+			);
+			path = EditEpisodeView;
+			sourceTree = "<group>";
+		};
 		1586E20327AAF4960083F78A /* Progress */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +233,7 @@
 		2301283B2763D004003173F4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				156445E727B830FE0048ABC8 /* EditEpisodeView */,
 				364C79D927B2FAA900E3C353 /* Teleprompter */,
 				1586E20327AAF4960083F78A /* Progress */,
 				CD4C613F2787671800FF04AC /* RoadMapView */,
@@ -322,6 +347,8 @@
 			children = (
 				2343C024276CBD5000C3A3EE /* View+CornerRadius.swift */,
 				23680D9C27B1BDB700A09D94 /* View+hideKeyboard.swift */,
+				230A256527B6E00800E0FBBC /* Data+toUIImage.swift */,
+				23BBA45827B9D761008C8F81 /* DateFormatter+formatedDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +469,7 @@
 		CD4C613F2787671800FF04AC /* RoadMapView */ = {
 			isa = PBXGroup;
 			children = (
+				156445DE27B6F10F0048ABC8 /* Document */,
 				CD4C61402787676500FF04AC /* RoadMapView.swift */,
 			);
 			path = RoadMapView;
@@ -686,9 +714,13 @@
 				CDA0430A27629B090020AF33 /* PodcastApp.swift in Sources */,
 				2343C025276CBD5000C3A3EE /* View+CornerRadius.swift in Sources */,
 				23AF29EB27B45AE5003F941B /* Topic+CoreDataProperties.swift in Sources */,
+				156445E027B6F12A0048ABC8 /* Document.swift in Sources */,
 				CD4C613E27861DCC00FF04AC /* Searchbar.swift in Sources */,
+				230A256627B6E00800E0FBBC /* Data+toUIImage.swift in Sources */,
+				23BBA45927B9D761008C8F81 /* DateFormatter+formatedDate.swift in Sources */,
 				CDB469F62769257900752468 /* ProgressBarView.swift in Sources */,
 				CD25E00A276D04F2003012C6 /* NewEpisodeView.swift in Sources */,
+				156445E927B831250048ABC8 /* EditEpisodeView.swift in Sources */,
 				36FCCF2927989B1400AE59FA /* ConfigViewAllNotifications.swift in Sources */,
 				23DD3B5C2790B401002241F1 /* ModelableProtocol.swift in Sources */,
 			);

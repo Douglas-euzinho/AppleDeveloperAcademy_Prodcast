@@ -10,6 +10,7 @@ import SwiftUI
 struct ProgressDetailView: View {
     // MARK: - PROPERTIES
     //@ObservedObject var episode: Episode
+    @EnvironmentObject var model: EpisodeViewModel
     
     var layout = [
         GridItem(.flexible(minimum: 100, maximum: 150)),
@@ -18,7 +19,6 @@ struct ProgressDetailView: View {
     
     // MARK: - BODY
     var body: some View {
-        NavigationView {
             ZStack {
                 Color("background-color")
                     .ignoresSafeArea(.all)
@@ -27,25 +27,25 @@ struct ProgressDetailView: View {
                     Text("Oba! Atualize o andamento do seu podcast.")
                         .font(.system(size: 22))
                         .fontWeight(.semibold)
-                        .padding(.bottom, 15)
-                        .offset(y: -60)
-                    Spacer()
-                    
+                        
                     LazyVGrid(columns: layout, spacing: 35) {
-                        ProgressDetailCheckboxView(title: "Roteirizado")
-                        ProgressDetailCheckboxView(title: "Gravado")
-                        ProgressDetailCheckboxView(title: "Editado")
-                        ProgressDetailCheckboxView(title: "Lançado")
+                        ProgressDetailCheckboxView(title: "Roteirizado", imageName: "scriptedProgress", marked:  25)
+                            .environmentObject(model)
+                        ProgressDetailCheckboxView(title: "Gravado", imageName: "recordedProgress", marked: 50)
+                            .opacity(model.episode.status >= 25 ? 1.0 : 0.5)
+                            .environmentObject(model)
+                        ProgressDetailCheckboxView(title: "Editado", imageName: "editedProgress", marked: 75)
+                            .opacity(model.episode.status >= 50 ? 1.0 : 0.5)
+                            .environmentObject(model)
+                        ProgressDetailCheckboxView(title: "Lançado", imageName: "postedProgress", marked: 100)
+                            .opacity(model.episode.status >= 75 ? 1.0 : 0.5)
+                            .environmentObject(model)
                     }
-                    .offset(y: -130)
                     .frame(minHeight: 500)
                 }
             }
-        }
+            .ignoresSafeArea()
         .navigationBarTitle("Progresso", displayMode: .inline)
-        .toolbar {
-            EditButton()
-        }
     }
 }
 

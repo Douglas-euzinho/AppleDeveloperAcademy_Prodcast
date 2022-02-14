@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Episode" representedClassName="Episode" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -15,6 +15,7 @@
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="notifications" inverseEntity="Profile"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="isActiveNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -44,7 +45,7 @@
     <elements>
         <element name="Episode" positionX="-63" positionY="-18" width="128" height="89"/>
         <element name="Notification" positionX="-27" positionY="72" width="128" height="119"/>
-        <element name="Profile" positionX="-36" positionY="54" width="128" height="89"/>
+        <element name="Profile" positionX="-36" positionY="54" width="128" height="104"/>
         <element name="Script" positionX="-54" positionY="-9" width="128" height="88"/>
         <element name="Topic" positionX="-36" positionY="9" width="128" height="89"/>
         <element name="WeekDay" positionX="-36" positionY="90" width="128" height="149"/>

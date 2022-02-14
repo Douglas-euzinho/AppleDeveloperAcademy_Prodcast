@@ -17,8 +17,16 @@ extension Topic {
     }
 
     @NSManaged public var content: String?
+    public var wrappedContent: String {
+        get { content ?? ""}
+        set { content = newValue}
+    }
     @NSManaged public var date: Date?
     @NSManaged public var title: String?
+    public var wrappedTitle: String {
+        get { title ?? ""}
+        set { title = newValue}
+    }
     @NSManaged public var script: Script?
 
 }
