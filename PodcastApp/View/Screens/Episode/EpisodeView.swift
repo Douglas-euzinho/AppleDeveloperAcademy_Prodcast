@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EpisodeView: View {
     // MARK: - PROPERTIES
-    @State var actualDate = Date()
     @State var showSheetView = false
     @State var showDeleteAlert = false
     @ObservedObject var model: EpisodeViewModel
@@ -133,7 +132,7 @@ struct EpisodeView: View {
                         .fontWeight(.semibold)
                         .modifier(textFieldTitle())
                     
-                    DatePicker("", selection: $actualDate, in: Date()..., displayedComponents: .date)
+                    DatePicker("", selection: $model.episode.wrappedDate, in: Date()..., displayedComponents: .date)
                         .datePickerStyle(.automatic)
                         .accentColor(Color("accent-color"))
                         .overlay(
@@ -144,6 +143,10 @@ struct EpisodeView: View {
                         .frame(width: 20, alignment: .leading)
                         .offset(x: 40)
                 }
+            }
+            .onDisappear {
+                model.save()
+                model.update()
             }
             CustomAlertView(title: "Excluir Episódio", subtitle: "Deseja mesmo excluir esse episódio?", showInput: false, isConfirmation: true, isShown: $showDeleteAlert, text: .constant(""), deleteAction: deleteEpisode)
         }

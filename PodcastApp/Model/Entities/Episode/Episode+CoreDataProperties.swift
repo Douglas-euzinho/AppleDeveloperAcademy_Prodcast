@@ -23,6 +23,10 @@ extension Episode {
     }
     @NSManaged public var status: Int64
     @NSManaged public var date: Date?
+    public var wrappedDate: Date {
+        get { return date ?? Date()}
+        set { date = newValue}
+    }
     @NSManaged public var script: Script?
 
 }
