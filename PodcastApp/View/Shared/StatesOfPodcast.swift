@@ -50,7 +50,7 @@ struct CardEpisodeProgressView: View {
                         .resizable()
                         .frame(width: 25, height: 150)
                     VStack(alignment: .leading, spacing: 20){
-                        Text("Roterizado")
+                        Text("Roteirizado")
                             .multilineTextAlignment(.leading)
                             .font(.custom("FONT_NAME", size: 12))
                             .foregroundColor(Color.black)

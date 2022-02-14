@@ -18,7 +18,7 @@ struct EpisodeProgressView: View {
                         .resizable()
                         .frame(width: 25, height: 175)
                     VStack(alignment: .leading, spacing: 20){
-                        Text("Roterizado")
+                        Text("Roteirizado")
                             .multilineTextAlignment(.leading)
                             .font(.custom("FONT_NAME", size: 17))
                             .foregroundColor(Color.black)
