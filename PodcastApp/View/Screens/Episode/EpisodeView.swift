@@ -109,10 +109,10 @@ struct EpisodeView: View {
                                 }
                                 .foregroundColor(.primary)
                                 
-                                Image(systemName: "book.circle.fill")
+                                Image("scriptedProgress")
                                     .resizable()
                                     .padding()
-                                    .frame(width: 100, height: 100, alignment: .center)
+                                    .frame(width: 200, height: 200, alignment: .center)
                                 
                                 Button {
                                     model.createScript(type: 1)
