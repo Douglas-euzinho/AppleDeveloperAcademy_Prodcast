@@ -65,6 +65,9 @@ struct EditEpisodeView: View {
                 }
                 .padding(.leading)
             }
+            .onTapGesture {
+                self.hideKeyboard()
+            }
             Spacer()
         }
         .onTapGesture {
