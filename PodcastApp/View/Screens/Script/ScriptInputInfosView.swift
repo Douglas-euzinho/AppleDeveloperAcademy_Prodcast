@@ -74,6 +74,9 @@ struct ScriptInputInfosView: View {
             }
             .navigationViewStyle(.stack)
         }
+        .onTapGesture(perform: {
+            self.hideKeyboard()
+        })
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button {
