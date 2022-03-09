@@ -7,7 +7,7 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController {
     
     static var shared = PersistenceController()
     
@@ -41,7 +41,7 @@ struct PersistenceController {
     ///   - status: use: 0, 25, 50, 75 or 100 to indicate progress
     ///   - date: date of de episode publication
     /// - Returns: return a object episode
-    mutating func createEpisode(title: String, status: Int, date: Date) throws -> Episode {
+    func createEpisode(title: String, status: Int, date: Date) throws -> Episode {
         let episode = Episode(context: context)
         episode.title = title
         episode.date = date
@@ -53,7 +53,7 @@ struct PersistenceController {
     
     /// Method that fetch all stored episodes
     /// - Returns: Return an array of episodes
-    mutating func fetchAllEpisodes() -> [Episode] {
+    func fetchAllEpisodes() -> [Episode] {
         var episodes: [Episode] = []
         do {
             episodes = try context.fetch(Episode.fetchRequest())
@@ -67,7 +67,7 @@ struct PersistenceController {
     
     
     //MARK: - SCRIPT METHODS
-    mutating func createScript(typeOfScript type: Int,episode: Episode) throws -> Script {
+    func createScript(typeOfScript type: Int,episode: Episode) throws -> Script {
         let script = Script(context: context)
         script.type = Int64(type)
         episode.script = script
@@ -77,11 +77,11 @@ struct PersistenceController {
     
     
     //MARK: - TOPIC METHODS
-    mutating func createTopic(title: String, script: Script) throws {
+    func createTopic(title: String, script: Script) throws {
         let topic = Topic(context: context)
         topic.date = Date()
         topic.title = title
-        topic.content = "\0"
+        topic.content = "Texto exemplo"
         script.addToTopics(topic)
         try saveContext()
     }
@@ -90,7 +90,7 @@ struct PersistenceController {
     
     
     //MARK: - PROFILE METHODS
-    mutating func createProfile() throws -> Profile{
+    func createProfile() throws -> Profile{
         let profile = Profile(context: context)
         profile.createdDate = Date()
         profile.name = "Meu Podcast"
@@ -100,7 +100,7 @@ struct PersistenceController {
     }
     
     
-    mutating func getProfile() -> Profile {
+    func getProfile() -> Profile {
         var profile: Profile?
         
         do {
@@ -123,7 +123,7 @@ struct PersistenceController {
     
     
     //MARK: NOTIFICATION METHODS
-    mutating func createNotification(title: String, hour: Date, message: String, days: [Bool],profile: Profile) {
+    func createNotification(title: String, hour: Date, message: String, days: [Bool],profile: Profile) {
         let notification = Notification(context: context)
         notification.profile = profile
         notification.id = UUID()
@@ -146,7 +146,7 @@ struct PersistenceController {
     
     
     //MARK: - CORE DATA METHODS
-    mutating func saveContext() throws {
+    func saveContext() throws {
         if context.hasChanges {
             do {
                 try context.save()
@@ -159,7 +159,7 @@ struct PersistenceController {
     /// Method that deletes a stored object
     /// - Parameter object: object description
     /// - Returns: returns true if the object is deleted and false if an error occurs in the process
-    mutating func deleteObjectInContext(object: NSManagedObject) -> Bool {
+    func deleteObjectInContext(object: NSManagedObject) -> Bool {
         context.delete(object)
         do {
             try saveContext()
