@@ -11,7 +11,6 @@ import Foundation
 class EpisodeViewModel: Modelable {
     
     @Published var episode: Episode!
-    private var persistence = PersistenceController.shared
     @Published var topics: [Topic]!
     
     init(episode: Episode) {
@@ -26,7 +25,7 @@ class EpisodeViewModel: Modelable {
             return
         }
         do {
-            let _ = try persistence.createScript(typeOfScript: type, episode: episode)
+            let _ = try PersistenceController.shared.createScript(typeOfScript: type, episode: episode)
             setupInitialTopics()
             update()
         } catch {
@@ -39,7 +38,7 @@ class EpisodeViewModel: Modelable {
         guard let episode = episode else { return }
         do {
             guard let script = episode.script else { return }
-            try persistence.createTopic(title: title, script: script)
+            try PersistenceController.shared.createTopic(title: title, script: script)
             update()
         } catch {
             
@@ -49,7 +48,7 @@ class EpisodeViewModel: Modelable {
     
     
     func deleteTopic(topic: Topic) {
-        if persistence.deleteObjectInContext(object: topic) {
+        if PersistenceController.shared.deleteObjectInContext(object: topic) {
             update()
         }
     }
@@ -58,7 +57,7 @@ class EpisodeViewModel: Modelable {
 
     func deleteEpisode() -> Bool {
         guard let episode = episode else {return false}
-        return persistence.deleteObjectInContext(object: episode)
+        return PersistenceController.shared.deleteObjectInContext(object: episode)
     }
     
     
@@ -82,7 +81,7 @@ class EpisodeViewModel: Modelable {
     
     func save() {
         do {
-            try persistence.saveContext()
+            try PersistenceController.shared.saveContext()
         } catch {
             //TODO: Create a catch 
         }
@@ -107,6 +106,7 @@ class EpisodeViewModel: Modelable {
     
     
     deinit {
+        save()
         print("Deinit EpisodeView Model")
     }
     
