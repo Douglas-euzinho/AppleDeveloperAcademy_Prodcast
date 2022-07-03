@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import PodcastApp
+@testable import ProdCast
 
 class PodcastAppUpdateTests: XCTestCase {
 
@@ -44,7 +44,7 @@ class PodcastAppUpdateTests: XCTestCase {
     /// - XCTAssertEqual: Is used to verify if the content passed into the parameters is equivalent.
     // --------------------
     func testUpdateEpisode() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         episode.title = "Episodio Novo"
         try! persistenceController.saveContext()
@@ -52,7 +52,7 @@ class PodcastAppUpdateTests: XCTestCase {
     }
     
     func testUpdateScript() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         
@@ -67,7 +67,7 @@ class PodcastAppUpdateTests: XCTestCase {
     }
     
     func testUpdateTopic() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         try! persistenceController.createTopic(title: "Tópico Update", script: script)

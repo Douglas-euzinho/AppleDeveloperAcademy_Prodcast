@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import PodcastApp
+@testable import ProdCast
 
 class PodcastAppCreateTests: XCTestCase {
     
@@ -41,7 +41,7 @@ class PodcastAppCreateTests: XCTestCase {
     // --------------------
     func testCreateEpisode() throws {
         
-        var controller = PersistenceController(inMemory: true)
+        let controller = PersistenceController(inMemory: true)
         let context = controller.context
         expectation(forNotification: .NSManagedObjectContextDidSave, object: context) { _ in
             return true
@@ -68,7 +68,7 @@ class PodcastAppCreateTests: XCTestCase {
     /// - XCTAssertEqual: Is used to verify if the content passed into the parameters is equivalent.
     // --------------------
     func testFetchAllEpisodes() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let _ = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         XCTAssertEqual(persistenceController.fetchAllEpisodes().count,1, "Equal counts")
     }
@@ -84,9 +84,9 @@ class PodcastAppCreateTests: XCTestCase {
     /// - XCTAssertEqual: Is used to verify if the content passed into the parameters is equivalent.
     // --------------------
     func testCreateScript() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
-        let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
+        let script = try! persistenceController.createScript(typeOfScript: 2, episode: episode)
         
         XCTAssertNotNil(persistenceController.fetchAllEpisodes().first?.script)
         XCTAssertEqual(script.type, persistenceController.fetchAllEpisodes().first?.script?.type, "Script type error")
@@ -104,7 +104,7 @@ class PodcastAppCreateTests: XCTestCase {
     /// - XCTAssertEqual: Is used to verify if the content passed into the parameters is equivalent.
     // --------------------
     func testCreateScriptTopic() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episodio 1", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         let _ = try! persistenceController.createTopic(title: "Topico 1", script: script)
@@ -124,7 +124,7 @@ class PodcastAppCreateTests: XCTestCase {
     /// - XCTAssertNotNil: Is used to verify if the specified parameter is not nil, in this case the verification was used to see if the first element of the episode has an script.
     // --------------------
     func testFetchAllTopics() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Buscar Tópicos", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         let _ = try! persistenceController.createTopic(title: "Topico Buscar Tópicos - 1", script: script)

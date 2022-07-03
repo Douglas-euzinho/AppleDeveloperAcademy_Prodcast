@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import PodcastApp
+@testable import ProdCast
 
 class PodcastAppDeleteTests: XCTestCase {
 
@@ -34,7 +34,7 @@ class PodcastAppDeleteTests: XCTestCase {
     }
     
     func testDeleteEpisode() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Tópico", status: 0, date: Date())
         
         XCTAssertEqual(1, persistenceController.fetchAllEpisodes().count, "Episode Created")
@@ -42,7 +42,7 @@ class PodcastAppDeleteTests: XCTestCase {
     }
     
     func testDeleteScript() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Roteiro", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         
@@ -52,7 +52,7 @@ class PodcastAppDeleteTests: XCTestCase {
     }
     
     func testDeleteOneTopic() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Roteiro", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         
@@ -66,7 +66,7 @@ class PodcastAppDeleteTests: XCTestCase {
     }
     
     func testDeleteAllTopics() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Roteiro", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         
@@ -83,7 +83,7 @@ class PodcastAppDeleteTests: XCTestCase {
     }
     
     func testDeleteAllTopicsWhenDeleteScript() throws {
-        var persistenceController = PersistenceController(inMemory: true)
+        let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Roteiro", status: 0, date: Date())
         let script = try! persistenceController.createScript(typeOfScript: 1, episode: episode)
         
