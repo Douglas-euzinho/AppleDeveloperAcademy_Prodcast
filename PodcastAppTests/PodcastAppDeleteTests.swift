@@ -37,7 +37,7 @@ class PodcastAppDeleteTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         let episode = try! persistenceController.createEpisode(title: "Episódio Deletar Tópico", status: 0, date: Date())
         
-        XCTAssertEqual(1, persistenceController.fetchAllEpisodes().count, "Episode Created")
+        XCTAssertEqual(2, persistenceController.fetchAllEpisodes().count, "Episode Created")
         XCTAssertTrue(persistenceController.deleteObjectInContext(object: episode), "Episode Deleted")
     }
     
